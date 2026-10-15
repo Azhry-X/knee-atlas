@@ -7,7 +7,7 @@ Every card is rendered as static HTML (deep-linkable as #card-id). Calculators a
 described in the YAML (kinds: formula, scale, lsi) and run by a small generic JS engine,
 so adding a calculator never needs new code.
 """
-import json, html, pathlib, datetime, sys
+import json, html, pathlib, datetime, sys, re
 import yaml
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
@@ -31,13 +31,29 @@ def yt_id(url):
     return None
 
 
+def dossier_pages():
+    """Dossier pages that link to each card (scanned from src/pages/pN.html), so the page badges and
+    page filters always match the PDF. A card that no page links to falls back to its YAML 'page'."""
+    used = {}
+    for n in range(1, 10):
+        f = ROOT / 'src' / 'pages' / f'p{n}.html'
+        if f.exists():
+            for cid in re.findall(r'data-atlas="([^"]+)"', f.read_text(encoding='utf-8')):
+                used.setdefault(cid, set()).add(n)
+    return used
+
+
 def render_card(c):
     cid = c['id']
     page = c['page']
+    pages = c['_pages']
     color = PAGE_COLORS.get(page, '#94a3b8')
     vid = yt_id(c.get('video_url'))
     calc = c.get('calculator')
-    badges = [f'<span class="b b-page" style="--pc:{color}">P{page}</span>',
+    plist = ', '.join(map(str, pages))
+    ptag = 'P' + '·'.join(map(str, pages))
+    ptitle = ('Dossier pages ' if len(pages) > 1 else 'Dossier page ') + plist
+    badges = [f'<span class="b b-page" style="--pc:{color}" title="{ptitle}">{ptag}</span>',
               f'<span class="b b-type b-{e(c["type"])}">{e(c["type"].upper())}</span>']
     if vid:
         badges.append('<span class="b b-vid" title="Video">&#9654; VIDEO</span>')
@@ -80,9 +96,11 @@ def render_card(c):
             else:
                 lis.append(f'<li>{e(s["text"])}</li>')
         body.append(f'<h4>Sources</h4><ul class="src">{"".join(lis)}</ul>')
-    body.append(f'<div class="cfoot"><span>Dossier page {page} &middot; {e(PAGE_NAMES.get(page, ""))}</span>'
+    where = (f'Dossier page {pages[0]} &middot; {e(PAGE_NAMES.get(pages[0], ""))}' if len(pages) == 1 else
+             'Dossier ' + ' &middot; '.join(f'p{p} {e(PAGE_NAMES.get(p, ""))}' for p in pages))
+    body.append(f'<div class="cfoot"><span>{where}</span>'
                 f'<button class="copy" type="button" data-id="{e(cid)}">Copy link</button></div>')
-    return f'''<article class="card" id="{e(cid)}" data-page="{page}" data-type="{e(c['type'])}" data-vid="{1 if vid else 0}" data-calc="{1 if calc else 0}" data-search="{e(search)}" style="--pc:{color}">
+    return f'''<article class="card" id="{e(cid)}" data-page="{' '.join(map(str, pages))}" data-type="{e(c['type'])}" data-vid="{1 if vid else 0}" data-calc="{1 if calc else 0}" data-search="{e(search)}" style="--pc:{color}">
   <button class="head" type="button" aria-expanded="false" aria-controls="{e(cid)}-body">
     <span class="badges">{''.join(badges)}</span>
     <span class="title">{e(c['title'])}</span>
@@ -147,7 +165,7 @@ h4{margin:12px 0 6px;font-size:13px;letter-spacing:.06em;text-transform:uppercas
 .src{margin:0;padding-left:18px;font-size:13.5px} .src li{margin:3px 0}
 .ft{font-size:11px;font-weight:700;color:#a7f3d0;border:1px solid #065f46;border-radius:4px;padding:0 5px;margin-left:4px;white-space:nowrap}
 .cfoot{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-top:12px;padding-top:8px;border-top:1px dashed var(--line);font-size:12.5px;color:var(--mut)}
-.copy{all:unset;cursor:pointer;font-size:12.5px;font-weight:700;color:#93c5fd;border:1px solid #1e3a8a;border-radius:8px;padding:3px 10px}
+.copy{all:unset;cursor:pointer;white-space:nowrap;flex:0 0 auto;font-size:12.5px;font-weight:700;color:#93c5fd;border:1px solid #1e3a8a;border-radius:8px;padding:3px 10px}
 .calc{border:1px solid #065f46;background:#06261d;border-radius:12px;padding:6px 12px 12px;margin:12px 0}
 .calc h4{color:#6ee7b7}
 .ch{font-size:12px;font-weight:800;color:#6ee7b7;text-transform:uppercase;letter-spacing:.05em;margin:10px 0 2px}
@@ -195,7 +213,7 @@ JS = r"""
       else if(filter==='info') ok=c.dataset.type!=='test';
       else if(filter==='video') ok=c.dataset.vid==='1';
       else if(filter==='calc') ok=c.dataset.calc==='1';
-      else if(filter.startsWith('p')) ok=c.dataset.page===filter.slice(1);
+      else if(filter.startsWith('p')) ok=c.dataset.page.split(' ').includes(filter.slice(1));
       if(ok && term) ok=c.dataset.search.includes(term);
       c.style.display=ok?'':'none'; if(ok) n++;
     });
@@ -299,11 +317,14 @@ JS = r"""
 
 def main():
     cards = yaml.safe_load((ROOT / 'atlas' / 'data' / 'tests.yaml').read_text(encoding='utf-8'))
+    used = dossier_pages()
+    for c in cards:
+        c['_pages'] = sorted(used.get(c['id']) or {c['page']})
     cards.sort(key=lambda c: (c['page'], 0 if c['type'] == 'test' else 1, c['title'].lower()))
     n = len(cards)
     nv = sum(1 for c in cards if c.get('video_url'))
     nc = sum(1 for c in cards if c.get('calculator'))
-    pages = sorted({c['page'] for c in cards})
+    pages = sorted(set().union(*(c['_pages'] for c in cards)))
     chips = ['<button class="chip on" data-f="all" type="button">All</button>',
              '<button class="chip" data-f="test" type="button">Tests</button>',
              '<button class="chip" data-f="info" type="button">Info</button>',

@@ -29,11 +29,11 @@ master_knee_dossier.pdf     Dossier PDF (generated)
 src/pages/p1.html … p9.html Dossier page bodies  ← edit content here
 src/dossier.css             Design system
 atlas/data/tests.yaml       Atlas cards: steps, criteria, accuracy, evidence, videos, calculators  ← single source of truth
-atlas/build_atlas.py        Builds index.html from tests.yaml
+atlas/build_atlas.py        Builds index.html from tests.yaml (page badges/filters = every dossier page that links the card)
 atlas/config.py             Atlas base URL
 tools/build_dossier.py      Assembles HTML → PDF → runs every check
 tools/render_and_check.py   Page count, overflow, overlap, fonts, required safety strings, previews
-tools/check_links.py        Verifies every PDF link, Atlas anchor and video
+tools/check_links.py        Verifies every PDF link, Atlas anchor, card source (DOIs via the DOI registry) and video
 tools/required_strings.txt  Safety-critical text that must never disappear
 fonts/                      Source Sans 3 (OFL)
 ```

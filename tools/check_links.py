@@ -9,6 +9,8 @@ Checks
   * Ankle-atlas anchors exist on the live ankle atlas
   * External pages return HTTP 200 and are not a bot-check page (PMC needs a real browser:
     Playwright is used when installed, otherwise PMC links are reported as SKIPPED)
+  * Atlas card sources (tests.yaml): PMC / web pages as above; doi.org links must be
+    registered DOIs (checked with the DOI handle API, so publisher bot-walls do not matter)
   * YouTube videos in tests.yaml still resolve via oEmbed
 Exit code 1 on any failure.
 """
@@ -69,12 +71,38 @@ def browser_titles(urls):
     return res
 
 
+def check_url(u, btitles):
+    """(kind, status text, ok) for an external URL that is not an Atlas / ankle-atlas anchor."""
+    if u in btitles:
+        r = btitles[u]
+        if r is None:
+            return 'PMC', 'SKIPPED (install playwright to verify)', True
+        st, title = r
+        return 'PMC', f'{st} {title[:70]}', bool(st == 200 and title and 'recaptcha' not in title.lower())
+    if 'doi.org/' in u:
+        doi = urllib.parse.unquote(u.split('doi.org/', 1)[1])
+        try:
+            api = 'https://doi.org/api/handles/' + urllib.parse.quote(doi, safe='/:;()')
+            d = json.load(urllib.request.urlopen(urllib.request.Request(api, headers=UA), timeout=30))
+            ok = d.get('responseCode') == 1
+            return 'DOI', 'registered' if ok else f'NOT REGISTERED ({d.get("responseCode")})', ok
+        except Exception as e:
+            return 'DOI', f'FAIL {e}', False
+    try:
+        st, title = fetch(u)
+        return 'WEB', f'{st} {title[:70]}', bool(st == 200 and 'just a moment' not in title.lower())
+    except Exception as e:
+        return 'WEB', f'FAIL {e}', False
+
+
 def main():
     fails, rows = [], []
     index = (ROOT / 'index.html').read_text(encoding='utf-8')
     card_ids = set(re.findall(r'<article class="card" id="([^"]+)"', index))
+    cards = yaml.safe_load((ROOT / 'atlas' / 'data' / 'tests.yaml').read_text(encoding='utf-8'))
     links = pdf_links()
-    pmc = [u for u in links if 'pmc.ncbi.nlm.nih.gov' in u]
+    src_urls = sorted({s['url'] for c in cards for s in (c.get('sources') or []) if s.get('url')} - set(links))
+    pmc = sorted({u for u in links + src_urls if 'pmc.ncbi.nlm.nih.gov' in u})
     btitles = browser_titles(pmc) if pmc else {}
     for u in links:
         if u.startswith(ATLAS_BASE_URL):
@@ -96,28 +124,17 @@ def main():
             if not ok:
                 fails.append(u)
             continue
-        if u in btitles:
-            r = btitles[u]
-            if r is None:
-                rows.append(('PMC', 'SKIPPED (install playwright to verify)', u))
-                continue
-            st, title = r
-            ok = st == 200 and 'recaptcha' not in title.lower() and title
-            rows.append(('PMC', f'{st} {title[:70]}', u))
-            if not ok:
-                fails.append(u)
-            continue
-        try:
-            st, title = fetch(u)
-            ok = st == 200 and 'just a moment' not in title.lower()
-            rows.append(('WEB', f'{st} {title[:70]}', u))
-            if not ok:
-                fails.append(u)
-        except Exception as e:
-            rows.append(('WEB', f'FAIL {e}', u))
+        kind, status, ok = check_url(u, btitles)
+        rows.append((kind, status, u))
+        if not ok:
+            fails.append(u)
+    # Atlas card sources not already checked as PDF links
+    for u in src_urls:
+        kind, status, ok = check_url(u, btitles)
+        rows.append(('SRC-' + kind, status, u))
+        if not ok:
             fails.append(u)
     # videos
-    cards = yaml.safe_load((ROOT / 'atlas' / 'data' / 'tests.yaml').read_text(encoding='utf-8'))
     for c in cards:
         v = c.get('video_url')
         if not v:
@@ -138,7 +155,7 @@ def main():
             rows.append(('LIVE', f'FAIL {e}', ATLAS_BASE_URL))
             fails.append(ATLAS_BASE_URL)
     for kind, status, u in rows:
-        print(f'{kind:6} {status:60} {u}')
+        print(f'{kind:8} {status:60} {u}')
     print(f'\n{len(rows)} links checked, {len(fails)} failed')
     sys.exit(1 if fails else 0)
 
