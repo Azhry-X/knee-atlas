@@ -15,6 +15,7 @@ body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 "Source Sans 3
 @font-face{font-family:"Source Sans 3";src:url("fonts/SourceSans3-Bold.ttf") format("truetype");font-weight:700;font-display:swap}
 a{color:#93c5fd}
 .banner{background:#7c2d12;color:#ffedd5;text-align:center;font-weight:700;font-size:13px;padding:6px 16px}
+.banner.ok{background:#14532d;color:#dcfce7}
 header{position:sticky;top:0;z-index:20;background:rgba(11,18,32,.96);backdrop-filter:blur(6px);border-bottom:1px solid var(--line);padding:12px 16px 10px}
 .hwrap{max-width:900px;margin:0 auto}
 .trow{display:flex;align-items:center;justify-content:space-between;gap:12px}
@@ -82,7 +83,7 @@ footer{max-width:900px;margin:0 auto;padding:10px 16px 40px;color:var(--mut);fon
 </style>
 </head>
 <body>
-<div class="banner">Clinical education reference &mdash; draft under clinical review. Not a substitute for clinical judgement.</div>
+<div class="banner ok">Clinical education reference &mdash; clinically reviewed. Not a substitute for clinical judgement.</div>
 <header><div class="hwrap">
   <div class="trow"><h1>Knee Complex &mdash; Test Atlas</h1><span class="count"><span id="shown">65</span> / 65 cards</span></div>
   <input id="q" class="search" type="search" placeholder="Search tests, criteria, conditions…" autocomplete="off" aria-label="Search the atlas">
@@ -91,7 +92,7 @@ footer{max-width:900px;margin:0 auto;padding:10px 16px 40px;color:var(--mut);fon
 <main>
 <article class="card" id="extensor-mechanism" data-page="1" data-type="test" data-vid="0" data-calc="0" data-search="extensor mechanism — active slr &amp; extensor lag screens for quadriceps or patellar tendon rupture, patellar fracture and quadriceps inhibition. supine, knee fully extended. ask the patient to lift the straight leg 20–30 cm and hold. watch the knee: does it stay locked in full extension? if it bends, measure the lag: the gap between passive and active extension (°). palpate above and below the patella for a defect; compare patellar height with the other side. unable to lift the straight leg or hold full extension, with a palpable gap or abnormal patellar height → extensor mechanism rupture until proven otherwise. extensor-mechanism" style="--pc:#f87171">
   <button class="head" type="button" aria-expanded="false" aria-controls="extensor-mechanism-body">
-    <span class="badges"><span class="b b-page" style="--pc:#f87171" title="Dossier page 1">P1</span><span class="b b-type b-test">TEST</span><span class="b b-draft">DRAFT</span></span>
+    <span class="badges"><span class="b b-page" style="--pc:#f87171" title="Dossier page 1">P1</span><span class="b b-type b-test">TEST</span></span>
     <span class="title">Extensor Mechanism — Active SLR &amp; Extensor Lag</span>
     <span class="chev" aria-hidden="true"></span>
   </button>
@@ -100,7 +101,7 @@ footer{max-width:900px;margin:0 auto;padding:10px 16px 40px;color:var(--mut);fon
   </div>
 </article><article class="card" id="single-leg-squat" data-page="1 3" data-type="test" data-vid="1" data-calc="0" data-search="single-leg squat — movement quality five-repetition single-leg squat rated good / fair / poor; poor performance tracks with weaker hip abductors. arms crossed, stand on the test leg; squat to ~60° knee flexion and return, 5 times at ~1 s per rep. rate overall impression, trunk posture, pelvis &quot;in space&quot;, hip joint and knee joint. common faults: trunk lean, pelvic drop, hip adduction / internal rotation, knee valgus. poor = most criteria not met; consider hip abductor / external rotator strengthening. single-leg-squat" style="--pc:#f87171">
   <button class="head" type="button" aria-expanded="false" aria-controls="single-leg-squat-body">
-    <span class="badges"><span class="b b-page" style="--pc:#f87171" title="Dossier pages 1, 3">P1·3</span><span class="b b-type b-test">TEST</span><span class="b b-vid" title="Video">&#9654; VIDEO</span><span class="b b-draft">DRAFT</span></span>
+    <span class="badges"><span class="b b-page" style="--pc:#f87171" title="Dossier pages 1, 3">P1·3</span><span class="b b-type b-test">TEST</span><span class="b b-vid" title="Video">&#9654; VIDEO</span></span>
     <span class="title">Single-Leg Squat — Movement Quality</span>
     <span class="chev" aria-hidden="true"></span>
   </button>
@@ -112,7 +113,7 @@ footer{max-width:900px;margin:0 auto;padding:10px 16px 40px;color:var(--mut);fon
   </div>
 </article><article class="card" id="stroke-test" data-page="1 3 4 5" data-type="test" data-vid="1" data-calc="0" data-search="stroke (sweep) test — effusion grading grades knee effusion reliably; the grade drives how much load the knee can take. supine, knee extended and relaxed. stroke upward along the medial side from joint line to suprapatellar pouch 2–3 times. stroke downward along the lateral side and watch the medial sulcus for a returning wave. 0: no wave · trace: small wave medially · 1+: larger bulge medially · 2+: fluid returns medially without the downstroke · 3+: fluid cannot be moved out of the medial side. stroke-test" style="--pc:#f87171">
   <button class="head" type="button" aria-expanded="false" aria-controls="stroke-test-body">
-    <span class="badges"><span class="b b-page" style="--pc:#f87171" title="Dossier pages 1, 3, 4, 5">P1·3·4·5</span><span class="b b-type b-test">TEST</span><span class="b b-vid" title="Video">&#9654; VIDEO</span><span class="b b-draft">DRAFT</span></span>
+    <span class="badges"><span class="b b-page" style="--pc:#f87171" title="Dossier pages 1, 3, 4, 5">P1·3·4·5</span><span class="b b-type b-test">TEST</span><span class="b b-vid" title="Video">&#9654; VIDEO</span></span>
     <span class="title">Stroke (Sweep) Test — Effusion Grading</span>
     <span class="chev" aria-hidden="true"></span>
   </button>
@@ -124,7 +125,7 @@ footer{max-width:900px;margin:0 auto;padding:10px 16px 40px;color:var(--mut);fon
   </div>
 </article><article class="card" id="budapest-crps" data-page="1" data-type="info" data-vid="0" data-calc="1" data-search="budapest criteria — crps clinical criteria for complex regional pain syndrome after injury or surgery. gate 1: continuing pain disproportionate to the inciting event. gate 2: no other diagnosis better explains the picture. symptoms: ≥ 1 reported in ≥ 3 of 4 categories (sensory, vasomotor, sudomotor/oedema, motor/trophic). signs: ≥ 1 observed at evaluation in ≥ 2 of 4 categories. both gates + ≥ 3/4 symptom categories + ≥ 2/4 sign categories. budapest-crps" style="--pc:#f87171">
   <button class="head" type="button" aria-expanded="false" aria-controls="budapest-crps-body">
-    <span class="badges"><span class="b b-page" style="--pc:#f87171" title="Dossier page 1">P1</span><span class="b b-type b-info">INFO</span><span class="b b-calc" title="Calculator">CALC</span><span class="b b-draft">DRAFT</span></span>
+    <span class="badges"><span class="b b-page" style="--pc:#f87171" title="Dossier page 1">P1</span><span class="b b-type b-info">INFO</span><span class="b b-calc" title="Calculator">CALC</span></span>
     <span class="title">Budapest Criteria — CRPS</span>
     <span class="chev" aria-hidden="true"></span>
   </button>
@@ -133,7 +134,7 @@ footer{max-width:900px;margin:0 auto;padding:10px 16px 40px;color:var(--mut);fon
   </div>
 </article><article class="card" id="compartment-delta-p" data-page="1" data-type="info" data-vid="0" data-calc="1" data-search="compartment syndrome — 6 ps &amp; δp can follow tibial plateau fractures, crush injury or surgery. pain on passive stretch is the earliest sign. screen: pain out of proportion / on passive stretch, paraesthesia, pallor, paralysis, pulselessness, poikilothermia. late signs (pulselessness, paralysis) mean the window is closing. pressure measurement is a medical procedure. pt role: recognise and refer immediately. suspected compartment syndrome → emergency referral. surgeons use δp = diastolic bp − compartment pressure; δp ≤ 30 mmhg = fasciotomy. compartment-delta-p" style="--pc:#f87171">
   <button class="head" type="button" aria-expanded="false" aria-controls="compartment-delta-p-body">
-    <span class="badges"><span class="b b-page" style="--pc:#f87171" title="Dossier page 1">P1</span><span class="b b-type b-info">INFO</span><span class="b b-calc" title="Calculator">CALC</span><span class="b b-draft">DRAFT</span></span>
+    <span class="badges"><span class="b b-page" style="--pc:#f87171" title="Dossier page 1">P1</span><span class="b b-type b-info">INFO</span><span class="b b-calc" title="Calculator">CALC</span></span>
     <span class="title">Compartment Syndrome — 6 Ps &amp; ΔP</span>
     <span class="chev" aria-hidden="true"></span>
   </button>
@@ -142,7 +143,7 @@ footer{max-width:900px;margin:0 auto;padding:10px 16px 40px;color:var(--mut);fon
   </div>
 </article><article class="card" id="scfe-hip-screen" data-page="1" data-type="info" data-vid="0" data-calc="0" data-search="hip screen — scfe / referred knee pain hip pathology refers to the knee. in adolescents, slipped capital femoral epiphysis (scfe) is the classic miss. any child or adolescent with knee or thigh pain and a limp: examine the hip. passive hip internal rotation in 90° flexion, compared with the other side. flex the hip: does the thigh swing into external rotation (drehmann sign)? adults: hip oa often refers to the knee — screen hip rom and fadir / faber. adolescent + reduced or painful hip ir / obligatory external rotation on flexion → urgent hip x-ray (ap + frog-leg) and non-weight-bearing. scfe-hip-screen" style="--pc:#f87171">
   <button class="head" type="button" aria-expanded="false" aria-controls="scfe-hip-screen-body">
-    <span class="badges"><span class="b b-page" style="--pc:#f87171" title="Dossier page 1">P1</span><span class="b b-type b-info">INFO</span><span class="b b-draft">DRAFT</span></span>
+    <span class="badges"><span class="b b-page" style="--pc:#f87171" title="Dossier page 1">P1</span><span class="b b-type b-info">INFO</span></span>
     <span class="title">Hip Screen — SCFE / Referred Knee Pain</span>
     <span class="chev" aria-hidden="true"></span>
   </button>
@@ -151,7 +152,7 @@ footer{max-width:900px;margin:0 auto;padding:10px 16px 40px;color:var(--mut);fon
   </div>
 </article><article class="card" id="knee-dislocation-abi" data-page="1" data-type="info" data-vid="0" data-calc="1" data-search="knee dislocation — vascular screen (abi) multiligament injury can mean a dislocation that has already reduced itself. the popliteal artery is at risk. suspect it with gross instability in extension, ≥ 2 ligaments injured, or a high-energy mechanism. palpate dorsalis pedis and posterior tibial pulses on both sides; check capillary refill. measure ankle systolic pressure (doppler) and brachial systolic pressure. abi = ankle systolic ÷ brachial systolic. test the common peroneal nerve (ankle dorsiflexion, dorsum-foot sensation). abi &lt; 0.90 → arterial injury likely → immediate ct angiography / vascular surgery. normal abi still needs serial review. knee-dislocation-abi" style="--pc:#f87171">
   <button class="head" type="button" aria-expanded="false" aria-controls="knee-dislocation-abi-body">
-    <span class="badges"><span class="b b-page" style="--pc:#f87171" title="Dossier page 1">P1</span><span class="b b-type b-info">INFO</span><span class="b b-calc" title="Calculator">CALC</span><span class="b b-draft">DRAFT</span></span>
+    <span class="badges"><span class="b b-page" style="--pc:#f87171" title="Dossier page 1">P1</span><span class="b b-type b-info">INFO</span><span class="b b-calc" title="Calculator">CALC</span></span>
     <span class="title">Knee Dislocation — Vascular Screen (ABI)</span>
     <span class="chev" aria-hidden="true"></span>
   </button>
@@ -160,7 +161,7 @@ footer{max-width:900px;margin:0 auto;padding:10px 16px 40px;color:var(--mut);fon
   </div>
 </article><article class="card" id="ottawa-knee-rule" data-page="1" data-type="info" data-vid="0" data-calc="1" data-search="ottawa knee rule (with exclusions) decides who needs a knee radiograph after acute knee trauma. a negative rule safely avoids an x-ray. check exclusions first: injury older than 7 days, pregnancy, altered consciousness, paraplegia, multiple or distracting injuries, isolated skin injury. palpate the head of the fibula and the patella (note whether patellar tenderness is isolated). ask the patient to flex the knee: can they reach 90°? ask the patient to take 4 steps (two transfers onto each leg), both immediately after injury and now; limping counts as able. any one finding: age ≥ 55 · isolated patellar tenderness · fibular head tenderness · unable to flex to 90° · unable to bear weight for 4 steps → knee radiograph. ottawa-knee-rule" style="--pc:#f87171">
   <button class="head" type="button" aria-expanded="false" aria-controls="ottawa-knee-rule-body">
-    <span class="badges"><span class="b b-page" style="--pc:#f87171" title="Dossier page 1">P1</span><span class="b b-type b-info">INFO</span><span class="b b-calc" title="Calculator">CALC</span><span class="b b-draft">DRAFT</span></span>
+    <span class="badges"><span class="b b-page" style="--pc:#f87171" title="Dossier page 1">P1</span><span class="b b-type b-info">INFO</span><span class="b b-calc" title="Calculator">CALC</span></span>
     <span class="title">Ottawa Knee Rule (with exclusions)</span>
     <span class="chev" aria-hidden="true"></span>
   </button>
@@ -169,7 +170,7 @@ footer{max-width:900px;margin:0 auto;padding:10px 16px 40px;color:var(--mut);fon
   </div>
 </article><article class="card" id="psfs" data-page="1" data-type="info" data-vid="0" data-calc="1" data-search="patient-specific functional scale (psfs) the patient names up to 3 important activities they find hard and rates each 0 (unable) to 10 (pre-injury level). ask: &quot;name up to three activities you are unable to do or have difficulty with because of your knee.&quot; rate each 0–10. re-rate the same activities at each review.  psfs" style="--pc:#f87171">
   <button class="head" type="button" aria-expanded="false" aria-controls="psfs-body">
-    <span class="badges"><span class="b b-page" style="--pc:#f87171" title="Dossier page 1">P1</span><span class="b b-type b-info">INFO</span><span class="b b-calc" title="Calculator">CALC</span><span class="b b-draft">DRAFT</span></span>
+    <span class="badges"><span class="b b-page" style="--pc:#f87171" title="Dossier page 1">P1</span><span class="b b-type b-info">INFO</span><span class="b b-calc" title="Calculator">CALC</span></span>
     <span class="title">Patient-Specific Functional Scale (PSFS)</span>
     <span class="chev" aria-hidden="true"></span>
   </button>
@@ -178,7 +179,7 @@ footer{max-width:900px;margin:0 auto;padding:10px 16px 40px;color:var(--mut);fon
   </div>
 </article><article class="card" id="pittsburgh-knee-rule" data-page="1" data-type="info" data-vid="0" data-calc="1" data-search="pittsburgh knee rule alternative decision rule that also covers children and older adults; more specific than ottawa in its validation study. confirm the mechanism was blunt trauma or a fall. record the age. ask the patient to take 4 weight-bearing steps. blunt trauma / fall and (age &lt; 12 or &gt; 50 or unable to take 4 weight-bearing steps) → radiograph. pittsburgh-knee-rule" style="--pc:#f87171">
   <button class="head" type="button" aria-expanded="false" aria-controls="pittsburgh-knee-rule-body">
-    <span class="badges"><span class="b b-page" style="--pc:#f87171" title="Dossier page 1">P1</span><span class="b b-type b-info">INFO</span><span class="b b-calc" title="Calculator">CALC</span><span class="b b-draft">DRAFT</span></span>
+    <span class="badges"><span class="b b-page" style="--pc:#f87171" title="Dossier page 1">P1</span><span class="b b-type b-info">INFO</span><span class="b b-calc" title="Calculator">CALC</span></span>
     <span class="title">Pittsburgh Knee Rule</span>
     <span class="chev" aria-hidden="true"></span>
   </button>
@@ -187,7 +188,7 @@ footer{max-width:900px;margin:0 auto;padding:10px 16px 40px;color:var(--mut);fon
   </div>
 </article><article class="card" id="septic-arthritis-knee" data-page="1" data-type="info" data-vid="0" data-calc="0" data-search="septic arthritis of the knee a hot, swollen knee is septic until proven otherwise — joint destruction can start within days. ask about fever, recent injection, arthroscopy, arthroplasty, skin breaks, immunosuppression, diabetes, iv drug use. look for warmth, tense effusion, severe pain on any movement, inability to bear weight. do not mobilise, needle or load the joint. refer the same day for aspiration. suspicion alone is enough for same-day emergency referral. septic-arthritis-knee" style="--pc:#f87171">
   <button class="head" type="button" aria-expanded="false" aria-controls="septic-arthritis-knee-body">
-    <span class="badges"><span class="b b-page" style="--pc:#f87171" title="Dossier page 1">P1</span><span class="b b-type b-info">INFO</span><span class="b b-draft">DRAFT</span></span>
+    <span class="badges"><span class="b b-page" style="--pc:#f87171" title="Dossier page 1">P1</span><span class="b b-type b-info">INFO</span></span>
     <span class="title">Septic Arthritis of the Knee</span>
     <span class="chev" aria-hidden="true"></span>
   </button>
@@ -196,7 +197,7 @@ footer{max-width:900px;margin:0 auto;padding:10px 16px 40px;color:var(--mut);fon
   </div>
 </article><article class="card" id="dial-test" data-page="2 4" data-type="test" data-vid="1" data-calc="0" data-search="dial test — posterolateral corner compares tibial external rotation at 30° and 90° of knee flexion. prone (or supine) with knees together at 30° flexion. externally rotate both feet; measure the thigh–foot angle. repeat at 90° flexion. &gt; 10° more external rotation than the other side. at 30° only → isolated posterolateral corner; at 30° and 90° → posterolateral corner + pcl. dial-test" style="--pc:#60a5fa">
   <button class="head" type="button" aria-expanded="false" aria-controls="dial-test-body">
-    <span class="badges"><span class="b b-page" style="--pc:#60a5fa" title="Dossier pages 2, 4">P2·4</span><span class="b b-type b-test">TEST</span><span class="b b-vid" title="Video">&#9654; VIDEO</span><span class="b b-draft">DRAFT</span></span>
+    <span class="badges"><span class="b b-page" style="--pc:#60a5fa" title="Dossier pages 2, 4">P2·4</span><span class="b b-type b-test">TEST</span><span class="b b-vid" title="Video">&#9654; VIDEO</span></span>
     <span class="title">Dial Test — Posterolateral Corner</span>
     <span class="chev" aria-hidden="true"></span>
   </button>
@@ -208,7 +209,7 @@ footer{max-width:900px;margin:0 auto;padding:10px 16px 40px;color:var(--mut);fon
   </div>
 </article><article class="card" id="fadir-faber" data-page="2" data-type="test" data-vid="1" data-calc="0" data-search="fadir / faber — hip screen quick hip provocation tests to rule out a hip source of knee pain. fadir: supine; flex the hip to 90°, then adduct and internally rotate. faber: place the foot on the opposite knee; let the knee fall outward and apply gentle pressure. note pain location (groin / buttock / lateral hip) and compare sides. reproduction of familiar groin or hip pain → examine the hip properly. fadir-faber" style="--pc:#60a5fa">
   <button class="head" type="button" aria-expanded="false" aria-controls="fadir-faber-body">
-    <span class="badges"><span class="b b-page" style="--pc:#60a5fa" title="Dossier page 2">P2</span><span class="b b-type b-test">TEST</span><span class="b b-vid" title="Video">&#9654; VIDEO</span><span class="b b-draft">DRAFT</span></span>
+    <span class="badges"><span class="b b-page" style="--pc:#60a5fa" title="Dossier page 2">P2</span><span class="b b-type b-test">TEST</span><span class="b b-vid" title="Video">&#9654; VIDEO</span></span>
     <span class="title">FADIR / FABER — Hip Screen</span>
     <span class="chev" aria-hidden="true"></span>
   </button>
@@ -220,7 +221,7 @@ footer{max-width:900px;margin:0 auto;padding:10px 16px 40px;color:var(--mut);fon
   </div>
 </article><article class="card" id="hoffa-test" data-page="2 4" data-type="test" data-vid="1" data-calc="0" data-search="hoffa&#x27;s test — infrapatellar fat pad provokes fat-pad pain by compressing it as the knee extends. supine with the knee flexed ~30°. press the thumbs into both sides of the patellar tendon, just below the patella. ask the patient to straighten the knee (or extend it passively) while you keep the pressure. reproduction of the familiar infrapatellar pain as the knee nears extension. hoffa-test" style="--pc:#60a5fa">
   <button class="head" type="button" aria-expanded="false" aria-controls="hoffa-test-body">
-    <span class="badges"><span class="b b-page" style="--pc:#60a5fa" title="Dossier pages 2, 4">P2·4</span><span class="b b-type b-test">TEST</span><span class="b b-vid" title="Video">&#9654; VIDEO</span><span class="b b-draft">DRAFT</span></span>
+    <span class="badges"><span class="b b-page" style="--pc:#60a5fa" title="Dossier pages 2, 4">P2·4</span><span class="b b-type b-test">TEST</span><span class="b b-vid" title="Video">&#9654; VIDEO</span></span>
     <span class="title">Hoffa&#x27;s Test — Infrapatellar Fat Pad</span>
     <span class="chev" aria-hidden="true"></span>
   </button>
@@ -232,7 +233,7 @@ footer{max-width:900px;margin:0 auto;padding:10px 16px 40px;color:var(--mut);fon
   </div>
 </article><article class="card" id="joint-line-tenderness" data-page="2 4" data-type="test" data-vid="1" data-calc="0" data-search="joint line tenderness — meniscus palpation of the medial and lateral joint line for meniscal pain. knee flexed to 90° to open the joint line. palpate the medial and lateral joint line from anterior to posterior. compare with the other side; note pain location. familiar, localised pain on the joint line. joint-line-tenderness" style="--pc:#60a5fa">
   <button class="head" type="button" aria-expanded="false" aria-controls="joint-line-tenderness-body">
-    <span class="badges"><span class="b b-page" style="--pc:#60a5fa" title="Dossier pages 2, 4">P2·4</span><span class="b b-type b-test">TEST</span><span class="b b-vid" title="Video">&#9654; VIDEO</span><span class="b b-draft">DRAFT</span></span>
+    <span class="badges"><span class="b b-page" style="--pc:#60a5fa" title="Dossier pages 2, 4">P2·4</span><span class="b b-type b-test">TEST</span><span class="b b-vid" title="Video">&#9654; VIDEO</span></span>
     <span class="title">Joint Line Tenderness — Meniscus</span>
     <span class="chev" aria-hidden="true"></span>
   </button>
@@ -244,7 +245,7 @@ footer{max-width:900px;margin:0 auto;padding:10px 16px 40px;color:var(--mut);fon
   </div>
 </article><article class="card" id="lachman-test" data-page="2 4" data-type="test" data-vid="1" data-calc="0" data-search="lachman test — acl best single clinical test for acl rupture. supine, knee at 20–30° flexion, hamstrings relaxed. one hand stabilises the distal femur, the other pulls the proximal tibia anteriorly. judge the amount of translation and the end-point; compare with the other side. increased anterior translation and/or a soft end-point. lachman-test" style="--pc:#60a5fa">
   <button class="head" type="button" aria-expanded="false" aria-controls="lachman-test-body">
-    <span class="badges"><span class="b b-page" style="--pc:#60a5fa" title="Dossier pages 2, 4">P2·4</span><span class="b b-type b-test">TEST</span><span class="b b-vid" title="Video">&#9654; VIDEO</span><span class="b b-draft">DRAFT</span></span>
+    <span class="badges"><span class="b b-page" style="--pc:#60a5fa" title="Dossier pages 2, 4">P2·4</span><span class="b b-type b-test">TEST</span><span class="b b-vid" title="Video">&#9654; VIDEO</span></span>
     <span class="title">Lachman Test — ACL</span>
     <span class="chev" aria-hidden="true"></span>
   </button>
@@ -256,7 +257,7 @@ footer{max-width:900px;margin:0 auto;padding:10px 16px 40px;color:var(--mut);fon
   </div>
 </article><article class="card" id="mcmurray-test" data-page="2 4" data-type="test" data-vid="1" data-calc="0" data-search="mcmurray test — meniscus rotational compression through the arc of flexion to provoke a meniscal tear. supine; flex the knee fully. medial meniscus: externally rotate the tibia and apply valgus while extending to 90°. lateral meniscus: internally rotate the tibia and apply varus while extending. feel for a click or clunk on the joint line. joint-line pain and/or a palpable click during the manoeuvre. mcmurray-test" style="--pc:#60a5fa">
   <button class="head" type="button" aria-expanded="false" aria-controls="mcmurray-test-body">
-    <span class="badges"><span class="b b-page" style="--pc:#60a5fa" title="Dossier pages 2, 4">P2·4</span><span class="b b-type b-test">TEST</span><span class="b b-vid" title="Video">&#9654; VIDEO</span><span class="b b-draft">DRAFT</span></span>
+    <span class="badges"><span class="b b-page" style="--pc:#60a5fa" title="Dossier pages 2, 4">P2·4</span><span class="b b-type b-test">TEST</span><span class="b b-vid" title="Video">&#9654; VIDEO</span></span>
     <span class="title">McMurray Test — Meniscus</span>
     <span class="chev" aria-hidden="true"></span>
   </button>
@@ -268,7 +269,7 @@ footer{max-width:900px;margin:0 auto;padding:10px 16px 40px;color:var(--mut);fon
   </div>
 </article><article class="card" id="moving-patellar-apprehension" data-page="2 4" data-type="test" data-vid="1" data-calc="0" data-search="moving patellar apprehension test detects lateral patellar instability by provoking then relieving apprehension. supine, knee extended. push the patella laterally and hold it there. flex the knee to 90° and back to full extension while holding the lateral push. repeat with a medial glide during flexion and extension. apprehension or quadriceps guarding with the lateral glide that disappears with the medial glide. moving-patellar-apprehension" style="--pc:#60a5fa">
   <button class="head" type="button" aria-expanded="false" aria-controls="moving-patellar-apprehension-body">
-    <span class="badges"><span class="b b-page" style="--pc:#60a5fa" title="Dossier pages 2, 4">P2·4</span><span class="b b-type b-test">TEST</span><span class="b b-vid" title="Video">&#9654; VIDEO</span><span class="b b-draft">DRAFT</span></span>
+    <span class="badges"><span class="b b-page" style="--pc:#60a5fa" title="Dossier pages 2, 4">P2·4</span><span class="b b-type b-test">TEST</span><span class="b b-vid" title="Video">&#9654; VIDEO</span></span>
     <span class="title">Moving Patellar Apprehension Test</span>
     <span class="chev" aria-hidden="true"></span>
   </button>
@@ -280,7 +281,7 @@ footer{max-width:900px;margin:0 auto;padding:10px 16px 40px;color:var(--mut);fon
   </div>
 </article><article class="card" id="noble-test" data-page="2 4" data-type="test" data-vid="1" data-calc="0" data-search="noble compression test — itb syndrome provokes iliotibial band pain over the lateral femoral epicondyle. supine, knee flexed to 90°. press the thumb on the itb just above the lateral femoral epicondyle. extend the knee slowly while keeping the pressure. familiar lateral pain at about 30° of flexion. noble-test" style="--pc:#60a5fa">
   <button class="head" type="button" aria-expanded="false" aria-controls="noble-test-body">
-    <span class="badges"><span class="b b-page" style="--pc:#60a5fa" title="Dossier pages 2, 4">P2·4</span><span class="b b-type b-test">TEST</span><span class="b b-vid" title="Video">&#9654; VIDEO</span><span class="b b-draft">DRAFT</span></span>
+    <span class="badges"><span class="b b-page" style="--pc:#60a5fa" title="Dossier pages 2, 4">P2·4</span><span class="b b-type b-test">TEST</span><span class="b b-vid" title="Video">&#9654; VIDEO</span></span>
     <span class="title">Noble Compression Test — ITB Syndrome</span>
     <span class="chev" aria-hidden="true"></span>
   </button>
@@ -292,7 +293,7 @@ footer{max-width:900px;margin:0 auto;padding:10px 16px 40px;color:var(--mut);fon
   </div>
 </article><article class="card" id="ober-test" data-page="2 4" data-type="test" data-vid="1" data-calc="0" data-search="ober test — lateral hip / itb tension assesses tension of the lateral hip soft tissues (tfl / gluteal–itb complex). side-lying on the unaffected side, lower hip and knee flexed. stabilise the pelvis; abduct and extend the top hip with the knee flexed 90° (or extended for the modified test). release the leg and let it drop toward the table. leg stays abducted (does not drop to horizontal). measures tissue tension, not itb length; reliability is moderate. ober-test" style="--pc:#60a5fa">
   <button class="head" type="button" aria-expanded="false" aria-controls="ober-test-body">
-    <span class="badges"><span class="b b-page" style="--pc:#60a5fa" title="Dossier pages 2, 4">P2·4</span><span class="b b-type b-test">TEST</span><span class="b b-vid" title="Video">&#9654; VIDEO</span><span class="b b-draft">DRAFT</span></span>
+    <span class="badges"><span class="b b-page" style="--pc:#60a5fa" title="Dossier pages 2, 4">P2·4</span><span class="b b-type b-test">TEST</span><span class="b b-vid" title="Video">&#9654; VIDEO</span></span>
     <span class="title">Ober Test — Lateral Hip / ITB Tension</span>
     <span class="chev" aria-hidden="true"></span>
   </button>
@@ -304,7 +305,7 @@ footer{max-width:900px;margin:0 auto;padding:10px 16px 40px;color:var(--mut);fon
   </div>
 </article><article class="card" id="posterior-drawer" data-page="2 4" data-type="test" data-vid="1" data-calc="0" data-search="posterior drawer test — pcl most accurate single clinical test for pcl injury. supine, knee at 90°, foot stabilised. check the resting medial tibial step-off first (normally ~1 cm anterior to the femoral condyle). push the proximal tibia posteriorly; grade the translation and end-point. increased posterior translation or a soft end-point. grade i: tibia still anterior to condyles · ii: flush · iii: behind the condyles (suspect combined injury). posterior-drawer" style="--pc:#60a5fa">
   <button class="head" type="button" aria-expanded="false" aria-controls="posterior-drawer-body">
-    <span class="badges"><span class="b b-page" style="--pc:#60a5fa" title="Dossier pages 2, 4">P2·4</span><span class="b b-type b-test">TEST</span><span class="b b-vid" title="Video">&#9654; VIDEO</span><span class="b b-draft">DRAFT</span></span>
+    <span class="badges"><span class="b b-page" style="--pc:#60a5fa" title="Dossier pages 2, 4">P2·4</span><span class="b b-type b-test">TEST</span><span class="b b-vid" title="Video">&#9654; VIDEO</span></span>
     <span class="title">Posterior Drawer Test — PCL</span>
     <span class="chev" aria-hidden="true"></span>
   </button>
@@ -316,7 +317,7 @@ footer{max-width:900px;margin:0 auto;padding:10px 16px 40px;color:var(--mut);fon
   </div>
 </article><article class="card" id="posterior-sag" data-page="2 4" data-type="test" data-vid="1" data-calc="0" data-search="posterior sag (godfrey) sign — pcl gravity lets the tibia drop backward when the pcl is torn. supine, hips and knees flexed to 90°, heels supported (or knees flexed 90° with feet on the table). look across both knees from the side at the tibial tubercles. the tibial tubercle sits lower (posterior) on the injured side. posterior-sag" style="--pc:#60a5fa">
   <button class="head" type="button" aria-expanded="false" aria-controls="posterior-sag-body">
-    <span class="badges"><span class="b b-page" style="--pc:#60a5fa" title="Dossier pages 2, 4">P2·4</span><span class="b b-type b-test">TEST</span><span class="b b-vid" title="Video">&#9654; VIDEO</span><span class="b b-draft">DRAFT</span></span>
+    <span class="badges"><span class="b b-page" style="--pc:#60a5fa" title="Dossier pages 2, 4">P2·4</span><span class="b b-type b-test">TEST</span><span class="b b-vid" title="Video">&#9654; VIDEO</span></span>
     <span class="title">Posterior Sag (Godfrey) Sign — PCL</span>
     <span class="chev" aria-hidden="true"></span>
   </button>
@@ -328,7 +329,7 @@ footer{max-width:900px;margin:0 auto;padding:10px 16px 40px;color:var(--mut);fon
   </div>
 </article><article class="card" id="prone-knee-bend" data-page="2 4" data-type="test" data-vid="1" data-calc="0" data-search="prone knee bend — femoral nerve neurodynamic test for the femoral nerve and l2–l4 roots. prone; stabilise the pelvis. passively flex the knee; add hip extension if needed. note the onset of symptoms and their location. structural differentiation: side-lying slump knee bend and change neck flexion. familiar anterior thigh / knee symptoms that change with structural differentiation. prone-knee-bend" style="--pc:#60a5fa">
   <button class="head" type="button" aria-expanded="false" aria-controls="prone-knee-bend-body">
-    <span class="badges"><span class="b b-page" style="--pc:#60a5fa" title="Dossier pages 2, 4">P2·4</span><span class="b b-type b-test">TEST</span><span class="b b-vid" title="Video">&#9654; VIDEO</span><span class="b b-draft">DRAFT</span></span>
+    <span class="badges"><span class="b b-page" style="--pc:#60a5fa" title="Dossier pages 2, 4">P2·4</span><span class="b b-type b-test">TEST</span><span class="b b-vid" title="Video">&#9654; VIDEO</span></span>
     <span class="title">Prone Knee Bend — Femoral Nerve</span>
     <span class="chev" aria-hidden="true"></span>
   </button>
@@ -340,7 +341,7 @@ footer{max-width:900px;margin:0 auto;padding:10px 16px 40px;color:var(--mut);fon
   </div>
 </article><article class="card" id="slump-test" data-page="2" data-type="test" data-vid="1" data-calc="0" data-search="slump test — sciatic / tibial neurodynamic test of the posterior lower-limb neural tissues. sitting; slump the trunk and flex the neck. extend the knee and dorsiflex the ankle. release neck flexion and note any change in symptoms. familiar symptoms that ease when the neck is extended (structural differentiation). slump-test" style="--pc:#60a5fa">
   <button class="head" type="button" aria-expanded="false" aria-controls="slump-test-body">
-    <span class="badges"><span class="b b-page" style="--pc:#60a5fa" title="Dossier page 2">P2</span><span class="b b-type b-test">TEST</span><span class="b b-vid" title="Video">&#9654; VIDEO</span><span class="b b-draft">DRAFT</span></span>
+    <span class="badges"><span class="b b-page" style="--pc:#60a5fa" title="Dossier page 2">P2</span><span class="b b-type b-test">TEST</span><span class="b b-vid" title="Video">&#9654; VIDEO</span></span>
     <span class="title">Slump Test — Sciatic / Tibial</span>
     <span class="chev" aria-hidden="true"></span>
   </button>
@@ -352,7 +353,7 @@ footer{max-width:900px;margin:0 auto;padding:10px 16px 40px;color:var(--mut);fon
   </div>
 </article><article class="card" id="thessaly-test" data-page="2 4" data-type="test" data-vid="1" data-calc="0" data-search="thessaly test (20°) — meniscus weight-bearing rotational test for meniscal tears. patient stands on the test leg, hands held by the examiner. flex the knee to 20°. rotate the body and knee internally and externally three times. test the healthy knee first. joint-line discomfort or a sense of locking or catching. thessaly-test" style="--pc:#60a5fa">
   <button class="head" type="button" aria-expanded="false" aria-controls="thessaly-test-body">
-    <span class="badges"><span class="b b-page" style="--pc:#60a5fa" title="Dossier pages 2, 4">P2·4</span><span class="b b-type b-test">TEST</span><span class="b b-vid" title="Video">&#9654; VIDEO</span><span class="b b-draft">DRAFT</span></span>
+    <span class="badges"><span class="b b-page" style="--pc:#60a5fa" title="Dossier pages 2, 4">P2·4</span><span class="b b-type b-test">TEST</span><span class="b b-vid" title="Video">&#9654; VIDEO</span></span>
     <span class="title">Thessaly Test (20°) — Meniscus</span>
     <span class="chev" aria-hidden="true"></span>
   </button>
@@ -364,7 +365,7 @@ footer{max-width:900px;margin:0 auto;padding:10px 16px 40px;color:var(--mut);fon
   </div>
 </article><article class="card" id="valgus-stress-test" data-page="2 4" data-type="test" data-vid="1" data-calc="0" data-search="valgus stress test — mcl tests the medial collateral ligament; testing at 0° adds information about other restraints. supine, thigh supported, knee at 30° flexion. stabilise the lateral knee and apply a valgus force at the ankle. grade the medial opening and the end-point; compare with the other side. repeat in full extension. pain or laxity at 30° → mcl. laxity in full extension → combined injury (cruciate / posteromedial corner). valgus-stress-test" style="--pc:#60a5fa">
   <button class="head" type="button" aria-expanded="false" aria-controls="valgus-stress-test-body">
-    <span class="badges"><span class="b b-page" style="--pc:#60a5fa" title="Dossier pages 2, 4">P2·4</span><span class="b b-type b-test">TEST</span><span class="b b-vid" title="Video">&#9654; VIDEO</span><span class="b b-draft">DRAFT</span></span>
+    <span class="badges"><span class="b b-page" style="--pc:#60a5fa" title="Dossier pages 2, 4">P2·4</span><span class="b b-type b-test">TEST</span><span class="b b-vid" title="Video">&#9654; VIDEO</span></span>
     <span class="title">Valgus Stress Test — MCL</span>
     <span class="chev" aria-hidden="true"></span>
   </button>
@@ -376,7 +377,7 @@ footer{max-width:900px;margin:0 auto;padding:10px 16px 40px;color:var(--mut);fon
   </div>
 </article><article class="card" id="varus-stress-test" data-page="2 4" data-type="test" data-vid="1" data-calc="0" data-search="varus stress test — lcl / posterolateral corner tests the lateral collateral ligament; laxity in extension implicates the posterolateral corner and cruciates. supine, knee at 30° flexion, thigh supported. stabilise the medial knee and apply a varus force at the ankle. grade the lateral opening and end-point; compare sides. repeat in full extension. pain or laxity at 30° → lcl. laxity in full extension → posterolateral corner + cruciate injury. varus-stress-test" style="--pc:#60a5fa">
   <button class="head" type="button" aria-expanded="false" aria-controls="varus-stress-test-body">
-    <span class="badges"><span class="b b-page" style="--pc:#60a5fa" title="Dossier pages 2, 4">P2·4</span><span class="b b-type b-test">TEST</span><span class="b b-vid" title="Video">&#9654; VIDEO</span><span class="b b-draft">DRAFT</span></span>
+    <span class="badges"><span class="b b-page" style="--pc:#60a5fa" title="Dossier pages 2, 4">P2·4</span><span class="b b-type b-test">TEST</span><span class="b b-vid" title="Video">&#9654; VIDEO</span></span>
     <span class="title">Varus Stress Test — LCL / Posterolateral Corner</span>
     <span class="chev" aria-hidden="true"></span>
   </button>
@@ -388,7 +389,7 @@ footer{max-width:900px;margin:0 auto;padding:10px 16px 40px;color:var(--mut);fon
   </div>
 </article><article class="card" id="wilson-test" data-page="2 4" data-type="test" data-vid="0" data-calc="0" data-search="wilson&#x27;s test — osteochondritis dissecans historical provocation test for medial femoral condyle ocd; low diagnostic value — imaging decides. sitting, knee flexed to 90°. internally rotate the tibia and slowly extend the knee. pain around 30° that is relieved by external rotation of the tibia is the classic positive. pain at ~30° relieved by tibial external rotation. wilson-test" style="--pc:#60a5fa">
   <button class="head" type="button" aria-expanded="false" aria-controls="wilson-test-body">
-    <span class="badges"><span class="b b-page" style="--pc:#60a5fa" title="Dossier pages 2, 4">P2·4</span><span class="b b-type b-test">TEST</span><span class="b b-draft">DRAFT</span></span>
+    <span class="badges"><span class="b b-page" style="--pc:#60a5fa" title="Dossier pages 2, 4">P2·4</span><span class="b b-type b-test">TEST</span></span>
     <span class="title">Wilson&#x27;s Test — Osteochondritis Dissecans</span>
     <span class="chev" aria-hidden="true"></span>
   </button>
@@ -397,7 +398,7 @@ footer{max-width:900px;margin:0 auto;padding:10px 16px 40px;color:var(--mut);fon
   </div>
 </article><article class="card" id="knee-oa-clinical" data-page="2 4" data-type="info" data-vid="0" data-calc="1" data-search="knee osteoarthritis — clinical diagnosis osteoarthritis is a clinical diagnosis; imaging is not needed when typical. nice: age ≥ 45 + activity-related joint pain + no morning stiffness or stiffness ≤ 30 min. acr clinical criteria: knee pain + ≥ 3 of age &gt; 50, stiffness &lt; 30 min, crepitus, bony tenderness, bony enlargement, no palpable warmth. image only with atypical features or suspected alternative diagnosis. nice criteria met or acr ≥ 3/6 with knee pain. knee-oa-clinical" style="--pc:#60a5fa">
   <button class="head" type="button" aria-expanded="false" aria-controls="knee-oa-clinical-body">
-    <span class="badges"><span class="b b-page" style="--pc:#60a5fa" title="Dossier pages 2, 4">P2·4</span><span class="b b-type b-info">INFO</span><span class="b b-calc" title="Calculator">CALC</span><span class="b b-draft">DRAFT</span></span>
+    <span class="badges"><span class="b b-page" style="--pc:#60a5fa" title="Dossier pages 2, 4">P2·4</span><span class="b b-type b-info">INFO</span><span class="b b-calc" title="Calculator">CALC</span></span>
     <span class="title">Knee Osteoarthritis — Clinical Diagnosis</span>
     <span class="chev" aria-hidden="true"></span>
   </button>
@@ -406,7 +407,7 @@ footer{max-width:900px;margin:0 auto;padding:10px 16px 40px;color:var(--mut);fon
   </div>
 </article><article class="card" id="meniscal-composite" data-page="2 4" data-type="info" data-vid="0" data-calc="1" data-search="meniscal tear — composite examination combining history and examination findings is more useful than any single meniscal test. history of catching or locking. pain on forced hyperextension. pain on maximal passive flexion. pain or audible click with the mcmurray manoeuvre. joint line tenderness. count the positive findings out of 5. meniscal-composite" style="--pc:#60a5fa">
   <button class="head" type="button" aria-expanded="false" aria-controls="meniscal-composite-body">
-    <span class="badges"><span class="b b-page" style="--pc:#60a5fa" title="Dossier pages 2, 4">P2·4</span><span class="b b-type b-info">INFO</span><span class="b b-calc" title="Calculator">CALC</span><span class="b b-draft">DRAFT</span></span>
+    <span class="badges"><span class="b b-page" style="--pc:#60a5fa" title="Dossier pages 2, 4">P2·4</span><span class="b b-type b-info">INFO</span><span class="b b-calc" title="Calculator">CALC</span></span>
     <span class="title">Meniscal Tear — Composite Examination</span>
     <span class="chev" aria-hidden="true"></span>
   </button>
@@ -415,7 +416,7 @@ footer{max-width:900px;margin:0 auto;padding:10px 16px 40px;color:var(--mut);fon
   </div>
 </article><article class="card" id="patellar-tendinopathy" data-page="2 4" data-type="info" data-vid="1" data-calc="0" data-search="patellar tendinopathy — clinical diagnosis pain localised to the inferior pole of the patella that rises with energy-storage load (jumping, change of direction). confirm pain is localised to the inferior pole / proximal tendon. load test: single-leg decline squat — rate pain 0–10. pain should increase as load increases and warm up during activity. palpation tenderness supports but does not confirm (common in asymptomatic athletes). localised inferior-pole pain + load-dependent behaviour. patellar-tendinopathy" style="--pc:#60a5fa">
   <button class="head" type="button" aria-expanded="false" aria-controls="patellar-tendinopathy-body">
-    <span class="badges"><span class="b b-page" style="--pc:#60a5fa" title="Dossier pages 2, 4">P2·4</span><span class="b b-type b-info">INFO</span><span class="b b-vid" title="Video">&#9654; VIDEO</span><span class="b b-draft">DRAFT</span></span>
+    <span class="badges"><span class="b b-page" style="--pc:#60a5fa" title="Dossier pages 2, 4">P2·4</span><span class="b b-type b-info">INFO</span><span class="b b-vid" title="Video">&#9654; VIDEO</span></span>
     <span class="title">Patellar Tendinopathy — Clinical Diagnosis</span>
     <span class="chev" aria-hidden="true"></span>
   </button>
@@ -427,7 +428,7 @@ footer{max-width:900px;margin:0 auto;padding:10px 16px 40px;color:var(--mut);fon
   </div>
 </article><article class="card" id="pfp-diagnosis" data-page="2 4" data-type="info" data-vid="0" data-calc="0" data-search="patellofemoral pain — diagnosis diagnosis is clinical and by exclusion; there is no single confirmatory test. pain around or behind the patella. reproduce it with patellofemoral-loading tasks: squatting (most sensitive), stairs, prolonged sitting, kneeling, jumping or running. exclude other causes: tendinopathy, fat pad, instability, referred hip pain, oa, plica. all three criteria met → pfp. pfp-diagnosis" style="--pc:#60a5fa">
   <button class="head" type="button" aria-expanded="false" aria-controls="pfp-diagnosis-body">
-    <span class="badges"><span class="b b-page" style="--pc:#60a5fa" title="Dossier pages 2, 4">P2·4</span><span class="b b-type b-info">INFO</span><span class="b b-draft">DRAFT</span></span>
+    <span class="badges"><span class="b b-page" style="--pc:#60a5fa" title="Dossier pages 2, 4">P2·4</span><span class="b b-type b-info">INFO</span></span>
     <span class="title">Patellofemoral Pain — Diagnosis</span>
     <span class="chev" aria-hidden="true"></span>
   </button>
@@ -436,7 +437,7 @@ footer{max-width:900px;margin:0 auto;padding:10px 16px 40px;color:var(--mut);fon
   </div>
 </article><article class="card" id="lateral-step-down" data-page="3" data-type="test" data-vid="0" data-calc="1" data-search="lateral step-down test — quality of movement five-criterion movement score from a 20 cm step (piva). stand on a 20 cm step, hands on waist; lower the other heel to touch the floor and return, 5 times. add 1 point each: arm strategy, trunk lean, pelvis rotates or elevates, unsteady stance. knee position: tibial tuberosity medial to the 2nd toe = 1; medial to the medial border of the foot = 2. total 0–1 good · 2–3 moderate · ≥ 4 poor. lateral-step-down" style="--pc:#60a5fa">
   <button class="head" type="button" aria-expanded="false" aria-controls="lateral-step-down-body">
-    <span class="badges"><span class="b b-page" style="--pc:#60a5fa" title="Dossier page 3">P3</span><span class="b b-type b-test">TEST</span><span class="b b-calc" title="Calculator">CALC</span><span class="b b-draft">DRAFT</span></span>
+    <span class="badges"><span class="b b-page" style="--pc:#60a5fa" title="Dossier page 3">P3</span><span class="b b-type b-test">TEST</span><span class="b b-calc" title="Calculator">CALC</span></span>
     <span class="title">Lateral Step-Down Test — Quality of Movement</span>
     <span class="chev" aria-hidden="true"></span>
   </button>
@@ -445,7 +446,7 @@ footer{max-width:900px;margin:0 auto;padding:10px 16px 40px;color:var(--mut);fon
   </div>
 </article><article class="card" id="patellar-mobility" data-page="3" data-type="test" data-vid="0" data-calc="0" data-search="patellar mobility (glides &amp; quadrants) restricted patellar glides after surgery predict stiffness and patella infera; excess lateral glide suggests instability. supine, knee extended and relaxed (or 20–30° flexed for the lateral glide). divide the patella width into 4 quadrants. glide medially and laterally; count quadrants of displacement. glide superiorly and inferiorly; compare sides. hypomobile: &lt; 1 quadrant. hypermobile: ≥ 3 quadrants laterally (instability). patellar-mobility" style="--pc:#60a5fa">
   <button class="head" type="button" aria-expanded="false" aria-controls="patellar-mobility-body">
-    <span class="badges"><span class="b b-page" style="--pc:#60a5fa" title="Dossier page 3">P3</span><span class="b b-type b-test">TEST</span><span class="b b-draft">DRAFT</span></span>
+    <span class="badges"><span class="b b-page" style="--pc:#60a5fa" title="Dossier page 3">P3</span><span class="b b-type b-test">TEST</span></span>
     <span class="title">Patellar Mobility (Glides &amp; Quadrants)</span>
     <span class="chev" aria-hidden="true"></span>
   </button>
@@ -454,7 +455,7 @@ footer{max-width:900px;margin:0 auto;padding:10px 16px 40px;color:var(--mut);fon
   </div>
 </article><article class="card" id="beighton" data-page="3" data-type="info" data-vid="1" data-calc="1" data-search="beighton score — generalised joint hypermobility nine-point screen for generalised joint hypermobility; relevant to patellar instability. little finger passive dorsiflexion &gt; 90° (1 point each side). thumb passively to the forearm (1 each side). elbow hyperextension &gt; 10° (1 each side). knee hyperextension &gt; 10° (1 each side). palms flat on the floor with knees straight (1).  beighton" style="--pc:#60a5fa">
   <button class="head" type="button" aria-expanded="false" aria-controls="beighton-body">
-    <span class="badges"><span class="b b-page" style="--pc:#60a5fa" title="Dossier page 3">P3</span><span class="b b-type b-info">INFO</span><span class="b b-vid" title="Video">&#9654; VIDEO</span><span class="b b-calc" title="Calculator">CALC</span><span class="b b-draft">DRAFT</span></span>
+    <span class="badges"><span class="b b-page" style="--pc:#60a5fa" title="Dossier page 3">P3</span><span class="b b-type b-info">INFO</span><span class="b b-vid" title="Video">&#9654; VIDEO</span><span class="b b-calc" title="Calculator">CALC</span></span>
     <span class="title">Beighton Score — Generalised Joint Hypermobility</span>
     <span class="chev" aria-hidden="true"></span>
   </button>
@@ -466,7 +467,7 @@ footer{max-width:900px;margin:0 auto;padding:10px 16px 40px;color:var(--mut);fon
   </div>
 </article><article class="card" id="hhd-testing" data-page="3" data-type="info" data-vid="0" data-calc="1" data-search="hand-held dynamometry — knee &amp; hip quantifies strength for limb symmetry and progression; fix the dynamometer with a strap for the quadriceps. quadriceps: seated, knee 60–90°, strap the dynamometer to the table frame; 3 × 5 s maximal efforts, 30 s rest. hamstrings: prone or seated at 90°. hip abductors: side-lying with a strap above the knee. record the best of 3 trials in newtons; measure the lever arm (joint centre to dynamometer). torque (nm/kg) = force (n) × lever arm (m) ÷ body mass (kg). lsi = involved ÷ uninvolved × 100.  hhd-testing" style="--pc:#60a5fa">
   <button class="head" type="button" aria-expanded="false" aria-controls="hhd-testing-body">
-    <span class="badges"><span class="b b-page" style="--pc:#60a5fa" title="Dossier page 3">P3</span><span class="b b-type b-info">INFO</span><span class="b b-calc" title="Calculator">CALC</span><span class="b b-draft">DRAFT</span></span>
+    <span class="badges"><span class="b b-page" style="--pc:#60a5fa" title="Dossier page 3">P3</span><span class="b b-type b-info">INFO</span><span class="b b-calc" title="Calculator">CALC</span></span>
     <span class="title">Hand-Held Dynamometry — Knee &amp; Hip</span>
     <span class="chev" aria-hidden="true"></span>
   </button>
@@ -475,7 +476,7 @@ footer{max-width:900px;margin:0 auto;padding:10px 16px 40px;color:var(--mut);fon
   </div>
 </article><article class="card" id="knee-rom" data-page="3" data-type="info" data-vid="0" data-calc="1" data-search="knee range of motion &amp; heel-height difference loss of full extension is the key early warning after knee injury and surgery. goniometer: axis on the lateral femoral epicondyle, arms to the greater trochanter and lateral malleolus. extension: supine with the heel on a bolster; record hyperextension as negative. heel-height difference: prone with the legs off the table edge; measure the height difference between heels. flexion: supine heel slide.  knee-rom" style="--pc:#60a5fa">
   <button class="head" type="button" aria-expanded="false" aria-controls="knee-rom-body">
-    <span class="badges"><span class="b b-page" style="--pc:#60a5fa" title="Dossier page 3">P3</span><span class="b b-type b-info">INFO</span><span class="b b-calc" title="Calculator">CALC</span><span class="b b-draft">DRAFT</span></span>
+    <span class="badges"><span class="b b-page" style="--pc:#60a5fa" title="Dossier page 3">P3</span><span class="b b-type b-info">INFO</span><span class="b b-calc" title="Calculator">CALC</span></span>
     <span class="title">Knee Range of Motion &amp; Heel-Height Difference</span>
     <span class="chev" aria-hidden="true"></span>
   </button>
@@ -484,7 +485,7 @@ footer{max-width:900px;margin:0 auto;padding:10px 16px 40px;color:var(--mut);fon
   </div>
 </article><article class="card" id="oarsi-performance-tests" data-page="3" data-type="info" data-vid="0" data-calc="0" data-search="oarsi performance-based tests (knee oa) recommended core set of physical performance tests for hip and knee osteoarthritis. 30-s chair stand: number of full stands in 30 s, arms crossed. 40-m fast-paced walk: 4 × 10 m as fast as safely possible; report speed (m/s). stair climb test: time to ascend and descend a flight of stairs. optional: timed up and go, 6-minute walk.  oarsi-performance-tests" style="--pc:#60a5fa">
   <button class="head" type="button" aria-expanded="false" aria-controls="oarsi-performance-tests-body">
-    <span class="badges"><span class="b b-page" style="--pc:#60a5fa" title="Dossier page 3">P3</span><span class="b b-type b-info">INFO</span><span class="b b-draft">DRAFT</span></span>
+    <span class="badges"><span class="b b-page" style="--pc:#60a5fa" title="Dossier page 3">P3</span><span class="b b-type b-info">INFO</span></span>
     <span class="title">OARSI Performance-Based Tests (Knee OA)</span>
     <span class="chev" aria-hidden="true"></span>
   </button>
@@ -493,7 +494,7 @@ footer{max-width:900px;margin:0 auto;padding:10px 16px 40px;color:var(--mut);fon
   </div>
 </article><article class="card" id="anterior-drawer" data-page="4" data-type="test" data-vid="1" data-calc="0" data-search="anterior drawer test — acl anterior tibial translation at 90°; useful in chronic injury, unreliable acutely (pain, effusion, hamstring guarding). supine, hip 45°, knee 90°, sit on the foot. check the hamstrings are relaxed. pull the proximal tibia forward; compare translation and end-point. increased anterior translation compared with the other side. anterior-drawer" style="--pc:#60a5fa">
   <button class="head" type="button" aria-expanded="false" aria-controls="anterior-drawer-body">
-    <span class="badges"><span class="b b-page" style="--pc:#60a5fa" title="Dossier page 4">P4</span><span class="b b-type b-test">TEST</span><span class="b b-vid" title="Video">&#9654; VIDEO</span><span class="b b-draft">DRAFT</span></span>
+    <span class="badges"><span class="b b-page" style="--pc:#60a5fa" title="Dossier page 4">P4</span><span class="b b-type b-test">TEST</span><span class="b b-vid" title="Video">&#9654; VIDEO</span></span>
     <span class="title">Anterior Drawer Test — ACL</span>
     <span class="chev" aria-hidden="true"></span>
   </button>
@@ -505,7 +506,7 @@ footer{max-width:900px;margin:0 auto;padding:10px 16px 40px;color:var(--mut);fon
   </div>
 </article><article class="card" id="apley-test" data-page="4" data-type="test" data-vid="1" data-calc="0" data-search="apley&#x27;s test — meniscus vs ligament compression (grind) and distraction in prone; low accuracy — use within the meniscal composite. prone with the knee at 90°. compress through the heel while rotating the tibia (grind). then distract and rotate. pain with compression (meniscus) more than with distraction (ligament). apley-test" style="--pc:#60a5fa">
   <button class="head" type="button" aria-expanded="false" aria-controls="apley-test-body">
-    <span class="badges"><span class="b b-page" style="--pc:#60a5fa" title="Dossier page 4">P4</span><span class="b b-type b-test">TEST</span><span class="b b-vid" title="Video">&#9654; VIDEO</span><span class="b b-draft">DRAFT</span></span>
+    <span class="badges"><span class="b b-page" style="--pc:#60a5fa" title="Dossier page 4">P4</span><span class="b b-type b-test">TEST</span><span class="b b-vid" title="Video">&#9654; VIDEO</span></span>
     <span class="title">Apley&#x27;s Test — Meniscus vs Ligament</span>
     <span class="chev" aria-hidden="true"></span>
   </button>
@@ -517,7 +518,7 @@ footer{max-width:900px;margin:0 auto;padding:10px 16px 40px;color:var(--mut);fon
   </div>
 </article><article class="card" id="lever-sign" data-page="4" data-type="test" data-vid="1" data-calc="0" data-search="lever sign (lelli&#x27;s test) — acl uses the tibia as a lever over a fist placed under the calf. supine, knee extended. place a fist under the proximal third of the calf. push down on the distal quadriceps. watch the heel. heel stays on the table (does not rise) → acl rupture. lever-sign" style="--pc:#60a5fa">
   <button class="head" type="button" aria-expanded="false" aria-controls="lever-sign-body">
-    <span class="badges"><span class="b b-page" style="--pc:#60a5fa" title="Dossier page 4">P4</span><span class="b b-type b-test">TEST</span><span class="b b-vid" title="Video">&#9654; VIDEO</span><span class="b b-draft">DRAFT</span></span>
+    <span class="badges"><span class="b b-page" style="--pc:#60a5fa" title="Dossier page 4">P4</span><span class="b b-type b-test">TEST</span><span class="b b-vid" title="Video">&#9654; VIDEO</span></span>
     <span class="title">Lever Sign (Lelli&#x27;s Test) — ACL</span>
     <span class="chev" aria-hidden="true"></span>
   </button>
@@ -529,7 +530,7 @@ footer{max-width:900px;margin:0 auto;padding:10px 16px 40px;color:var(--mut);fon
   </div>
 </article><article class="card" id="pivot-shift" data-page="4" data-type="test" data-vid="1" data-calc="0" data-search="pivot shift test — acl reproduces the anterolateral rotatory subluxation of acl deficiency. supine, knee extended; internally rotate the tibia and apply valgus. flex the knee slowly from extension. feel for the lateral tibial plateau reducing with a clunk at ~20–40°. a clunk or glide as the tibia reduces. often negative in an awake, guarding patient. pivot-shift" style="--pc:#60a5fa">
   <button class="head" type="button" aria-expanded="false" aria-controls="pivot-shift-body">
-    <span class="badges"><span class="b b-page" style="--pc:#60a5fa" title="Dossier page 4">P4</span><span class="b b-type b-test">TEST</span><span class="b b-vid" title="Video">&#9654; VIDEO</span><span class="b b-draft">DRAFT</span></span>
+    <span class="badges"><span class="b b-page" style="--pc:#60a5fa" title="Dossier page 4">P4</span><span class="b b-type b-test">TEST</span><span class="b b-vid" title="Video">&#9654; VIDEO</span></span>
     <span class="title">Pivot Shift Test — ACL</span>
     <span class="chev" aria-hidden="true"></span>
   </button>
@@ -541,7 +542,7 @@ footer{max-width:900px;margin:0 auto;padding:10px 16px 40px;color:var(--mut);fon
   </div>
 </article><article class="card" id="quadriceps-active-test" data-page="4" data-type="test" data-vid="1" data-calc="0" data-search="quadriceps active test — pcl a quadriceps contraction pulls a posteriorly sagged tibia forward. supine, knee at 90°, foot stabilised. look for posterior sag. ask the patient to slide the foot forward gently against your hand. visible anterior shift of the tibia from a sagged position. quadriceps-active-test" style="--pc:#60a5fa">
   <button class="head" type="button" aria-expanded="false" aria-controls="quadriceps-active-test-body">
-    <span class="badges"><span class="b b-page" style="--pc:#60a5fa" title="Dossier page 4">P4</span><span class="b b-type b-test">TEST</span><span class="b b-vid" title="Video">&#9654; VIDEO</span><span class="b b-draft">DRAFT</span></span>
+    <span class="badges"><span class="b b-page" style="--pc:#60a5fa" title="Dossier page 4">P4</span><span class="b b-type b-test">TEST</span><span class="b b-vid" title="Video">&#9654; VIDEO</span></span>
     <span class="title">Quadriceps Active Test — PCL</span>
     <span class="chev" aria-hidden="true"></span>
   </button>
@@ -553,7 +554,7 @@ footer{max-width:900px;margin:0 auto;padding:10px 16px 40px;color:var(--mut);fon
   </div>
 </article><article class="card" id="single-leg-decline-squat" data-page="4" data-type="test" data-vid="0" data-calc="0" data-search="single-leg decline squat — tendon load test loads the patellar tendon; the pain rating (0–10) is used to monitor tendinopathy. stand on one leg on a 25° decline board, trunk upright. squat slowly to the painful range or 60–90° knee flexion. rate pain 0–10 at the same depth each time. inferior-pole pain that increases with depth or load. use the rating to guide progression (≤ 3/10 to progress). single-leg-decline-squat" style="--pc:#60a5fa">
   <button class="head" type="button" aria-expanded="false" aria-controls="single-leg-decline-squat-body">
-    <span class="badges"><span class="b b-page" style="--pc:#60a5fa" title="Dossier page 4">P4</span><span class="b b-type b-test">TEST</span><span class="b b-draft">DRAFT</span></span>
+    <span class="badges"><span class="b b-page" style="--pc:#60a5fa" title="Dossier page 4">P4</span><span class="b b-type b-test">TEST</span></span>
     <span class="title">Single-Leg Decline Squat — Tendon Load Test</span>
     <span class="chev" aria-hidden="true"></span>
   </button>
@@ -562,7 +563,7 @@ footer{max-width:900px;margin:0 auto;padding:10px 16px 40px;color:var(--mut);fon
   </div>
 </article><article class="card" id="acl-cluster" data-page="4" data-type="info" data-vid="0" data-calc="0" data-search="acl rupture — clinical cluster history plus the lachman test is the backbone; the pivot shift rules in when positive. history: non-contact pivot or deceleration, a &quot;pop&quot;, swelling within 2 h, giving way. lachman first (best sensitivity). pivot shift if the patient can relax (best specificity). anterior drawer helps in chronic presentations; lever sign is an alternative when the patient is guarding.  acl-cluster" style="--pc:#60a5fa">
   <button class="head" type="button" aria-expanded="false" aria-controls="acl-cluster-body">
-    <span class="badges"><span class="b b-page" style="--pc:#60a5fa" title="Dossier page 4">P4</span><span class="b b-type b-info">INFO</span><span class="b b-draft">DRAFT</span></span>
+    <span class="badges"><span class="b b-page" style="--pc:#60a5fa" title="Dossier page 4">P4</span><span class="b b-type b-info">INFO</span></span>
     <span class="title">ACL Rupture — Clinical Cluster</span>
     <span class="chev" aria-hidden="true"></span>
   </button>
@@ -571,7 +572,7 @@ footer{max-width:900px;margin:0 auto;padding:10px 16px 40px;color:var(--mut);fon
   </div>
 </article><article class="card" id="acl-rsi" data-page="4 8" data-type="info" data-vid="0" data-calc="1" data-search="acl-rsi — psychological readiness 12 items on emotions, confidence and risk appraisal about returning to sport (0–100). patient rates each item; the score is the mean (0–100, higher = more ready). repeat at 6 months and before return to sport.  acl-rsi" style="--pc:#60a5fa">
   <button class="head" type="button" aria-expanded="false" aria-controls="acl-rsi-body">
-    <span class="badges"><span class="b b-page" style="--pc:#60a5fa" title="Dossier pages 4, 8">P4·8</span><span class="b b-type b-info">INFO</span><span class="b b-calc" title="Calculator">CALC</span><span class="b b-draft">DRAFT</span></span>
+    <span class="badges"><span class="b b-page" style="--pc:#60a5fa" title="Dossier pages 4, 8">P4·8</span><span class="b b-type b-info">INFO</span><span class="b b-calc" title="Calculator">CALC</span></span>
     <span class="title">ACL-RSI — Psychological Readiness</span>
     <span class="chev" aria-hidden="true"></span>
   </button>
@@ -580,7 +581,7 @@ footer{max-width:900px;margin:0 auto;padding:10px 16px 40px;color:var(--mut);fon
   </div>
 </article><article class="card" id="ikdc" data-page="4" data-type="info" data-vid="0" data-calc="0" data-search="ikdc subjective knee form 18-item knee-specific measure of symptoms, function and sport activity (0–100). patient completes all items. score 0–100 (higher = better).  ikdc" style="--pc:#60a5fa">
   <button class="head" type="button" aria-expanded="false" aria-controls="ikdc-body">
-    <span class="badges"><span class="b b-page" style="--pc:#60a5fa" title="Dossier page 4">P4</span><span class="b b-type b-info">INFO</span><span class="b b-draft">DRAFT</span></span>
+    <span class="badges"><span class="b b-page" style="--pc:#60a5fa" title="Dossier page 4">P4</span><span class="b b-type b-info">INFO</span></span>
     <span class="title">IKDC Subjective Knee Form</span>
     <span class="chev" aria-hidden="true"></span>
   </button>
@@ -589,7 +590,7 @@ footer{max-width:900px;margin:0 auto;padding:10px 16px 40px;color:var(--mut);fon
   </div>
 </article><article class="card" id="koos" data-page="4" data-type="info" data-vid="0" data-calc="0" data-search="koos — knee injury &amp; osteoarthritis outcome score 42 items in 5 subscales: pain, symptoms, adl, sport/recreation, quality of life. 0 = extreme problems, 100 = no problems. patient completes all 42 items (last week). score each subscale separately 0–100; do not sum into one total. koos4 (mean of pain, symptoms, sport/rec, qol) is often used after acl injury.  koos" style="--pc:#60a5fa">
   <button class="head" type="button" aria-expanded="false" aria-controls="koos-body">
-    <span class="badges"><span class="b b-page" style="--pc:#60a5fa" title="Dossier page 4">P4</span><span class="b b-type b-info">INFO</span><span class="b b-draft">DRAFT</span></span>
+    <span class="badges"><span class="b b-page" style="--pc:#60a5fa" title="Dossier page 4">P4</span><span class="b b-type b-info">INFO</span></span>
     <span class="title">KOOS — Knee Injury &amp; Osteoarthritis Outcome Score</span>
     <span class="chev" aria-hidden="true"></span>
   </button>
@@ -598,7 +599,7 @@ footer{max-width:900px;margin:0 auto;padding:10px 16px 40px;color:var(--mut);fon
   </div>
 </article><article class="card" id="kujala-akps" data-page="4" data-type="info" data-vid="0" data-calc="0" data-search="kujala / anterior knee pain scale (akps) 13-item scale for patellofemoral pain, 0–100 (higher = better). patient completes all 13 items. sum the item scores (max 100).  kujala-akps" style="--pc:#60a5fa">
   <button class="head" type="button" aria-expanded="false" aria-controls="kujala-akps-body">
-    <span class="badges"><span class="b b-page" style="--pc:#60a5fa" title="Dossier page 4">P4</span><span class="b b-type b-info">INFO</span><span class="b b-draft">DRAFT</span></span>
+    <span class="badges"><span class="b b-page" style="--pc:#60a5fa" title="Dossier page 4">P4</span><span class="b b-type b-info">INFO</span></span>
     <span class="title">Kujala / Anterior Knee Pain Scale (AKPS)</span>
     <span class="chev" aria-hidden="true"></span>
   </button>
@@ -607,7 +608,7 @@ footer{max-width:900px;margin:0 auto;padding:10px 16px 40px;color:var(--mut);fon
   </div>
 </article><article class="card" id="oxford-knee-score" data-page="4" data-type="info" data-vid="0" data-calc="1" data-search="oxford knee score (oks) 12 items scored 0–4, total 0–48 (48 = best), for knee oa and arthroplasty. patient completes the 12 items (past 4 weeks). sum the scores (0–48).  oxford-knee-score" style="--pc:#60a5fa">
   <button class="head" type="button" aria-expanded="false" aria-controls="oxford-knee-score-body">
-    <span class="badges"><span class="b b-page" style="--pc:#60a5fa" title="Dossier page 4">P4</span><span class="b b-type b-info">INFO</span><span class="b b-calc" title="Calculator">CALC</span><span class="b b-draft">DRAFT</span></span>
+    <span class="badges"><span class="b b-page" style="--pc:#60a5fa" title="Dossier page 4">P4</span><span class="b b-type b-info">INFO</span><span class="b b-calc" title="Calculator">CALC</span></span>
     <span class="title">Oxford Knee Score (OKS)</span>
     <span class="chev" aria-hidden="true"></span>
   </button>
@@ -616,7 +617,7 @@ footer{max-width:900px;margin:0 auto;padding:10px 16px 40px;color:var(--mut);fon
   </div>
 </article><article class="card" id="visa-p" data-page="4" data-type="info" data-vid="0" data-calc="0" data-search="visa-p — patellar tendinopathy 8-item questionnaire on pain, function and sport for patellar tendinopathy, 0–100 (100 = asymptomatic). patient completes all 8 questions. track the score across the loading programme.  visa-p" style="--pc:#60a5fa">
   <button class="head" type="button" aria-expanded="false" aria-controls="visa-p-body">
-    <span class="badges"><span class="b b-page" style="--pc:#60a5fa" title="Dossier page 4">P4</span><span class="b b-type b-info">INFO</span><span class="b b-draft">DRAFT</span></span>
+    <span class="badges"><span class="b b-page" style="--pc:#60a5fa" title="Dossier page 4">P4</span><span class="b b-type b-info">INFO</span></span>
     <span class="title">VISA-P — Patellar Tendinopathy</span>
     <span class="chev" aria-hidden="true"></span>
   </button>
@@ -625,7 +626,7 @@ footer{max-width:900px;margin:0 auto;padding:10px 16px 40px;color:var(--mut);fon
   </div>
 </article><article class="card" id="nmes-quadriceps" data-page="6" data-type="info" data-vid="0" data-calc="0" data-search="quadriceps nmes — set-up &amp; dosing restores quadriceps strength after tka (high-quality evidence) and acl reconstruction. electrodes: one over the vmo motor point, one over the proximal lateral thigh. knee at ~60°, strap-resisted (isometric). biphasic symmetric current, 30–50 hz, 250–400 µs, 10–15 s on / 45–50 s off. turn intensity to the maximum tolerated — the training effect depends on contraction intensity. after tka: 15 contractions, twice daily from 48 h, for 6 weeks.  nmes-quadriceps" style="--pc:#fb923c">
   <button class="head" type="button" aria-expanded="false" aria-controls="nmes-quadriceps-body">
-    <span class="badges"><span class="b b-page" style="--pc:#fb923c" title="Dossier page 6">P6</span><span class="b b-type b-info">INFO</span><span class="b b-draft">DRAFT</span></span>
+    <span class="badges"><span class="b b-page" style="--pc:#fb923c" title="Dossier page 6">P6</span><span class="b b-type b-info">INFO</span></span>
     <span class="title">Quadriceps NMES — Set-Up &amp; Dosing</span>
     <span class="chev" aria-hidden="true"></span>
   </button>
@@ -634,7 +635,7 @@ footer{max-width:900px;margin:0 auto;padding:10px 16px 40px;color:var(--mut);fon
   </div>
 </article><article class="card" id="eswt-knee" data-page="6" data-type="info" data-vid="0" data-calc="0" data-search="shockwave therapy (eswt) at the knee patellar tendinopathy is an ismst approved standard indication; pes anserine tendinopathy, osgood-schlatter and knee oa are empirically tested uses. combine with progressive tendon loading — eswt is an adjunct. typical: 3–5 sessions at weekly intervals. focused 0.10–0.30 mj/mm² (1500–2000 pulses) or radial 2.0–3.0 bar (2000–3000 pulses) for patellar tendinopathy. use low energy over open growth plates (osgood-schlatter).  eswt-knee" style="--pc:#fb923c">
   <button class="head" type="button" aria-expanded="false" aria-controls="eswt-knee-body">
-    <span class="badges"><span class="b b-page" style="--pc:#fb923c" title="Dossier page 6">P6</span><span class="b b-type b-info">INFO</span><span class="b b-draft">DRAFT</span></span>
+    <span class="badges"><span class="b b-page" style="--pc:#fb923c" title="Dossier page 6">P6</span><span class="b b-type b-info">INFO</span></span>
     <span class="title">Shockwave Therapy (ESWT) at the Knee</span>
     <span class="chev" aria-hidden="true"></span>
   </button>
@@ -643,7 +644,7 @@ footer{max-width:900px;margin:0 auto;padding:10px 16px 40px;color:var(--mut);fon
   </div>
 </article><article class="card" id="tens-dosing" data-page="6" data-type="info" data-vid="0" data-calc="0" data-search="tens — dosing &amp; tolerance short-term pain relief; intensity is the key parameter. conventional: 80–120 hz, 50–100 µs, strong but comfortable, during activity. acupuncture-like: 2–4 hz, visible rhythmic contraction, 20–30 min. daily identical settings lead to tolerance; vary frequency or use mixed modes.  tens-dosing" style="--pc:#fb923c">
   <button class="head" type="button" aria-expanded="false" aria-controls="tens-dosing-body">
-    <span class="badges"><span class="b b-page" style="--pc:#fb923c" title="Dossier page 6">P6</span><span class="b b-type b-info">INFO</span><span class="b b-draft">DRAFT</span></span>
+    <span class="badges"><span class="b b-page" style="--pc:#fb923c" title="Dossier page 6">P6</span><span class="b b-type b-info">INFO</span></span>
     <span class="title">TENS — Dosing &amp; Tolerance</span>
     <span class="chev" aria-hidden="true"></span>
   </button>
@@ -652,7 +653,7 @@ footer{max-width:900px;margin:0 auto;padding:10px 16px 40px;color:var(--mut);fon
   </div>
 </article><article class="card" id="cupping-knee" data-page="7" data-type="info" data-vid="0" data-calc="0" data-search="cupping — parameters &amp; safety dry, dynamic and movement-based cupping are low-evidence adjuncts; wet cupping breaches the skin. static dry cupping: light–moderate suction, 5–10 min. dynamic (sliding): lubricant, light suction, 3–5 min along the fibres. cupping with movement: cup in place + active knee motion, 2–3 min. wet cupping: sterile single-use equipment and bloodborne-pathogen precautions; confirm scope of practice and licensure.  cupping-knee" style="--pc:#2dd4bf">
   <button class="head" type="button" aria-expanded="false" aria-controls="cupping-knee-body">
-    <span class="badges"><span class="b b-page" style="--pc:#2dd4bf" title="Dossier page 7">P7</span><span class="b b-type b-info">INFO</span><span class="b b-draft">DRAFT</span></span>
+    <span class="badges"><span class="b b-page" style="--pc:#2dd4bf" title="Dossier page 7">P7</span><span class="b b-type b-info">INFO</span></span>
     <span class="title">Cupping — Parameters &amp; Safety</span>
     <span class="chev" aria-hidden="true"></span>
   </button>
@@ -661,7 +662,7 @@ footer{max-width:900px;margin:0 auto;padding:10px 16px 40px;color:var(--mut);fon
   </div>
 </article><article class="card" id="dry-needling-knee" data-page="7" data-type="info" data-vid="0" data-calc="0" data-search="dry needling around the knee — safety know the neurovascular anatomy before needling the thigh and posterior knee. vastus medialis: stay anterior to sartorius (femoral vessels in the adductor canal). rectus femoris: avoid the femoral triangle. distal biceps femoris: the common peroneal nerve runs medial to the tendon — aim laterally. never needle the centre of the popliteal fossa (popliteal artery, vein, tibial nerve). no needling into the joint or near a knee replacement.  dry-needling-knee" style="--pc:#2dd4bf">
   <button class="head" type="button" aria-expanded="false" aria-controls="dry-needling-knee-body">
-    <span class="badges"><span class="b b-page" style="--pc:#2dd4bf" title="Dossier page 7">P7</span><span class="b b-type b-info">INFO</span><span class="b b-draft">DRAFT</span></span>
+    <span class="badges"><span class="b b-page" style="--pc:#2dd4bf" title="Dossier page 7">P7</span><span class="b b-type b-info">INFO</span></span>
     <span class="title">Dry Needling Around the Knee — Safety</span>
     <span class="chev" aria-hidden="true"></span>
   </button>
@@ -670,7 +671,7 @@ footer{max-width:900px;margin:0 auto;padding:10px 16px 40px;color:var(--mut);fon
   </div>
 </article><article class="card" id="knee-manual-therapy" data-page="7" data-type="info" data-vid="0" data-calc="0" data-search="knee manual therapy joint mobilisation to restore extension / flexion and modulate pain — always paired with exercise. tibiofemoral pa glide for extension, ap glide for flexion: grades iii–iv, 3 × 30–60 s. patellar glides after surgery to prevent stiffness and patella infera (avoid lateral glides after mpfl reconstruction). mulligan mobilisation with movement: tibial rotation glide during painful flexion / extension, only if pain-free.  knee-manual-therapy" style="--pc:#2dd4bf">
   <button class="head" type="button" aria-expanded="false" aria-controls="knee-manual-therapy-body">
-    <span class="badges"><span class="b b-page" style="--pc:#2dd4bf" title="Dossier page 7">P7</span><span class="b b-type b-info">INFO</span><span class="b b-draft">DRAFT</span></span>
+    <span class="badges"><span class="b b-page" style="--pc:#2dd4bf" title="Dossier page 7">P7</span><span class="b b-type b-info">INFO</span></span>
     <span class="title">Knee Manual Therapy</span>
     <span class="chev" aria-hidden="true"></span>
   </button>
@@ -679,7 +680,7 @@ footer{max-width:900px;margin:0 auto;padding:10px 16px 40px;color:var(--mut);fon
   </div>
 </article><article class="card" id="hop-tests" data-page="8" data-type="test" data-vid="1" data-calc="1" data-search="hop test battery (noyes) single, triple, crossover and 6-m timed hops — compare involved with uninvolved limb. warm-up and practice trials; 2 recorded trials per leg, best or average. single and triple hop: distance (land and hold). crossover hop: three hops crossing a 15 cm line. 6-m timed hop: time over 6 m. lsi = involved ÷ uninvolved × 100 (timed: uninvolved ÷ involved × 100). lsi ≥ 90% for each test. hop-tests" style="--pc:#4ade80">
   <button class="head" type="button" aria-expanded="false" aria-controls="hop-tests-body">
-    <span class="badges"><span class="b b-page" style="--pc:#4ade80" title="Dossier page 8">P8</span><span class="b b-type b-test">TEST</span><span class="b b-vid" title="Video">&#9654; VIDEO</span><span class="b b-calc" title="Calculator">CALC</span><span class="b b-draft">DRAFT</span></span>
+    <span class="badges"><span class="b b-page" style="--pc:#4ade80" title="Dossier page 8">P8</span><span class="b b-type b-test">TEST</span><span class="b b-vid" title="Video">&#9654; VIDEO</span><span class="b b-calc" title="Calculator">CALC</span></span>
     <span class="title">Hop Test Battery (Noyes)</span>
     <span class="chev" aria-hidden="true"></span>
   </button>
@@ -691,7 +692,7 @@ footer{max-width:900px;margin:0 auto;padding:10px 16px 40px;color:var(--mut);fon
   </div>
 </article><article class="card" id="less-landing" data-page="8" data-type="test" data-vid="0" data-calc="0" data-search="landing error scoring system (less) jump-landing task scored for technique errors from video (front and side). jump from a 30 cm box to a target at half the athlete&#x27;s height, then rebound vertically. film from the front and side; score errors at initial contact and through landing (knee valgus, stiff landing, asymmetry, trunk). lower scores = better technique. ≥ 5 errors = cut-point associated with acl injury in elite youth soccer. less-landing" style="--pc:#4ade80">
   <button class="head" type="button" aria-expanded="false" aria-controls="less-landing-body">
-    <span class="badges"><span class="b b-page" style="--pc:#4ade80" title="Dossier page 8">P8</span><span class="b b-type b-test">TEST</span><span class="b b-draft">DRAFT</span></span>
+    <span class="badges"><span class="b b-page" style="--pc:#4ade80" title="Dossier page 8">P8</span><span class="b b-type b-test">TEST</span></span>
     <span class="title">Landing Error Scoring System (LESS)</span>
     <span class="chev" aria-hidden="true"></span>
   </button>
@@ -700,7 +701,7 @@ footer{max-width:900px;margin:0 auto;padding:10px 16px 40px;color:var(--mut);fon
   </div>
 </article><article class="card" id="y-balance" data-page="8" data-type="test" data-vid="1" data-calc="0" data-search="y-balance test — lower quarter dynamic single-leg balance in anterior, posteromedial and posterolateral reach directions. stand on one leg on the centre plate; reach as far as possible with the other foot in each direction. 3 trials per direction after practice; record the best. normalise to leg length for the composite score. anterior reach asymmetry &gt; 4 cm flags higher injury risk. y-balance" style="--pc:#4ade80">
   <button class="head" type="button" aria-expanded="false" aria-controls="y-balance-body">
-    <span class="badges"><span class="b b-page" style="--pc:#4ade80" title="Dossier page 8">P8</span><span class="b b-type b-test">TEST</span><span class="b b-vid" title="Video">&#9654; VIDEO</span><span class="b b-draft">DRAFT</span></span>
+    <span class="badges"><span class="b b-page" style="--pc:#4ade80" title="Dossier page 8">P8</span><span class="b b-type b-test">TEST</span><span class="b b-vid" title="Video">&#9654; VIDEO</span></span>
     <span class="title">Y-Balance Test — Lower Quarter</span>
     <span class="chev" aria-hidden="true"></span>
   </button>
@@ -712,7 +713,7 @@ footer{max-width:900px;margin:0 auto;padding:10px 16px 40px;color:var(--mut);fon
   </div>
 </article><article class="card" id="bfr-knee" data-page="8" data-type="info" data-vid="0" data-calc="1" data-search="blood flow restriction (bfr) — lower limb low-load training with partial vascular occlusion to build strength when heavy loads are not yet allowed. measure arterial occlusion pressure (aop) with the cuff on the proximal thigh (doppler or device). working pressure: 40–80% of aop. load 20–40% of 1rm: 30-15-15-15 repetitions, 30–60 s rest between sets. restriction time 5–10 min per exercise, then deflate (reperfusion) between exercises; 2–3 sessions per week.  bfr-knee" style="--pc:#4ade80">
   <button class="head" type="button" aria-expanded="false" aria-controls="bfr-knee-body">
-    <span class="badges"><span class="b b-page" style="--pc:#4ade80" title="Dossier page 8">P8</span><span class="b b-type b-info">INFO</span><span class="b b-calc" title="Calculator">CALC</span><span class="b b-draft">DRAFT</span></span>
+    <span class="badges"><span class="b b-page" style="--pc:#4ade80" title="Dossier page 8">P8</span><span class="b b-type b-info">INFO</span><span class="b b-calc" title="Calculator">CALC</span></span>
     <span class="title">Blood Flow Restriction (BFR) — Lower Limb</span>
     <span class="chev" aria-hidden="true"></span>
   </button>
@@ -721,7 +722,7 @@ footer{max-width:900px;margin:0 auto;padding:10px 16px 40px;color:var(--mut);fon
   </div>
 </article><article class="card" id="tendon-loading-knee" data-page="8" data-type="info" data-vid="0" data-calc="0" data-search="progressive tendon-loading programme (patellar tendon) four stages progressed by pain response — superior to eccentric decline squats in a randomised trial. stage 1 — isometric: single-leg leg press or leg extension at 60°, 5 × 45 s at ~70% mvc, daily. stage 2 — isotonic: heavy, slow resistance (3 s up / 3 s down), progressing 15rm → 6rm. stage 3 — energy storage: jumps, hops and bounding, every 2–3 days. stage 4 — sport-specific: return to training, then competition. progress when single-leg squat pain is ≤ 3/10 and the stage has been done for ≥ 1 week.  tendon-loading-knee" style="--pc:#4ade80">
   <button class="head" type="button" aria-expanded="false" aria-controls="tendon-loading-knee-body">
-    <span class="badges"><span class="b b-page" style="--pc:#4ade80" title="Dossier page 8">P8</span><span class="b b-type b-info">INFO</span><span class="b b-draft">DRAFT</span></span>
+    <span class="badges"><span class="b b-page" style="--pc:#4ade80" title="Dossier page 8">P8</span><span class="b b-type b-info">INFO</span></span>
     <span class="title">Progressive Tendon-Loading Programme (Patellar Tendon)</span>
     <span class="chev" aria-hidden="true"></span>
   </button>
@@ -730,7 +731,7 @@ footer{max-width:900px;margin:0 auto;padding:10px 16px 40px;color:var(--mut);fon
   </div>
 </article><article class="card" id="return-to-running" data-page="8" data-type="info" data-vid="0" data-calc="0" data-search="return-to-running gate after acl reconstruction most studies allow running at ~12 weeks on time alone; add clinical criteria. ≥ 12 weeks after surgery. full extension and ≥ 95% flexion. effusion trace or less. pain ≤ 2/10. quadriceps lsi &gt; 80% (&gt; 70% minimum reported). pain-free repeated single-leg hopping.  return-to-running" style="--pc:#4ade80">
   <button class="head" type="button" aria-expanded="false" aria-controls="return-to-running-body">
-    <span class="badges"><span class="b b-page" style="--pc:#4ade80" title="Dossier page 8">P8</span><span class="b b-type b-info">INFO</span><span class="b b-draft">DRAFT</span></span>
+    <span class="badges"><span class="b b-page" style="--pc:#4ade80" title="Dossier page 8">P8</span><span class="b b-type b-info">INFO</span></span>
     <span class="title">Return-to-Running Gate After ACL Reconstruction</span>
     <span class="chev" aria-hidden="true"></span>
   </button>
@@ -739,7 +740,7 @@ footer{max-width:900px;margin:0 auto;padding:10px 16px 40px;color:var(--mut);fon
   </div>
 </article><article class="card" id="rts-battery-knee" data-page="8" data-type="info" data-vid="0" data-calc="1" data-search="return-to-sport battery after acl reconstruction passing objective criteria and waiting until at least 9 months lowers reinjury risk. quadriceps strength and four hop tests: lsi ≥ 90%. patient-reported knee function ≥ 90% (kos-adls, global rating). landing quality, balance, change of direction and psychological readiness. delay return to at least 9 months after surgery.  rts-battery-knee" style="--pc:#4ade80">
   <button class="head" type="button" aria-expanded="false" aria-controls="rts-battery-knee-body">
-    <span class="badges"><span class="b b-page" style="--pc:#4ade80" title="Dossier page 8">P8</span><span class="b b-type b-info">INFO</span><span class="b b-calc" title="Calculator">CALC</span><span class="b b-draft">DRAFT</span></span>
+    <span class="badges"><span class="b b-page" style="--pc:#4ade80" title="Dossier page 8">P8</span><span class="b b-type b-info">INFO</span><span class="b b-calc" title="Calculator">CALC</span></span>
     <span class="title">Return-to-Sport Battery After ACL Reconstruction</span>
     <span class="chev" aria-hidden="true"></span>
   </button>
@@ -748,7 +749,7 @@ footer{max-width:900px;margin:0 auto;padding:10px 16px 40px;color:var(--mut);fon
   </div>
 </article><article class="card" id="tsk-11" data-page="8" data-type="info" data-vid="0" data-calc="1" data-search="tsk-11 — tampa scale of kinesiophobia 11 items scored 1–4 (total 11–44); higher = more fear of movement / reinjury. patient rates each item 1 (strongly disagree) to 4 (strongly agree). sum the 11 items.  tsk-11" style="--pc:#4ade80">
   <button class="head" type="button" aria-expanded="false" aria-controls="tsk-11-body">
-    <span class="badges"><span class="b b-page" style="--pc:#4ade80" title="Dossier page 8">P8</span><span class="b b-type b-info">INFO</span><span class="b b-calc" title="Calculator">CALC</span><span class="b b-draft">DRAFT</span></span>
+    <span class="badges"><span class="b b-page" style="--pc:#4ade80" title="Dossier page 8">P8</span><span class="b b-type b-info">INFO</span><span class="b b-calc" title="Calculator">CALC</span></span>
     <span class="title">TSK-11 — Tampa Scale of Kinesiophobia</span>
     <span class="chev" aria-hidden="true"></span>
   </button>

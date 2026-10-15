@@ -66,4 +66,4 @@ Authoring shortcuts in `src/pages/*.html` (expanded at build time):
 An unknown `data-atlas` id stops the build.
 
 ## Status
-All Atlas cards are **draft** until clinically reviewed; set `review_status: approved` per card in `tests.yaml`.
+All 65 Atlas cards were clinically reviewed and approved (October 2026). A new or edited card can be set back to `review_status: draft` in `tests.yaml`; it then shows a DRAFT badge and the banner counts it.

@@ -121,6 +121,7 @@ body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 "Source Sans 3
 @font-face{font-family:"Source Sans 3";src:url("fonts/SourceSans3-Bold.ttf") format("truetype");font-weight:700;font-display:swap}
 a{color:#93c5fd}
 .banner{background:#7c2d12;color:#ffedd5;text-align:center;font-weight:700;font-size:13px;padding:6px 16px}
+.banner.ok{background:#14532d;color:#dcfce7}
 header{position:sticky;top:0;z-index:20;background:rgba(11,18,32,.96);backdrop-filter:blur(6px);border-bottom:1px solid var(--line);padding:12px 16px 10px}
 .hwrap{max-width:900px;margin:0 auto}
 .trow{display:flex;align-items:center;justify-content:space-between;gap:12px}
@@ -332,6 +333,12 @@ def main():
              f'<button class="chip" data-f="calc" type="button">Calculators ({nc})</button>']
     chips += [f'<button class="chip" data-f="p{p}" type="button">P{p} {html.escape(PAGE_NAMES[p])}</button>' for p in pages]
     built = datetime.date.today().isoformat()
+    ndraft = sum(1 for c in cards if c.get('review_status', 'draft') != 'approved')
+    banner = ('<div class="banner">Clinical education reference &mdash; ' +
+              (f'{ndraft} card{"s" if ndraft != 1 else ""} still under clinical review' if ndraft else 'clinically reviewed') +
+              '. Not a substitute for clinical judgement.</div>')
+    if not ndraft:
+        banner = banner.replace('class="banner"', 'class="banner ok"')
     doc = f'''<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -343,7 +350,7 @@ def main():
 <style>{CSS}</style>
 </head>
 <body>
-<div class="banner">Clinical education reference &mdash; draft under clinical review. Not a substitute for clinical judgement.</div>
+{banner}
 <header><div class="hwrap">
   <div class="trow"><h1>Knee Complex &mdash; Test Atlas</h1><span class="count"><span id="shown">{n}</span> / {n} cards</span></div>
   <input id="q" class="search" type="search" placeholder="Search tests, criteria, conditions…" autocomplete="off" aria-label="Search the atlas">

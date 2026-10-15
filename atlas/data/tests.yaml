@@ -44,7 +44,7 @@
     url: https://doi.org/10.7326/0003-4819-140-5-200403020-00013
   - text: 'Bulloch B et al. Validation of the Ottawa Knee Rule in children: a multicenter study. Ann Emerg Med 2003;42:48-55'
     url: https://doi.org/10.1067/mem.2003.196
-  review_status: draft
+  review_status: approved
 - id: pittsburgh-knee-rule
   type: info
   title: Pittsburgh Knee Rule
@@ -84,7 +84,7 @@
   sources:
   - text: Seaberg DC et al. Multicenter comparison of two clinical decision rules for radiography in acute, high-risk knee injuries. Ann Emerg Med 1998;32:8-13
     url: https://doi.org/10.1016/s0196-0644(98)70092-7
-  review_status: draft
+  review_status: approved
 - id: knee-dislocation-abi
   type: info
   title: Knee Dislocation — Vascular Screen (ABI)
@@ -122,7 +122,7 @@
   sources:
   - text: Mills WJ et al. The value of the ankle-brachial index for diagnosing arterial injury after knee dislocation. J Trauma 2004;56:1261-5
     url: https://doi.org/10.1097/01.ta.0000068995.63201.0b
-  review_status: draft
+  review_status: approved
 - id: extensor-mechanism
   type: test
   title: Extensor Mechanism — Active SLR & Extensor Lag
@@ -138,7 +138,7 @@
   evidence: E
   video_url: null
   sources: []
-  review_status: draft
+  review_status: approved
 - id: compartment-delta-p
   type: info
   title: Compartment Syndrome — 6 Ps & ΔP
@@ -174,7 +174,7 @@
   sources:
   - text: 'McQueen MM, Court-Brown CM. Compartment monitoring in tibial fractures: the pressure threshold for decompression. J Bone Joint Surg Br 1996;78:99-104'
     url: https://doi.org/10.1302/0301-620x.78b1.0780099
-  review_status: draft
+  review_status: approved
 - id: septic-arthritis-knee
   type: info
   title: Septic Arthritis of the Knee
@@ -191,7 +191,7 @@
   sources:
   - text: Margaretten ME et al. Does this adult patient have septic arthritis? JAMA 2007;297:1478-88
     url: https://doi.org/10.1001/jama.297.13.1478
-  review_status: draft
+  review_status: approved
 - id: scfe-hip-screen
   type: info
   title: Hip Screen — SCFE / Referred Knee Pain
@@ -206,7 +206,7 @@
   evidence: E
   video_url: null
   sources: []
-  review_status: draft
+  review_status: approved
 - id: budapest-crps
   type: info
   title: Budapest Criteria — CRPS
@@ -267,7 +267,7 @@
   sources:
   - text: Harden RN et al. Validation of proposed diagnostic criteria (the "Budapest Criteria") for CRPS. Pain 2010;150:268-74
     url: https://doi.org/10.1016/j.pain.2010.04.030
-  review_status: draft
+  review_status: approved
 - id: stroke-test
   type: test
   title: Stroke (Sweep) Test — Effusion Grading
@@ -286,7 +286,7 @@
   sources:
   - text: Sturgill LP et al. Interrater reliability of a clinical scale to assess knee joint effusion. JOSPT 2009;39:845-9
     url: https://doi.org/10.2519/jospt.2009.3143
-  review_status: draft
+  review_status: approved
 - id: single-leg-squat
   type: test
   title: Single-Leg Squat — Movement Quality
@@ -304,7 +304,7 @@
   sources:
   - text: Crossley KM et al. Performance on the single-leg squat task indicates hip abductor muscle function. Am J Sports Med 2011;39:866-73
     url: https://doi.org/10.1177/0363546510395456
-  review_status: draft
+  review_status: approved
 - id: psfs
   type: info
   title: Patient-Specific Functional Scale (PSFS)
@@ -330,7 +330,7 @@
   sources:
   - text: 'Stratford P et al. Assessing disability and change on individual patients: a report of a patient specific measure. Physiother Can 1995;47:258-63'
     url: https://doi.org/10.3138/ptc.47.4.258
-  review_status: draft
+  review_status: approved
 - id: pfp-diagnosis
   type: info
   title: Patellofemoral Pain — Diagnosis
@@ -354,7 +354,7 @@
     free_full_text: true
   - text: 'Willy RW et al. Patellofemoral Pain: clinical practice guideline. JOSPT 2019;49(9):CPG1-CPG95'
     url: https://doi.org/10.2519/jospt.2019.0302
-  review_status: draft
+  review_status: approved
 - id: patellar-tendinopathy
   type: info
   title: Patellar Tendinopathy — Clinical Diagnosis
@@ -377,7 +377,7 @@
     text: 'Breda SJ et al. Effectiveness of progressive tendon-loading exercise therapy in patients with patellar tendinopathy: a randomised clinical trial. BJSM 2021;55:501-9'
     url: https://pmc.ncbi.nlm.nih.gov/articles/PMC8070614/
     free_full_text: true
-  review_status: draft
+  review_status: approved
 - id: moving-patellar-apprehension
   type: test
   title: Moving Patellar Apprehension Test
@@ -395,7 +395,7 @@
   sources:
   - text: Ahmad CS et al. The moving patellar apprehension test for lateral patellar instability. Am J Sports Med 2009;37:791-6
     url: https://doi.org/10.1177/0363546508328113
-  review_status: draft
+  review_status: approved
 - id: hoffa-test
   type: test
   title: Hoffa's Test — Infrapatellar Fat Pad
@@ -410,7 +410,7 @@
   video_url: https://www.youtube.com/watch?v=QdCJU7EQc3k
   video_title: Hoffa's Test | Infrapatellar Fat Pad Syndrome
   sources: []
-  review_status: draft
+  review_status: approved
 - id: valgus-stress-test
   type: test
   title: Valgus Stress Test — MCL
@@ -430,7 +430,7 @@
   - &id002
     text: 'Logerstedt DS et al. Knee ligament sprain: clinical practice guideline revision 2017. JOSPT 2017;47(11):A1-A47'
     url: https://doi.org/10.2519/jospt.2017.0303
-  review_status: draft
+  review_status: approved
 - id: joint-line-tenderness
   type: test
   title: Joint Line Tenderness — Meniscus
@@ -449,7 +449,7 @@
   - &id001
     text: 'Smith BE et al. Special tests for assessing meniscal tears within the knee: a systematic review and meta-analysis. Evid Based Med 2015;20:88-97'
     url: https://doi.org/10.1136/ebmed-2014-110160
-  review_status: draft
+  review_status: approved
 - id: mcmurray-test
   type: test
   title: McMurray Test — Meniscus
@@ -467,7 +467,7 @@
   video_title: McMurray Test | Meniscus Damage
   sources:
   - *id001
-  review_status: draft
+  review_status: approved
 - id: thessaly-test
   type: test
   title: Thessaly Test (20°) — Meniscus
@@ -487,7 +487,7 @@
   - *id001
   - text: Karachalios T et al. Diagnostic accuracy of a new clinical test (the Thessaly test) for early detection of meniscal tears. J Bone Joint Surg Am 2005;87:955-62
     url: https://doi.org/10.2106/jbjs.d.02338
-  review_status: draft
+  review_status: approved
 - id: knee-oa-clinical
   type: info
   title: Knee Osteoarthritis — Clinical Diagnosis
@@ -547,7 +547,7 @@
     free_full_text: true
   - text: Altman R et al. Development of criteria for the classification and reporting of osteoarthritis of the knee. Arthritis Rheum 1986;29:1039-49
     url: https://doi.org/10.1002/art.1780290816
-  review_status: draft
+  review_status: approved
 - id: noble-test
   type: test
   title: Noble Compression Test — ITB Syndrome
@@ -562,7 +562,7 @@
   video_url: https://www.youtube.com/watch?v=PmUGl7ryQOo
   video_title: Noble Compression / Noble's Test | Iliotibial Band Friction Syndrome ITBS
   sources: []
-  review_status: draft
+  review_status: approved
 - id: ober-test
   type: test
   title: Ober Test — Lateral Hip / ITB Tension
@@ -577,7 +577,7 @@
   video_url: https://www.youtube.com/watch?v=Amjv6FzDeLE
   video_title: Ober's Test | Iliotibial Band Tightness
   sources: []
-  review_status: draft
+  review_status: approved
 - id: varus-stress-test
   type: test
   title: Varus Stress Test — LCL / Posterolateral Corner
@@ -594,7 +594,7 @@
   video_title: Varus Stress Test of the Knee | Lateral Collateral Ligament Injury
   sources:
   - *id002
-  review_status: draft
+  review_status: approved
 - id: dial-test
   type: test
   title: Dial Test — Posterolateral Corner
@@ -610,7 +610,7 @@
   video_title: Dial Test / Loomer Test | Posterolateral Rotatory Instability of the Knee
   sources:
   - *id002
-  review_status: draft
+  review_status: approved
 - id: posterior-sag
   type: test
   title: Posterior Sag (Godfrey) Sign — PCL
@@ -627,7 +627,7 @@
   - &id003
     text: Rubinstein RA et al. The accuracy of the clinical examination in the setting of posterior cruciate ligament injuries. Am J Sports Med 1994;22:550-7
     url: https://doi.org/10.1177/036354659402200419
-  review_status: draft
+  review_status: approved
 - id: posterior-drawer
   type: test
   title: Posterior Drawer Test — PCL
@@ -644,7 +644,7 @@
   video_title: Posterior Drawer Test | Posterior Cruciate Ligament
   sources:
   - *id003
-  review_status: draft
+  review_status: approved
 - id: lachman-test
   type: test
   title: Lachman Test — ACL
@@ -663,7 +663,7 @@
   - &id004
     text: 'Benjaminse A et al. Clinical diagnosis of an anterior cruciate ligament rupture: a meta-analysis. JOSPT 2006;36:267-88'
     url: https://doi.org/10.2519/jospt.2006.2011
-  review_status: draft
+  review_status: approved
 - id: meniscal-composite
   type: info
   title: Meniscal Tear — Composite Examination
@@ -715,7 +715,7 @@
     url: https://doi.org/10.1016/j.arthro.2006.06.014
   - text: 'Logerstedt DS et al. Meniscal and articular cartilage lesions: clinical practice guideline revision 2018. JOSPT 2018;48(2):A1-A50'
     url: https://doi.org/10.2519/jospt.2018.0301
-  review_status: draft
+  review_status: approved
 - id: wilson-test
   type: test
   title: Wilson's Test — Osteochondritis Dissecans
@@ -732,7 +732,7 @@
   sources:
   - text: 'Conrad JM, Stanitski CL. Osteochondritis dissecans: Wilson''s sign revisited. Am J Sports Med 2003;31:777-8'
     url: https://doi.org/10.1177/03635465030310052301
-  review_status: draft
+  review_status: approved
 - id: prone-knee-bend
   type: test
   title: Prone Knee Bend — Femoral Nerve
@@ -748,7 +748,7 @@
   video_url: https://www.youtube.com/watch?v=whb3Rknage0
   video_title: Reversed Lasègue / Prone Knee Bend Test | Lumbar Radicular Syndrome
   sources: []
-  review_status: draft
+  review_status: approved
 - id: slump-test
   type: test
   title: Slump Test — Sciatic / Tibial
@@ -763,7 +763,7 @@
   video_url: https://www.youtube.com/watch?v=HFGfP84uwEo
   video_title: The SLUMP Test | Neurodynamic Testing
   sources: []
-  review_status: draft
+  review_status: approved
 - id: fadir-faber
   type: test
   title: FADIR / FABER — Hip Screen
@@ -778,7 +778,7 @@
   video_url: https://www.youtube.com/watch?v=xyJUIhsL4lg
   video_title: FADDIR Test
   sources: []
-  review_status: draft
+  review_status: approved
 - id: apley-test
   type: test
   title: Apley's Test — Meniscus vs Ligament
@@ -794,7 +794,7 @@
   video_title: Apley's Test | Meniscus Injury
   sources:
   - *id001
-  review_status: draft
+  review_status: approved
 - id: knee-rom
   type: info
   title: Knee Range of Motion & Heel-Height Difference
@@ -826,7 +826,7 @@
       text: Within ~1°
       tone: good
   sources: []
-  review_status: draft
+  review_status: approved
 - id: patellar-mobility
   type: test
   title: Patellar Mobility (Glides & Quadrants)
@@ -841,7 +841,7 @@
   evidence: E
   video_url: null
   sources: []
-  review_status: draft
+  review_status: approved
 - id: beighton
   type: info
   title: Beighton Score — Generalised Joint Hypermobility
@@ -909,7 +909,7 @@
   - text: Malek S et al. The Beighton Score as a measure of generalised joint hypermobility. Rheumatol Int 2021;41:1707-16
     url: https://pmc.ncbi.nlm.nih.gov/articles/PMC8390395/
     free_full_text: true
-  review_status: draft
+  review_status: approved
 - id: hhd-testing
   type: info
   title: Hand-Held Dynamometry — Knee & Hip
@@ -944,7 +944,7 @@
     text: 'Grindem H et al. Simple decision rules can reduce reinjury risk by 84% after ACL reconstruction: the Delaware-Oslo ACL cohort study. BJSM 2016;50:804-8'
     url: https://pmc.ncbi.nlm.nih.gov/articles/PMC4912389/
     free_full_text: true
-  review_status: draft
+  review_status: approved
 - id: oarsi-performance-tests
   type: info
   title: OARSI Performance-Based Tests (Knee OA)
@@ -961,7 +961,7 @@
   sources:
   - text: Dobson F et al. Reliability and measurement error of the OARSI recommended performance-based tests of physical function in hip and knee OA. Osteoarthritis Cartilage 2017;25:1792-6
     url: https://doi.org/10.1016/j.joca.2017.06.006
-  review_status: draft
+  review_status: approved
 - id: lateral-step-down
   type: test
   title: Lateral Step-Down Test — Quality of Movement
@@ -1017,7 +1017,7 @@
   - text: Piva SR et al. Reliability of measures of impairments associated with patellofemoral pain syndrome. BMC Musculoskelet Disord 2006;7:33
     url: https://pmc.ncbi.nlm.nih.gov/articles/PMC1557500/
     free_full_text: true
-  review_status: draft
+  review_status: approved
 - id: y-balance
   type: test
   title: Y-Balance Test — Lower Quarter
@@ -1035,7 +1035,7 @@
   sources:
   - text: Plisky PJ et al. Star Excursion Balance Test as a predictor of lower extremity injury in high school basketball players. JOSPT 2006;36:911-9
     url: https://doi.org/10.2519/jospt.2006.2244
-  review_status: draft
+  review_status: approved
 - id: acl-cluster
   type: info
   title: ACL Rupture — Clinical Cluster
@@ -1054,7 +1054,7 @@
     text: 'Hu S et al. Lever sign test for anterior cruciate ligament injuries: a diagnostic meta-analysis. J Orthop Surg Res 2024;19:155'
     url: https://pmc.ncbi.nlm.nih.gov/articles/PMC10905791/
     free_full_text: true
-  review_status: draft
+  review_status: approved
 - id: pivot-shift
   type: test
   title: Pivot Shift Test — ACL
@@ -1071,7 +1071,7 @@
   video_title: The Lateral Pivot-Shift Test for Anterior Cruciate Ligament Rupture
   sources:
   - *id004
-  review_status: draft
+  review_status: approved
 - id: anterior-drawer
   type: test
   title: Anterior Drawer Test — ACL
@@ -1088,7 +1088,7 @@
   video_title: Anterior Drawer Test | Anterior Cruciate Ligament Rupture
   sources:
   - *id004
-  review_status: draft
+  review_status: approved
 - id: lever-sign
   type: test
   title: Lever Sign (Lelli's Test) — ACL
@@ -1105,7 +1105,7 @@
   video_title: The Lever Sign or Lelli's Test | Anterior Cruciate Ligament Rupture
   sources:
   - *id005
-  review_status: draft
+  review_status: approved
 - id: quadriceps-active-test
   type: test
   title: Quadriceps Active Test — PCL
@@ -1121,7 +1121,7 @@
   video_title: Quadriceps Active Test / Active Drawer Test | Posterior Cruciate Ligament Tear
   sources:
   - *id003
-  review_status: draft
+  review_status: approved
 - id: single-leg-decline-squat
   type: test
   title: Single-Leg Decline Squat — Tendon Load Test
@@ -1136,7 +1136,7 @@
   video_url: null
   sources:
   - *id006
-  review_status: draft
+  review_status: approved
 - id: koos
   type: info
   title: KOOS — Knee Injury & Osteoarthritis Outcome Score
@@ -1153,7 +1153,7 @@
   - text: 'Roos EM, Lohmander LS. The Knee injury and Osteoarthritis Outcome Score (KOOS): from joint injury to osteoarthritis. Health Qual Life Outcomes 2003;1:64'
     url: https://pmc.ncbi.nlm.nih.gov/articles/PMC280702/
     free_full_text: true
-  review_status: draft
+  review_status: approved
 - id: ikdc
   type: info
   title: IKDC Subjective Knee Form
@@ -1168,7 +1168,7 @@
   sources:
   - text: Irrgang JJ et al. Responsiveness of the International Knee Documentation Committee Subjective Knee Form. Am J Sports Med 2006;34:1567-73
     url: https://doi.org/10.1177/0363546506288855
-  review_status: draft
+  review_status: approved
 - id: kujala-akps
   type: info
   title: Kujala / Anterior Knee Pain Scale (AKPS)
@@ -1183,7 +1183,7 @@
   sources:
   - text: 'Crossley KM et al. Analysis of outcome measures for persons with patellofemoral pain: which are reliable and valid? Arch Phys Med Rehabil 2004;85:815-22'
     url: https://doi.org/10.1016/s0003-9993(03)00613-0
-  review_status: draft
+  review_status: approved
 - id: visa-p
   type: info
   title: VISA-P — Patellar Tendinopathy
@@ -1197,7 +1197,7 @@
   video_url: null
   sources:
   - *id006
-  review_status: draft
+  review_status: approved
 - id: oxford-knee-score
   type: info
   title: Oxford Knee Score (OKS)
@@ -1223,7 +1223,7 @@
   - text: Beard DJ et al. Meaningful changes for the Oxford hip and knee scores after joint replacement surgery. J Clin Epidemiol 2015;68:73-9
     url: https://pmc.ncbi.nlm.nih.gov/articles/PMC4270450/
     free_full_text: true
-  review_status: draft
+  review_status: approved
 - id: acl-rsi
   type: info
   title: ACL-RSI — Psychological Readiness
@@ -1253,7 +1253,7 @@
   - text: 'Sell TC et al. ACL-RSI scores over time after ACL reconstruction: a systematic review with meta-analysis. Sports Med Open 2024;10:49'
     url: https://pmc.ncbi.nlm.nih.gov/articles/PMC11061071/
     free_full_text: true
-  review_status: draft
+  review_status: approved
 - id: tsk-11
   type: info
   title: TSK-11 — Tampa Scale of Kinesiophobia
@@ -1278,7 +1278,7 @@
   sources:
   - text: 'Woby SR et al. Psychometric properties of the TSK-11: a shortened version of the Tampa Scale for Kinesiophobia. Pain 2005;117:137-44'
     url: https://doi.org/10.1016/j.pain.2005.05.029
-  review_status: draft
+  review_status: approved
 - id: eswt-knee
   type: info
   title: Shockwave Therapy (ESWT) at the Knee
@@ -1296,7 +1296,7 @@
   - text: ISMST — Indications and contraindications for shockwave therapy
     url: https://shockwavetherapy.org/indications/
     free_full_text: true
-  review_status: draft
+  review_status: approved
 - id: nmes-quadriceps
   type: info
   title: Quadriceps NMES — Set-Up & Dosing
@@ -1322,7 +1322,7 @@
     text: Kotsifaki R et al. Aspetar clinical practice guideline on rehabilitation after ACL reconstruction. BJSM 2023;57:500-14
     url: https://pmc.ncbi.nlm.nih.gov/articles/PMC11785408/
     free_full_text: true
-  review_status: draft
+  review_status: approved
 - id: tens-dosing
   type: info
   title: TENS — Dosing & Tolerance
@@ -1338,7 +1338,7 @@
   sources:
   - *id007
   - *id008
-  review_status: draft
+  review_status: approved
 - id: knee-manual-therapy
   type: info
   title: Knee Manual Therapy
@@ -1354,7 +1354,7 @@
   sources:
   - *id007
   - *id008
-  review_status: draft
+  review_status: approved
 - id: dry-needling-knee
   type: info
   title: Dry Needling Around the Knee — Safety
@@ -1371,7 +1371,7 @@
   video_url: null
   sources:
   - *id007
-  review_status: draft
+  review_status: approved
 - id: cupping-knee
   type: info
   title: Cupping — Parameters & Safety
@@ -1386,7 +1386,7 @@
   cautions: Avoid with anticoagulants / bleeding disorders, fragile skin, DVT or varicosities, unhealed incisions, neuropathy, active infection.
   video_url: null
   sources: []
-  review_status: draft
+  review_status: approved
 - id: tendon-loading-knee
   type: info
   title: Progressive Tendon-Loading Programme (Patellar Tendon)
@@ -1406,7 +1406,7 @@
   - *id009
   - text: Rio E et al. Isometric exercise induces analgesia and reduces inhibition in patellar tendinopathy. BJSM 2015;49:1277-83
     url: https://doi.org/10.1136/bjsports-2014-094386
-  review_status: draft
+  review_status: approved
 - id: bfr-knee
   type: info
   title: Blood Flow Restriction (BFR) — Lower Limb
@@ -1438,7 +1438,7 @@
     url: https://pmc.ncbi.nlm.nih.gov/articles/PMC6530612/
     free_full_text: true
   - *id010
-  review_status: draft
+  review_status: approved
 - id: return-to-running
   type: info
   title: Return-to-Running Gate After ACL Reconstruction
@@ -1458,7 +1458,7 @@
   - text: 'Rambaud AJM et al. Criteria for return to running after ACL reconstruction: a scoping review. BJSM 2018;52:1437-44'
     url: https://doi.org/10.1136/bjsports-2017-098602
   - *id010
-  review_status: draft
+  review_status: approved
 - id: rts-battery-knee
   type: info
   title: Return-to-Sport Battery After ACL Reconstruction
@@ -1495,7 +1495,7 @@
   - text: Wellsandt E et al. Limb symmetry indexes can overestimate knee function after ACL injury. JOSPT 2017;47:334-8
     url: https://pmc.ncbi.nlm.nih.gov/articles/PMC5483854/
     free_full_text: true
-  review_status: draft
+  review_status: approved
 - id: hop-tests
   type: test
   title: Hop Test Battery (Noyes)
@@ -1525,7 +1525,7 @@
       mode: time
   sources:
   - *id011
-  review_status: draft
+  review_status: approved
 - id: less-landing
   type: test
   title: Landing Error Scoring System (LESS)
@@ -1543,4 +1543,4 @@
   - text: Padua DA et al. The Landing Error Scoring System as a screening tool for an ACL injury-prevention program in elite-youth soccer athletes. J Athl Train 2015;50:589-95
     url: https://pmc.ncbi.nlm.nih.gov/articles/PMC4527442/
     free_full_text: true
-  review_status: draft
+  review_status: approved
