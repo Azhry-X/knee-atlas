@@ -1,0 +1,1719 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Knee Complex Master Dossier</title>
+<meta name="description" content="9-page A4 master clinical assessment and rehabilitation dossier for the knee: triage and red flags, differential diagnosis, biomechanics, special test clusters, PROMs, post-surgical protocols, electrophysical agents, manual therapy, loading continuum, return-to-sport battery and flowsheet. Companion Test Atlas: https://azhry-x.github.io/knee-atlas">
+<style>
+/* =====================================================================
+   KNEE COMPLEX MASTER DOSSIER — design system
+   Mirrors the Ankle & Foot dossier (v1.0-ankle) so both read as one series.
+   Fonts are bundled locally; no CDN, no emoji fonts (icons are inline SVG).
+   ===================================================================== */
+@font-face { font-family: "Source Sans 3"; src: url("fonts/SourceSans3-Regular.ttf") format("truetype"); font-weight: 400; font-style: normal; font-display: block; }
+@font-face { font-family: "Source Sans 3"; src: url("fonts/SourceSans3-Semibold.ttf") format("truetype"); font-weight: 600; font-style: normal; font-display: block; }
+@font-face { font-family: "Source Sans 3"; src: url("fonts/SourceSans3-Bold.ttf") format("truetype"); font-weight: 700; font-style: normal; font-display: block; }
+@font-face { font-family: "Source Sans 3"; src: url("fonts/SourceSans3-Bold.ttf") format("truetype"); font-weight: 800; font-style: normal; font-display: block; }
+@font-face { font-family: "Source Sans 3"; src: url("fonts/SourceSans3-Bold.ttf") format("truetype"); font-weight: 900; font-style: normal; font-display: block; }
+
+:root{
+  --ink:#0f172a; --navy:#1e3a8a; --crimson:#991b1b; --emerald:#065f46; --paper:#f8fafc;
+  --line:#cbd5e1; --line2:#e2e8f0; --mut:#475569;
+}
+
+/* ================= PRINT GEOMETRY ================= */
+@page { size: A4 portrait; margin: 0; }
+@media print {
+  html, body { width: 210mm; margin: 0; padding: 0; background: #FFFFFF !important; }
+  .clinical-page { page-break-after: always; break-after: page; margin: 0 !important; box-shadow: none !important; }
+  .clinical-page:last-child { page-break-after: auto; break-after: auto; }
+}
+
+*{ box-sizing:border-box; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+html,body{ margin:0; padding:0; }
+body{
+  font-family: "Source Sans 3", sans-serif;
+  color:var(--ink); font-size:9px; line-height:1.26;
+  font-variant-numeric: tabular-nums;
+  background:linear-gradient(160deg,#0f172a 0%,#1e293b 45%,#1e3a8a 100%);
+  background-attachment:fixed;
+}
+@media screen { body{ padding:10mm 0; } }
+
+/* ================= PAGE SHELL ================= */
+.clinical-page{
+  width:210mm; height:297mm; max-height:297mm; box-sizing:border-box; padding:5mm 7mm;
+  overflow:hidden; display:flex; flex-direction:column; justify-content:space-between;
+  background-color:#F8FAFC; position:relative; gap:1.5mm;
+  margin:0 auto 12mm auto; box-shadow:0 20px 60px rgba(2,6,23,.55);
+}
+.clinical-page:last-child{ margin-bottom:0; }
+.clinical-page{ --accent:#1E3A8A; --accent-soft:#eef2ff; --accent-line:#bfdbfe; }
+.clinical-page[data-accent="red"]{    --accent:#B42318; --accent-soft:#fef2f2; --accent-line:#fecaca; }
+.clinical-page[data-accent="blue"]{   --accent:#1E3A8A; --accent-soft:#eef2ff; --accent-line:#bfdbfe; }
+.clinical-page[data-accent="purple"]{ --accent:#6B21A8; --accent-soft:#faf5ff; --accent-line:#e9d5ff; }
+.clinical-page[data-accent="orange"]{ --accent:#C2410C; --accent-soft:#fff7ed; --accent-line:#fed7aa; }
+.clinical-page[data-accent="teal"]{   --accent:#0F766E; --accent-soft:#f0fdfa; --accent-line:#99f6e4; }
+.clinical-page[data-accent="green"]{  --accent:#15803D; --accent-soft:#f0fdf4; --accent-line:#bbf7d0; }
+.clinical-page[data-accent="slate"]{  --accent:#334155; --accent-soft:#f1f5f9; --accent-line:#cbd5e1; }
+.pg-body{ flex:1 1 auto; min-height:0; display:flex; flex-direction:column; gap:1.5mm; }
+
+/* ================= HEADER / FOOTER ================= */
+.pg-hdr{ display:flex; justify-content:space-between; align-items:flex-end; gap:3mm; border-bottom:2px solid var(--accent); padding-bottom:1.3mm; }
+.brand{ display:flex; align-items:center; gap:2mm; min-width:0; }
+.logo{ width:9.5mm; height:9.5mm; border-radius:2mm; flex:0 0 auto; background:linear-gradient(135deg,#1e3a8a 0%,#0f172a 100%); color:#fff;
+  display:flex; align-items:center; justify-content:center; font-weight:900; font-size:9.5px; letter-spacing:.02em; box-shadow:inset 0 0 0 1px rgba(255,255,255,.15); }
+.kicker{ font-size:6.8px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:#64748b; }
+.pg-title{ font-size:12.5px; font-weight:900; letter-spacing:-.01em; color:var(--ink); line-height:1.1; margin:0; }
+.hdr-right{ display:flex; align-items:flex-end; gap:2.5mm; font-size:8px; white-space:nowrap; }
+.pgno{ background:var(--accent); color:#fff; font-weight:800; font-size:9px; padding:1mm 2.2mm; border-radius:1.4mm; letter-spacing:.06em; }
+
+.pg-ftr{ display:flex; flex-direction:column; align-items:stretch; gap:1mm;
+  border-top:1px solid var(--line); padding-top:1mm; font-size:7.2px; color:var(--mut); min-height:22px; }
+.ftr-top{ display:flex; justify-content:space-between; align-items:center; gap:2mm; white-space:nowrap; }
+.pg-ftr b{ color:var(--ink); }
+.pnav-wrap{ display:flex; align-items:center; justify-content:center; flex:0 0 auto; }
+.pnav{ display:flex; align-items:center; justify-content:center; gap:1.5pt; min-height:34pt; width:100%; padding:0;
+  background:#F1F5F9; border:1px solid #CBD5E1; border-radius:1.5mm; }
+.pnav .nl{ font-size:6.8px; font-weight:800; letter-spacing:.08em; color:#475569; text-transform:uppercase; margin-right:.8mm; line-height:1; }
+.ptab{ position:relative; display:inline-flex; align-items:center; justify-content:center;
+  width:34pt; height:34pt; min-width:34pt; border-radius:1mm; border:1px solid var(--line);
+  background:#fff; color:var(--navy); font-weight:800; font-size:11pt; text-decoration:none; line-height:1; }
+.ptab.on{ background:var(--accent); color:#fff; border-color:var(--accent); }
+
+/* ================= LINK BADGES & EVIDENCE MARKERS ================= */
+.ref-badge, .calc-badge, .guide-badge, .find-badge {
+  position: relative; display: inline-flex; align-items: center; gap: 2px;
+  font-size: 6.8pt; line-height: 1; padding: 1.5px 4px; border-radius: 3px;
+  text-decoration: none; font-weight: 700; white-space: nowrap; vertical-align: middle; letter-spacing: .02em;
+}
+.calc-badge { background-color: #ECFDF5; border: 1px solid #A7F3D0; color: #047857; }
+.guide-badge { background-color: #FFFBEB; border: 1px solid #FDE68A; color: #B45309; }
+.ref-badge { background-color: #F0F9FF; border: 1px solid #BAE6FD; color: #0369A1; }
+.badge-ico{ width:7.5px; height:7.5px; flex:0 0 auto; display:inline-block; }
+.card-h .calc-badge, .card-h .guide-badge{ font-size:6.4pt; text-transform:none; letter-spacing:.01em; }
+
+.eb{ font-size:6.2px; font-weight:800; padding:0.2px 1.8px; border-radius:1.5px; vertical-align:super; line-height:1; display:inline-block; margin-left:1px; text-transform:none; letter-spacing:0; }
+.eb-h{ color:#047857; background:#ecfdf5; border:0.6px solid #a7f3d0; }
+.eb-m{ color:#b45309; background:#fffbeb; border:0.6px solid #fde68a; }
+.eb-l{ color:#b91c1c; background:#fef2f2; border:0.6px solid #fecaca; }
+.eb-e{ color:#4338ca; background:#eef2ff; border:0.6px solid #c7d2fe; }
+
+/* Atlas test-name link (underline = Atlas card; ▸ = verified video) */
+.test-link{ color:inherit; text-decoration:underline; text-decoration-color:rgba(30,58,138,0.45); text-underline-offset:1.6px; font-weight:inherit; }
+.test-link.has-video::after{ content:"\00a0\25B8"; font-size:0.82em; color:#1e3a8a; text-decoration:none; font-weight:700; }
+.card-h .test-link, .card.red > .card-h .test-link{ text-decoration-color:rgba(255,255,255,0.7); }
+.card-h .test-link.has-video::after{ color:#fff; }
+
+/* Atlas info icon */
+.info-icon{ display:inline-flex; align-items:center; justify-content:center; width:3.8mm; height:3.8mm; min-width:3.8mm; text-decoration:none; vertical-align:middle; margin:0 0.2mm; color:var(--accent); }
+.card-h .info-icon{ color:#ffffff; }
+.sh.r .info-icon, .crit .info-icon{ color:var(--crimson); }
+.info-svg{ width:3.3mm; height:3.3mm; display:inline-block; pointer-events:none; }
+
+/* ================= CARDS ================= */
+.card{ border:1px solid var(--line); border-radius:1.6mm; overflow:hidden; background:#fff; }
+.card-h{ background:var(--accent); color:#fff; font-weight:800; font-size:8.4px; letter-spacing:.07em; text-transform:uppercase;
+  padding:1mm 2mm; display:flex; justify-content:space-between; align-items:center; gap:2mm; }
+.card-h > span:first-child{ display:inline-flex; align-items:center; gap:1.2mm; flex-wrap:wrap; }
+.card-b{ padding:1.2mm 2mm; }
+.card.red{ border:2px solid var(--crimson); }
+.card.red > .card-h{ background:linear-gradient(90deg,#991b1b,#7f1d1d); }
+.card.green{ border:2px solid var(--emerald); }
+.card.ink > .card-h{ background:var(--ink); }
+.card.soft{ background:var(--paper); }
+.tag{ font-size:6.8px; font-weight:800; letter-spacing:.08em; background:rgba(255,255,255,.16); border:1px solid rgba(255,255,255,.35);
+  padding:.2mm 1.5mm; border-radius:3mm; white-space:nowrap; }
+
+.sh{ font-weight:800; font-size:8px; text-transform:uppercase; letter-spacing:.05em; color:var(--accent); display:flex; justify-content:space-between;
+  align-items:center; gap:2mm; border-bottom:1px dashed var(--accent-line); padding-bottom:.4mm; margin:.8mm 0 .5mm; }
+.sh > span:first-child{ display:inline-flex; align-items:center; gap:1mm; flex-wrap:wrap; }
+.sh:first-child{ margin-top:0; }
+.sh.r{ color:var(--crimson); border-bottom-color:#fecaca; }
+.sh.g{ color:var(--emerald); border-bottom-color:#a7f3d0; }
+.sh.n{ color:var(--navy); border-bottom-color:#bfdbfe; }
+
+/* Pathway router */
+.router-row{ display:grid; grid-template-columns:minmax(0,25fr) minmax(0,45fr) minmax(0,30fr); gap:1.2mm; min-height:9.0mm; align-items:center; }
+.router-col{ display:flex; align-items:center; flex-wrap:nowrap; gap:0.4mm; min-height:9.0mm; white-space:nowrap; }
+.rchip{ display:inline-flex; align-items:center; justify-content:center; width:4.8mm; min-width:4.8mm; height:9.0mm; min-height:9.0mm;
+  position:relative; background:transparent; color:var(--navy); font-weight:800; font-size:7.4px; text-decoration:none; line-height:1;
+  isolation:isolate; z-index:1; }
+.rchip::before{ content:""; position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:4.4mm; height:4.4mm; border-radius:1mm; border:1px solid #94a3b8; background:#fff; z-index:-1; box-sizing:border-box; }
+.router-col > span{ font-size:7.0px; color:#64748b; font-weight:700; }
+
+/* ================= FORM PRIMITIVES ================= */
+.cb{ display:inline-block; width:12px; height:12px; min-width:12px; border:1.5px solid #334155; border-radius:2.5px; background:#fff; vertical-align:middle; flex:0 0 auto; }
+.cb.sm{ width:9px; height:9px; min-width:9px; border-width:1.3px; border-radius:2px; }
+.cb.r{ border-color:var(--crimson); } .cb.g{ border-color:var(--emerald); } .cb.n{ border-color:var(--navy); } .cb.w{ border-color:#fff; background:transparent; }
+.ci{ display:flex; align-items:flex-start; gap:1.3mm; padding:.25mm 0; }
+.ci > .cb{ margin-top:-0.5px; }
+.cio{ display:inline-flex; align-items:center; gap:.8mm; margin-right:1.8mm; white-space:nowrap; }
+.row{ display:flex; align-items:flex-end; gap:3mm; }
+.fr{ display:flex; align-items:flex-end; gap:1.2mm; white-space:nowrap; min-height:14px; }
+.fr .fl{ flex:1 1 auto; }
+.fl{ display:inline-block; border-bottom:1px solid #94a3b8; min-width:9mm; height:12px; vertical-align:bottom; }
+.fl.s{ min-width:7mm; width:7mm; flex:0 0 auto; } .fl.m{ min-width:12mm; width:12mm; flex:0 0 auto; } .fl.l{ min-width:20mm; width:20mm; flex:0 0 auto; }
+.lb{ font-weight:700; color:#334155; font-size:8px; }
+.mut{ color:var(--mut); } .xs{ font-size:7.4px; } .xxs{ font-size:6.8px; } .b{ font-weight:700; }
+.crim{ color:var(--crimson); } .emer{ color:var(--emerald); } .nav{ color:var(--navy); } .acc{ color:var(--accent); }
+.stat{ display:inline-block; font-size:7px; font-weight:800; padding:.2mm 1.2mm; border-radius:2mm; background:#eff6ff; color:var(--navy); border:1px solid #bfdbfe; white-space:nowrap; text-transform:none; letter-spacing:0; }
+.stat.r{ background:#fef2f2; color:var(--crimson); border-color:#fecaca; }
+.stat.g{ background:#ecfdf5; color:var(--emerald); border-color:#a7f3d0; }
+.stat.w{ background:rgba(255,255,255,.14); color:#fff; border-color:rgba(255,255,255,.4); }
+.lr{ display:inline-flex; align-items:flex-end; gap:.8mm; white-space:nowrap; font-weight:700; color:#64748b; font-size:7.4px; }
+.circ{ display:inline-flex; gap:1.2mm; font-weight:700; color:#334155; font-size:7.8px; }
+.circ span{ border:1px solid var(--line); border-radius:3mm; padding:0 1.3mm; background:#fff; }
+.nprs{ display:inline-flex; gap:2px; }
+.nprs span{ width:14px; height:14px; border-radius:50%; display:inline-flex; align-items:center; justify-content:center; font-size:7.4px; font-weight:800; border:1.3px solid; background:#fff; }
+.mini{ border:1px solid var(--line2); border-radius:1.2mm; padding:.7mm 1.3mm; background:#fff; }
+.box{ border:1.2px solid var(--line); border-radius:1.2mm; padding:.6mm 1.2mm; background:#fff; }
+.box.r{ border-color:#b91c1c; background:#fff5f5; }
+.box.n{ border-color:#93c5fd; background:#f8fbff; }
+.box.g{ border-color:#10b981; background:#f0fdf4; }
+.box.a{ border-color:var(--accent-line); background:var(--accent-soft); }
+
+/* ================= TABLES ================= */
+.t{ width:100%; border-collapse:collapse; font-size:8.6px; font-variant-numeric:tabular-nums; }
+.t th{ background:var(--accent-soft); color:var(--accent); font-weight:800; text-align:left; padding:.7mm 1.1mm; border:1px solid var(--line); font-size:7.1px; text-transform:uppercase; letter-spacing:.04em; line-height:1.15; }
+.t td{ border:1px solid var(--line); padding:.55mm 1.1mm; vertical-align:middle; background:#fff; line-height:1.18; }
+.t tr:nth-child(even) td{ background:#fbfdff; }
+.t td.k{ font-weight:700; } .t td.w{ background:#fff !important; }
+.t.dense td{ font-size:8.2px; padding:.45mm 1mm; }
+.t.red th{ background:#fef2f2; color:var(--crimson); }
+.t.green th{ background:#ecfdf5; color:var(--emerald); }
+.t.navy th{ background:#eef2ff; color:var(--navy); }
+.t td.c, .t th.c{ text-align:center; }
+.t.ink th{ background:var(--ink); color:#fff; border-color:#334155; }
+.t.slate th{ background:#e2e8f0; color:#334155; border-color:#cbd5e1; }
+.t tr.sub td{ background:var(--accent-soft) !important; color:var(--accent); font-weight:800; font-size:7.4px; text-transform:uppercase; letter-spacing:.05em; padding:.4mm 1.1mm; }
+.t tr.redrow td:first-child{ border-left:3px solid #991b1b; }
+
+/* ================= HANDWRITING ZONES ================= */
+.dots{ position:relative; border:1px solid var(--line); border-radius:1.6mm; background-color:#fff;
+  background-image:radial-gradient(circle, #64748b 0.85px, transparent 1.05px); background-size:5mm 5mm; background-position:2.5mm 2.5mm; }
+.dots-l{ position:absolute; top:1mm; left:1.6mm; font-size:7.2px; font-weight:800; color:var(--accent); background:#fff; padding:.2mm 1.2mm;
+  text-transform:uppercase; letter-spacing:.07em; border-radius:1mm; border:1px solid var(--line2); }
+.fill{ flex:1 1 auto; min-height:10mm; }
+
+.crit{ display:flex; align-items:center; gap:1.4mm; border:2px solid var(--crimson); background:repeating-linear-gradient(135deg,#fef2f2 0 6px,#fff 6px 12px);
+  border-radius:1.4mm; padding:.6mm 1.6mm; color:var(--crimson); font-weight:800; font-size:8px; line-height:1.15; }
+.crit svg.stop{ width:10px; height:10px; flex:0 0 auto; }
+.ok{ border:1.5px solid var(--emerald); background:#ecfdf5; border-radius:1.4mm; padding:.6mm 1.6mm; color:var(--emerald); font-weight:700; }
+.note{ border-left:3px solid var(--accent); background:#fff; padding:.7mm 2mm; border-radius:0 1.2mm 1.2mm 0; }
+.divider-v{ border-left:1px dashed #fecaca; padding-left:2mm; }
+
+/* ================= ANATOMICAL WIREFRAMES ================= */
+.bm{ display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:1.4mm; }
+.bm figure{ margin:0; border:1px solid var(--line2); border-radius:1.2mm; background:#fff; padding:.8mm .8mm .4mm; display:flex; flex-direction:column; align-items:center; }
+.bm svg{ width:100%; height:auto; display:block; }
+.bm figcaption{ font-size:6.8px; font-weight:800; letter-spacing:.12em; color:var(--navy); text-transform:uppercase; margin-top:.3mm; }
+.bm .o{ fill:#F8FAFC; stroke:#64748B; stroke-width:1.1; stroke-linejoin:round; stroke-linecap:round; }
+.bm .b{ fill:#eef2ff; stroke:#64748B; stroke-width:.9; }
+.bm .d{ fill:none; stroke:#94a3b8; stroke-width:.7; stroke-dasharray:2 1.6; }
+.bm .lm{ fill:none; stroke:#1e3a8a; stroke-width:.85; stroke-dasharray:2 1.3; }
+.bm .pt{ fill:#1e3a8a; }
+.bm text{ font-family:"Source Sans 3", sans-serif; font-size:5.2px; font-weight:700; fill:#64748B; }
+.bm text.k{ fill:#1e3a8a; }
+
+/* ================= FLOWSHEET ================= */
+.flow td{ vertical-align:top; }
+.flow .p{ font-size:5.6pt; color:#64748b; font-weight:600; line-height:1.05; white-space:nowrap; }
+.vnum{ font-size:10px; font-weight:800; color:var(--navy); text-align:center; vertical-align:middle !important; background:#f8fafc; }
+.bm .mk circle{ fill:#1e3a8a; }
+.bm .mk text{ fill:#fff; font-size:5.4px; font-weight:800; }
+.bm text.s{ font-size:5px; font-weight:800; fill:#94a3b8; letter-spacing:.04em; }
+.sh .calc-badge, .sh .guide-badge{ text-transform:none; letter-spacing:.01em; }
+.t tr.sub .calc-badge, .t tr.sub .guide-badge{ text-transform:none; letter-spacing:.01em; }
+
+/* ---- compiled utility classes (Tailwind v3, generated at build) ---- */
+.static{position:static}.col-span-2{grid-column:span 2/span 2}.col-span-3{grid-column:span 3/span 3}.col-span-5{grid-column:span 5/span 5}.col-span-7{grid-column:span 7/span 7}.col-span-9{grid-column:span 9/span 9}.mb-\[1px\]{margin-bottom:1px}.mb-\[2px\]{margin-bottom:2px}.mr-1{margin-right:.25rem}.mr-2{margin-right:.5rem}.mt-\[\.6mm\]{margin-top:.6mm}.mt-\[1px\]{margin-top:1px}.mt-\[2px\]{margin-top:2px}.mt-\[3px\]{margin-top:3px}.block{display:block}.flex{display:flex}.table{display:table}.grid{display:grid}.flex-1{flex:1 1 0%}.grid-cols-12{grid-template-columns:repeat(12,minmax(0,1fr))}.grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}.grid-cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}.grid-cols-4{grid-template-columns:repeat(4,minmax(0,1fr))}.flex-col{flex-direction:column}.flex-wrap{flex-wrap:wrap}.items-start{align-items:flex-start}.items-center{align-items:center}.justify-between{justify-content:space-between}.justify-around{justify-content:space-around}.gap-1{gap:.25rem}.gap-1\.5{gap:.375rem}.gap-\[1\.2mm\]{gap:1.2mm}.gap-\[1\.5mm\]{gap:1.5mm}.gap-\[1\.5px\]{gap:1.5px}.gap-\[1px\]{gap:1px}.gap-\[2\.5px\]{gap:2.5px}.gap-\[2px\]{gap:2px}.gap-\[3px\]{gap:3px}.gap-x-1{-moz-column-gap:.25rem;column-gap:.25rem}.gap-x-2{-moz-column-gap:.5rem;column-gap:.5rem}.gap-x-3{-moz-column-gap:.75rem;column-gap:.75rem}.gap-x-4{-moz-column-gap:1rem;column-gap:1rem}.gap-x-\[1mm\]{-moz-column-gap:1mm;column-gap:1mm}.border{border-width:1px}.border-t{border-top-width:1px}.border-dashed{border-style:dashed}.border-red-200{--tw-border-opacity:1;border-color:rgb(254 202 202/var(--tw-border-opacity,1))}.border-slate-300{--tw-border-opacity:1;border-color:rgb(203 213 225/var(--tw-border-opacity,1))}.pt-\[1px\]{padding-top:1px}.pt-\[2px\]{padding-top:2px}.text-\[7\.2px\]{font-size:7.2px}.font-bold{font-weight:700}.uppercase{text-transform:uppercase}.underline{text-decoration-line:underline}
+</style>
+</head>
+<body>
+
+<!-- ===================== PAGE 1 ===================== -->
+<div class="clinical-page" id="page-1" data-accent="red">
+  <header class="pg-hdr">
+    <div class="brand">
+      <div class="logo">KNEE</div>
+      <div>
+        <div class="kicker">Knee Complex &middot; Master Clinical Assessment &amp; Rehabilitation Dossier</div>
+        <h1 class="pg-title">Emergency Triage, Red Flags, Rapid Screen &amp; Subjective</h1>
+      </div>
+    </div>
+    <div class="hdr-right">
+      <div class="fr"><span class="lb">MRN</span><span class="fl l"></span></div>
+      <div class="pgno">01 / 09</div>
+    </div>
+  </header>
+  <main class="pg-body">
+ <!-- A : Demographics -->
+<section class="card" id="p1-demographics">
+<div class="card-h"><span>A · Patient Demographics &amp; Injury Profile</span><span class="tag">INTAKE</span></div>
+<div class="card-b flex flex-col gap-[2.5px]">
+<div class="row">
+<div class="fr" style="flex:3.2"><span class="lb">Patient Name</span><span class="fl"></span></div>
+<div class="fr" style="flex:.8"><span class="lb">Age</span><span class="fl"></span></div>
+<div class="fr"><span class="lb">Sex</span><span class="cio"><span class="cb"></span>M</span><span class="cio"><span class="cb"></span>F</span></div>
+<div class="fr" style="flex:1.4"><span class="lb">Date</span><span class="fl"></span></div>
+</div>
+<div class="row">
+<div class="fr" style="flex:2"><span class="lb">Sport / Occupation</span><span class="fl"></span></div>
+<div class="fr"><span class="lb">Level</span><span class="cio"><span class="cb"></span>Rec</span><span class="cio"><span class="cb"></span>Comp</span><span class="cio"><span class="cb"></span>Elite</span></div>
+<div class="fr"><span class="lb">Dominant leg</span><span class="cio"><span class="cb"></span>L</span><span class="cio"><span class="cb"></span>R</span></div>
+<div class="fr"><span class="lb">Side</span><span class="cio"><span class="cb"></span>L</span><span class="cio"><span class="cb"></span>R</span><span class="cio"><span class="cb"></span>Bilat</span></div>
+</div>
+<div class="row">
+<div class="fr" style="flex:1.2"><span class="lb">Date of Injury / Surgery</span><span class="fl"></span></div>
+<div class="fr" style="flex:1.4"><span class="lb">Referrer</span><span class="fl"></span></div>
+<div class="fr" style="flex:1.2"><span class="lb">Prior knee injury / surgery</span><span class="fl"></span></div>
+<div class="fr" style="flex:1.2"><span class="lb">Imaging</span><span class="fl"></span></div>
+</div>
+<div class="fr flex-wrap" style="row-gap:1px"><span class="lb">Mechanism</span>
+<span class="cio"><span class="cb"></span>Non-contact pivot / deceleration (valgus–ER)</span>
+<span class="cio"><span class="cb"></span>Hyperextension</span>
+<span class="cio"><span class="cb"></span>Dashboard (posterior tibial force)</span>
+<span class="cio"><span class="cb"></span>Direct valgus / varus blow</span>
+<span class="cio"><span class="cb"></span>Twist on loaded flexed knee</span>
+<span class="cio"><span class="cb"></span>Patellar dislocation</span>
+<span class="cio"><span class="cb"></span>Insidious / overuse</span>
+</div>
+<div class="fr flex-wrap" style="row-gap:1px"><span class="lb">At injury</span>
+<span class="cio"><span class="cb"></span>Audible “pop”</span>
+<span class="cio"><span class="cb r"></span><b>Swelling &lt; 2 h</b> (haemarthrosis: ACL / fracture / patellar dislocation)</span>
+<span class="cio"><span class="cb"></span>Swelling 6–24 h (meniscal)</span>
+<span class="cio"><span class="cb"></span>Unable to continue</span>
+</div>
+<div class="row">
+<div class="fr"><span class="lb">NPRS Now (circle)</span>
+<span class="nprs">
+<span style="border-color:#065f46;color:#065f46">0</span><span style="border-color:#047857;color:#047857">1</span><span style="border-color:#15803d;color:#15803d">2</span><span style="border-color:#4d7c0f;color:#4d7c0f">3</span><span style="border-color:#a16207;color:#a16207">4</span><span style="border-color:#b45309;color:#b45309">5</span><span style="border-color:#c2410c;color:#c2410c">6</span><span style="border-color:#b91c1c;color:#b91c1c">7</span><span style="border-color:#991b1b;color:#991b1b">8</span><span style="border-color:#7f1d1d;color:#7f1d1d">9</span><span style="border-color:#450a0a;color:#450a0a">10</span>
+</span>
+</div>
+<div class="fr" style="flex:1"><span class="lb">Worst 24 h</span><span class="fl"></span><span class="lb">Best 24 h</span><span class="fl"></span><span class="lb">Activity</span><span class="fl"></span></div>
+</div>
+</div>
+</section>
+<!-- B : Red Flags -->
+<section class="card red" id="p1-redflags">
+<div class="card-h"><span>B · Emergency Screening &amp; Red Flags — Complete Before Any Loading or Manual Therapy</span><span class="tag">TRIAGE GATE</span></div>
+<div class="card-b grid grid-cols-2 gap-x-3">
+<div>
+<div class="box r flex flex-wrap items-center gap-x-[1mm]" style="font-size:6.9px; line-height:1.15; padding:.5mm 1mm;">
+<b class="crim uppercase" style="letter-spacing:.02em;">Ottawa not applicable:</b>
+<span class="cio" style="margin-right:1mm"><span class="cb sm r"></span>Injury &gt; 7 days</span>
+<span class="cio" style="margin-right:1mm"><span class="cb sm r"></span>Pregnancy</span>
+<span class="cio" style="margin-right:1mm"><span class="cb sm r"></span>Altered consciousness</span>
+<span class="cio" style="margin-right:1mm"><span class="cb sm r"></span>Paraplegia</span>
+<span class="cio" style="margin-right:1mm"><span class="cb sm r"></span>Multiple / distracting injuries</span>
+<span class="cio" style="margin-right:1mm"><span class="cb sm r"></span>Isolated skin injury</span>
+<span class="mut">· Age &lt; 18: derived in adults; paediatric validation Sn 100% (Bulloch 2003)</span>
+</div>
+<div class="sh r" style="margin:1px 0 .5px;"><span>Ottawa Knee Rule → Radiograph if ANY <span class="eb eb-h">H</span> <a aria-label="Open Atlas info card" class="info-icon" href="https://azhry-x.github.io/knee-atlas/#ottawa-knee-rule" rel="noopener" target="_blank"><svg aria-hidden="true" class="info-svg" viewbox="0 0 24 24"><circle cx="12" cy="12" fill="none" r="10" stroke="currentColor" stroke-width="2.2"></circle><line stroke="currentColor" stroke-width="2.4" x1="12" x2="12" y1="16.5" y2="10.5"></line><circle cx="12" cy="7.3" fill="currentColor" r="1.4"></circle></svg></a> <a class="calc-badge" href="https://www.mdcalc.com/calc/368/ottawa-knee-rule" rel="noopener" target="_blank"><svg aria-hidden="true" class="badge-ico" viewbox="0 0 10 10"><rect fill="none" height="8.8" rx="1.4" stroke="currentColor" stroke-width="1.1" width="8.8" x=".6" y=".6"></rect><rect fill="currentColor" height="1.7" rx=".3" width="5.6" x="2.2" y="2.1"></rect><circle cx="2.9" cy="5.6" fill="currentColor" r=".62"></circle><circle cx="5" cy="5.6" fill="currentColor" r=".62"></circle><circle cx="7.1" cy="5.6" fill="currentColor" r=".62"></circle><circle cx="2.9" cy="7.6" fill="currentColor" r=".62"></circle><circle cx="5" cy="7.6" fill="currentColor" r=".62"></circle><circle cx="7.1" cy="7.6" fill="currentColor" r=".62"></circle></svg>MDCalc</a></span><span class="stat r">Sn 98.5% · Sp 49%</span></div>
+<div class="grid grid-cols-2 gap-x-2">
+<div class="ci"><span class="cb r"></span><div>Age ≥ 55</div></div>
+<div class="ci"><span class="cb r"></span><div>Tenderness at <b>head of fibula</b></div></div>
+<div class="ci"><span class="cb r"></span><div><b>Isolated patellar</b> tenderness</div></div>
+<div class="ci"><span class="cb r"></span><div>Unable to <b>flex to 90°</b></div></div>
+</div>
+<div class="ci"><span class="cb r"></span><div><b>Unable to bear weight 4 steps</b> (immediately &amp; at assessment)</div></div>
+<div class="flex flex-wrap gap-x-2 xs mb-[1px]"><span class="cio"><span class="cb g"></span><b class="emer">Negative → no X-ray</b></span><span class="cio"><span class="cb r"></span><b class="crim">Positive → knee radiograph</b></span></div>
+<div class="ci xs"><span class="cb sm r" style="margin-top:1px"></span><div><b><a class="test-link" href="https://azhry-x.github.io/knee-atlas/#pittsburgh-knee-rule" rel="noopener" target="_blank">Pittsburgh</a></b> <span class="eb eb-m">M</span> (alternative): blunt trauma / fall <b>+</b> age &lt; 12 or &gt; 50 <b>or</b> unable 4 WB steps — <span class="stat r">Sn 99% · Sp 60%</span></div></div>
+<div class="sh r" style="margin:1.2mm 0 .5px;"><span>High-Risk Injury Checklist</span><span class="stat r">Do not miss</span></div>
+<div class="ci"><span class="cb r"></span><div><a class="test-link" href="https://azhry-x.github.io/knee-atlas/#knee-dislocation-abi" rel="noopener" target="_blank"><b>Knee dislocation / multiligament</b></a> (≥ 2 ligaments; may self-reduce): pulses + <b>ABI</b> <span class="fl s"></span> → <b class="crim">ABI &lt; 0.90 = arterial injury → CTA / vascular</b> <span class="eb eb-m">M</span> · check common peroneal n. (foot drop)</div></div>
+<div class="ci"><span class="cb r"></span><div><a class="test-link" href="https://azhry-x.github.io/knee-atlas/#extensor-mechanism" rel="noopener" target="_blank"><b>Extensor mechanism rupture</b></a> — unable to SLR / extensor lag + palpable gap · patella alta (tendon) or baja (quadriceps) → urgent orthopaedic</div></div>
+<div class="ci"><span class="cb r"></span><div><b>Segond fracture</b> (lateral tibial rim avulsion = ACL tear until proven otherwise) • <b>Tibial plateau Fx</b> (axial + valgus; lipohaemarthrosis)</div></div>
+<div class="ci"><span class="cb r"></span><div><b>Patellar dislocation + haemarthrosis</b> → imaging for osteochondral fracture / loose body</div></div>
+<div class="ci"><span class="cb r"></span><div><b>SKELETALLY IMMATURE?</b> → <span class="crim b">tibial spine avulsion</span> (mimics ACL) • physeal / tibial tubercle injury → X-ray</div></div>
+</div>
+<div class="divider-v">
+<div class="sh r" style="margin:0 0 .5px;"><span>Non-Orthopaedic &amp; Referred Red Flags</span><span class="stat r">Systemic</span></div>
+<div class="ci"><span class="cb r"></span><div><b>Wells DVT</b> (post-op / immobilised / calf swelling): <span class="cio"><span class="cb sm"></span>≥ 2 → duplex US</span><span class="cio"><span class="cb sm"></span>&lt; 2 unlikely</span> Score <span class="fl s"></span> <a class="calc-badge" href="https://www.mdcalc.com/calc/362/wells-criteria-dvt" rel="noopener" target="_blank"><svg aria-hidden="true" class="badge-ico" viewbox="0 0 10 10"><rect fill="none" height="8.8" rx="1.4" stroke="currentColor" stroke-width="1.1" width="8.8" x=".6" y=".6"></rect><rect fill="currentColor" height="1.7" rx=".3" width="5.6" x="2.2" y="2.1"></rect><circle cx="2.9" cy="5.6" fill="currentColor" r=".62"></circle><circle cx="5" cy="5.6" fill="currentColor" r=".62"></circle><circle cx="7.1" cy="5.6" fill="currentColor" r=".62"></circle><circle cx="2.9" cy="7.6" fill="currentColor" r=".62"></circle><circle cx="5" cy="7.6" fill="currentColor" r=".62"></circle><circle cx="7.1" cy="7.6" fill="currentColor" r=".62"></circle></svg>MDCalc</a></div></div>
+<div class="ci"><span class="cb r"></span><div><b>Compartment syndrome</b> (plateau Fx / crush / post-op) <a aria-label="Open Atlas info card" class="info-icon" href="https://azhry-x.github.io/knee-atlas/#compartment-delta-p" rel="noopener" target="_blank"><svg aria-hidden="true" class="info-svg" viewbox="0 0 24 24"><circle cx="12" cy="12" fill="none" r="10" stroke="currentColor" stroke-width="2.2"></circle><line stroke="currentColor" stroke-width="2.4" x1="12" x2="12" y1="16.5" y2="10.5"></line><circle cx="12" cy="7.3" fill="currentColor" r="1.4"></circle></svg></a>: <span class="cio"><span class="cb sm r"></span>Pain on passive stretch</span><span class="cio"><span class="cb sm r"></span>Paraesthesia</span><span class="cio"><span class="cb sm r"></span>Pallor</span><span class="cio"><span class="cb sm r"></span>Paralysis</span><span class="cio"><span class="cb sm r"></span>Pulseless</span><br/><span class="crim b">ΔP (Diastolic BP − Compartment Pressure) ≤ 30 mmHg = fasciotomy.</span> <span class="mut">PT: recognise &amp; refer now.</span></div></div>
+<div class="ci"><span class="cb r"></span><div><a class="test-link" href="https://azhry-x.github.io/knee-atlas/#septic-arthritis-knee" rel="noopener" target="_blank"><b>Septic arthritis</b></a> — hot effusion · fever · unable to WB · recent injection / arthroscopy / arthroplasty · immunosuppressed → <b class="crim">ED same day (aspiration)</b></div></div>
+<div class="ci"><span class="cb r"></span><div><b>Crystal arthritis</b> — gout / pseudogout (CPPD: older adult, knee commonest site) → urgent medical review</div></div>
+<div class="ci"><span class="cb r"></span><div><b>Bone tumour</b> — distal femur / proximal tibia (osteosarcoma peak 10–25 y) · <b>unremitting night pain</b> · mass · weight loss · cancer history</div></div>
+<div class="ci"><span class="cb r"></span><div><b>SIFK / osteonecrosis</b> — &gt; 50 y, sudden severe medial pain without trauma, night pain → MRI, protect weight-bearing</div></div>
+<div class="ci"><span class="cb r"></span><div><a class="test-link" href="https://azhry-x.github.io/knee-atlas/#scfe-hip-screen" rel="noopener" target="_blank"><b>Referred from the HIP</b></a> — adolescent knee/thigh pain + limp + ↓ hip IR / obligatory ER on hip flexion → <b class="crim">SCFE: urgent hip X-ray (AP + frog-leg), non-weight-bearing</b></div></div>
+<div class="ci"><span class="cb r"></span><div><b>Popliteal artery</b> — pulsatile popliteal mass (aneurysm) or exertional calf claudication in a young athlete (entrapment)</div></div>
+<div class="ci"><span class="cb r"></span><div><a class="test-link" href="https://azhry-x.github.io/knee-atlas/#budapest-crps" rel="noopener" target="_blank"><b>Budapest CRPS</b></a> <span class="eb eb-h">H</span> <a class="calc-badge" href="https://azhry-x.github.io/knee-atlas/#budapest-crps" rel="noopener" target="_blank"><svg aria-hidden="true" class="badge-ico" viewbox="0 0 10 10"><rect fill="none" height="8.8" rx="1.4" stroke="currentColor" stroke-width="1.1" width="8.8" x=".6" y=".6"></rect><rect fill="currentColor" height="1.7" rx=".3" width="5.6" x="2.2" y="2.1"></rect><circle cx="2.9" cy="5.6" fill="currentColor" r=".62"></circle><circle cx="5" cy="5.6" fill="currentColor" r=".62"></circle><circle cx="7.1" cy="5.6" fill="currentColor" r=".62"></circle><circle cx="2.9" cy="7.6" fill="currentColor" r=".62"></circle><circle cx="5" cy="7.6" fill="currentColor" r=".62"></circle><circle cx="7.1" cy="7.6" fill="currentColor" r=".62"></circle></svg>Calc</a> ≥ 3/4 Sx + ≥ 2/4 signs: <span class="cio"><span class="cb sm r"></span>Sensory</span><span class="cio"><span class="cb sm r"></span>Vasomotor</span><span class="cio"><span class="cb sm r"></span>Oedema / sudomotor</span><span class="cio"><span class="cb sm r"></span>Motor / trophic</span></div></div>
+</div>
+<div class="col-span-2 flex flex-wrap items-center gap-x-1 mt-[1px] pt-[1px] border-t border-dashed border-red-200">
+<span class="lb crim">TRIAGE DISPOSITION:</span>
+<span class="cio"><span class="cb g"></span><b class="emer">Cleared — proceed</b></span>
+<span class="cio"><span class="cb r"></span>Imaging referral</span>
+<span class="cio"><span class="cb r"></span>Urgent orthopaedic</span>
+<span class="cio"><span class="cb r"></span><b class="crim">Vascular / Emergency Department NOW</b></span>
+</div>
+</div>
+</section>
+<!-- C : Router + fast track -->
+<section class="card green" id="p1-fasttrack">
+<div class="card-h"><span>C · Pathway Router &amp; Fast-Track Assessment (&lt; 2-Minute Screen)</span><span class="tag">RAPID</span></div>
+<div class="card-b flex flex-col gap-[1.5px]">
+<div class="box g" style="padding:.4mm 1.2mm;">
+<div class="flex items-center justify-between" style="font-size:7px; font-weight:800; color:#065f46; text-transform:uppercase; letter-spacing:0.04em;">
+<span>Clinical Pathway Router</span>
+<span class="mut" style="font-weight:600; text-transform:none; font-size:6.8px;">Tick the route → tap a page number</span>
+</div>
+<div class="router-row">
+<div class="router-col">
+<span class="cb sm g" style="margin-right:0.4mm;"></span>
+<b class="emer" style="margin-right:0.4mm;font-size:7.1px;">A · SIMPLE:</b>
+<a class="rchip" href="#page-1">1</a><span>→</span><a class="rchip" href="#page-6">6</a><span>→</span><a class="rchip" href="#page-7">7</a><span>→</span><a class="rchip" href="#page-9">9</a>
+</div>
+<div class="router-col">
+<span class="cb sm g" style="margin-right:0.4mm;"></span>
+<b class="nav" style="margin-right:0.4mm;font-size:7.1px;">B · COMPLEX:</b>
+<a class="rchip" href="#page-1">1</a><span>→</span><a class="rchip" href="#page-2">2</a><span>→</span><a class="rchip" href="#page-3">3</a><span>→</span><a class="rchip" href="#page-4">4</a><span>→</span><a class="rchip" href="#page-6">6</a><span>→</span><a class="rchip" href="#page-7">7</a><span>→</span><a class="rchip" href="#page-8">8</a><span>→</span><a class="rchip" href="#page-9">9</a>
+</div>
+<div class="router-col">
+<span class="cb sm g" style="margin-right:0.4mm;"></span>
+<b style="color:#b45309;margin-right:0.4mm;font-size:7.1px;">C · POST-OP:</b>
+<a class="rchip" href="#page-1">1</a><span>→</span><a class="rchip" href="#page-5">5</a><span>→</span><a class="rchip" href="#page-6">6</a><span>→</span><a class="rchip" href="#page-7">7</a><span>→</span><a class="rchip" href="#page-8">8</a><span>→</span><a class="rchip" href="#page-9">9</a>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-4 gap-[1.2mm]">
+<div class="mini"><div class="lb"><a class="test-link has-video" href="https://azhry-x.github.io/knee-atlas/#stroke-test" rel="noopener" target="_blank">Effusion — stroke test</a> <span class="eb eb-m">M</span></div><div class="fr" style="gap:.8mm"><span class="cio" style="margin-right:.6mm"><span class="cb sm"></span>0</span><span class="cio" style="margin-right:.6mm"><span class="cb sm"></span>T</span><span class="cio" style="margin-right:.6mm"><span class="cb sm"></span>1+</span><span class="cio" style="margin-right:.6mm"><span class="cb sm"></span>2+</span><span class="cio" style="margin-right:0"><span class="cb sm"></span>3+</span></div></div>
+<div class="mini"><div class="lb"><a class="test-link" href="https://azhry-x.github.io/knee-atlas/#extensor-mechanism" rel="noopener" target="_blank">Active SLR / extensor lag</a></div><div class="fr"><span class="cio"><span class="cb sm g"></span>No lag</span><span class="cio"><span class="cb sm r"></span>Lag</span><span class="fl s"></span>°</div></div>
+<div class="mini"><div class="lb">Knee ROM (°)</div><div class="fr"><span class="lr">Ext</span><span class="fl"></span><span class="lr">Flex</span><span class="fl"></span></div></div>
+<div class="mini"><div class="lb"><a class="test-link has-video" href="https://azhry-x.github.io/knee-atlas/#single-leg-squat" rel="noopener" target="_blank">Single-leg squat × 5</a> <span class="eb eb-m">M</span></div><div class="fr"><span class="cio"><span class="cb sm g"></span>Good</span><span class="cio"><span class="cb sm"></span>Fair</span><span class="cio"><span class="cb sm r"></span>Poor</span></div></div>
+</div>
+<div class="flex flex-wrap items-center text-[7.2px]" style="column-gap:5mm; row-gap:1px;">
+<span class="lb emer">Fast Classification:</span>
+<span class="cio" style="margin-right:0;"><span class="cb g"></span>Patellofemoral pain (atraumatic)</span>
+<span class="cio" style="margin-right:0;"><span class="cb g"></span>MCL sprain Gr I</span>
+<span class="cio" style="margin-right:0;"><span class="cb g"></span>Early patellar tendinopathy</span>
+<span class="cio" style="margin-right:0;"><span class="cb g"></span>Stable knee OA</span>
+</div>
+</div>
+</section>
+<!-- D : Subjective + body map -->
+<section class="card fill flex flex-col" id="p1-subjective">
+<div class="card-h"><span>D · 24-Hour Symptom Behaviour, Pain Map &amp; Patient Goals</span><span class="tag">SUBJECTIVE</span></div>
+<div class="card-b flex-1 flex flex-col gap-[2px]">
+<div class="grid grid-cols-3 gap-x-3">
+<div>
+<div class="sh">Mechanical Symptoms</div>
+<div class="ci"><span class="cb r"></span><div><b class="crim">True locking</b> (block to extension) → displaced bucket-handle tear: urgent orthopaedic</div></div>
+<div class="ci"><span class="cb"></span><div>Catching / clicking</div></div>
+<div class="ci"><span class="cb"></span><div>Giving way: <span class="cio"><span class="cb sm"></span>pivot (instability)</span><span class="cio"><span class="cb sm"></span>pain inhibition</span></div></div>
+<div class="ci"><span class="cb"></span><div>Swelling after activity</div></div>
+</div>
+<div>
+<div class="sh">Pain Pattern</div>
+<div class="ci"><span class="cb"></span><div><b>Anterior</b>: squat / stairs / prolonged sitting → PFP</div></div>
+<div class="ci"><span class="cb"></span><div><b>Inferior pole</b>, load-dependent, warms up → tendinopathy</div></div>
+<div class="ci"><span class="cb"></span><div>Activity pain, AM stiffness ≤ 30 min, age ≥ 45 → OA</div></div>
+<div class="ci"><span class="cb r"></span><div><b class="crim">AM stiffness &gt; 30 min / multiple joints</b> → inflammatory</div></div>
+<div class="fr"><span class="lb">Night pain</span><span class="cio"><span class="cb"></span>Mechanical</span><span class="cio"><span class="cb r"></span><b class="crim">Unremitting</b></span></div>
+</div>
+<div>
+<div class="sh">Aggravating</div>
+<div class="flex flex-wrap" style="row-gap:1.5px">
+<span class="cio"><span class="cb"></span>Stairs ↑</span><span class="cio"><span class="cb"></span>Stairs ↓</span><span class="cio"><span class="cb"></span>Squat</span><span class="cio"><span class="cb"></span>Kneeling</span><span class="cio"><span class="cb"></span>Sitting &gt; 30 min</span><span class="cio"><span class="cb"></span>Running</span><span class="cio"><span class="cb"></span>Jumping</span><span class="cio"><span class="cb"></span>Cutting / pivot</span><span class="cio"><span class="cb"></span>Sit-to-stand</span>
+</div>
+</div>
+</div>
+<div class="flex flex-wrap items-center pt-[2px] border-t border-dashed border-slate-300" style="row-gap:1px">
+<span class="lb mr-2">PMH / Risk:</span>
+<span class="cio"><span class="cb"></span>Prior ACL / meniscal surgery</span>
+<span class="cio"><span class="cb"></span>Inflammatory arthritis</span>
+<span class="cio"><span class="cb"></span>Diabetes</span>
+<span class="cio"><span class="cb"></span>BMI ≥ 30</span>
+<span class="cio"><span class="cb r"></span>Fluoroquinolones</span>
+<span class="cio"><span class="cb r"></span>Steroid injection</span>
+<span class="cio"><span class="cb"></span>Hypermobility</span>
+<span class="cio"><span class="cb r"></span>Anticoagulants</span>
+<span class="cio"><span class="cb"></span>Smoker</span>
+</div>
+<div class="grid grid-cols-12 gap-[1.5mm] flex-1">
+<div class="col-span-9 flex flex-col">
+<div class="lb nav mb-[1px]">PAIN MAP — shade symptoms · X = max tenderness · circle side: <span class="circ"><span>L</span><span>R</span></span> <span class="mut" style="font-weight:600">· numbers = palpation targets, p3</span></div>
+<div class="bm" id="p1-bodymap">
+<figure>
+<svg aria-label="Anterior view of the knee" role="img" viewbox="0 0 100 112">
+<path class="o" d="M31,3 C31,25 27,40 26,51 C25,60 29,66 33,72 C35,86 36,98 37,110 L63,110 C64,98 65,86 67,72 C71,66 75,60 74,51 C73,40 69,25 69,3 Z"></path>
+<path class="d" d="M27,61 C40,64 60,64 73,61"></path>
+<ellipse class="b" cx="50" cy="45" rx="9.5" ry="12"></ellipse>
+<path class="lm" d="M44,35 L45.5,18 M56,35 L54.5,18"></path>
+<path class="lm" d="M45.5,57 L47,72 M54.5,57 L53,72"></path>
+<g class="mk"><circle cx="50" cy="24" r="4.6"></circle><text text-anchor="middle" x="50" y="25.95">1</text></g><g class="mk"><circle cx="50" cy="45" r="4.6"></circle><text text-anchor="middle" x="50" y="46.95">2</text></g><g class="mk"><circle cx="50" cy="66" r="4.6"></circle><text text-anchor="middle" x="50" y="67.95">3</text></g><g class="mk"><circle cx="38" cy="59" r="4.6"></circle><text text-anchor="middle" x="38" y="60.95">5</text></g><g class="mk"><circle cx="50" cy="80" r="4.6"></circle><text text-anchor="middle" x="50" y="81.95">4</text></g>
+<text class="s" x="15" y="64">MED</text><text class="s" x="76" y="64">LAT</text>
+</svg>
+<figcaption>Anterior</figcaption>
+</figure>
+<figure>
+<svg aria-label="Medial view of the knee" role="img" viewbox="0 0 100 112">
+<path class="o" d="M30,3 C30,28 29,44 30,56 C31,66 28,76 27,86 C26,98 29,104 32,110 L60,110 C61,100 62,90 62,82 C62,74 64,68 67,63 C72,58 75,52 74,45 C73,36 69,25 69,3 Z"></path>
+<ellipse class="b" cx="70" cy="47" rx="4.2" ry="9"></ellipse>
+<path class="d" d="M30,63 C43,65 56,65 68,63"></path>
+<path class="lm" d="M47,40 L46,63 L48,88"></path>
+<g class="mk"><circle cx="40" cy="36" r="4.6"></circle><text text-anchor="middle" x="40" y="37.95">9</text></g><g class="mk"><circle cx="46" cy="50" r="4.6"></circle><text text-anchor="middle" x="46" y="51.95">6</text></g><g class="mk"><circle cx="36" cy="64" r="4.6"></circle><text text-anchor="middle" x="36" y="65.95">7</text></g><g class="mk"><circle cx="57" cy="84" r="4.6"></circle><text text-anchor="middle" x="57" y="85.95">8</text></g>
+<text class="s" x="6" y="105">POST</text><text class="s" x="70" y="105">ANT</text>
+</svg>
+<figcaption>Medial</figcaption>
+</figure>
+<figure>
+<svg aria-label="Lateral view of the knee" role="img" viewbox="0 0 100 112">
+<path class="o" d="M70,3 C70,28 71,44 70,56 C69,66 72,76 73,86 C74,98 71,104 68,110 L40,110 C39,100 38,90 38,82 C38,74 36,68 33,63 C28,58 25,52 26,45 C27,36 31,25 31,3 Z"></path>
+<ellipse class="b" cx="30" cy="47" rx="4.2" ry="9"></ellipse>
+<path class="d" d="M32,63 C45,65 57,65 70,63"></path>
+<path class="lm" d="M50,4 L49,50 L43,72"></path>
+<path class="lm" d="M58,46 L62,74"></path>
+<circle class="b" cx="63" cy="79" r="4.2"></circle>
+<g class="mk"><circle cx="49" cy="30" r="4.6"></circle><text text-anchor="middle" x="49" y="31.95">10</text></g><g class="mk"><circle cx="42" cy="78" r="4.6"></circle><text text-anchor="middle" x="42" y="79.95">11</text></g><g class="mk"><circle cx="59" cy="58" r="4.6"></circle><text text-anchor="middle" x="59" y="59.95">12</text></g><g class="mk"><circle cx="53.5" cy="66" r="4.6"></circle><text text-anchor="middle" x="53.5" y="67.95">13</text></g><g class="mk"><circle cx="63" cy="92" r="4.6"></circle><text text-anchor="middle" x="63" y="93.95">14</text></g>
+<text class="s" x="9" y="105">ANT</text><text class="s" x="72" y="105">POST</text>
+</svg>
+<figcaption>Lateral</figcaption>
+</figure>
+<figure>
+<svg aria-label="Posterior view of the knee" role="img" viewbox="0 0 100 112">
+<path class="o" d="M31,3 C31,25 29,40 29,51 C29,60 31,67 31,74 C28,86 31,98 36,110 L64,110 C69,98 72,86 69,74 C69,67 71,60 71,51 C71,40 69,25 69,3 Z"></path>
+<path class="lm" d="M50,38 L39,55 L50,74 L61,55 Z"></path>
+<path class="d" d="M37,6 L39,54 M63,6 L61,54"></path>
+<path class="d" d="M41,62 C39,75 41,88 45,102 M59,62 C61,75 59,88 55,102"></path>
+<ellipse class="b" cx="42" cy="57" rx="3.4" ry="4.4"></ellipse>
+<g class="mk"><circle cx="50" cy="55" r="4.6"></circle><text text-anchor="middle" x="50" y="56.95">15</text></g><g class="mk"><circle cx="38" cy="22" r="4.6"></circle><text text-anchor="middle" x="38" y="23.95">16</text></g><g class="mk"><circle cx="62" cy="22" r="4.6"></circle><text text-anchor="middle" x="62" y="23.95">16</text></g><g class="mk"><circle cx="41" cy="86" r="4.6"></circle><text text-anchor="middle" x="41" y="87.95">17</text></g><g class="mk"><circle cx="59" cy="86" r="4.6"></circle><text text-anchor="middle" x="59" y="87.95">17</text></g>
+<text class="s" x="12" y="44">MED</text><text class="s" x="73" y="44">LAT</text>
+</svg>
+<figcaption>Posterior</figcaption>
+</figure>
+</div>
+<div class="xxs mut" style="line-height:1.3; margin-top:.6mm;"><b class="nav">1</b> Quadriceps tendon · <b class="nav">2</b> Patella / retinacula · <b class="nav">3</b> Inferior pole / patellar tendon · <b class="nav">4</b> Tibial tubercle · <b class="nav">5</b> Infrapatellar fat pad · <b class="nav">6</b> MCL · <b class="nav">7</b> Medial joint line · <b class="nav">8</b> Pes anserine · <b class="nav">9</b> Adductor tubercle / MPFL · <b class="nav">10</b> ITB / lat. epicondyle · <b class="nav">11</b> Gerdy’s tubercle · <b class="nav">12</b> LCL · <b class="nav">13</b> Lateral joint line · <b class="nav">14</b> Fibular head / CPN · <b class="nav">15</b> Popliteal fossa / Baker’s · <b class="nav">16</b> Hamstring tendons · <b class="nav">17</b> Gastrocnemius heads</div>
+</div>
+<div class="col-span-3 flex flex-col">
+<div class="mini flex-1 flex flex-col">
+<div class="sh"><span>Goals — <a class="test-link" href="https://azhry-x.github.io/knee-atlas/#psfs" rel="noopener" target="_blank">PSFS</a></span><span class="stat">MDC 2</span></div>
+<div class="flex-1 flex flex-col justify-around">
+<div class="fr"><span class="lb nav">1.</span><span class="fl"></span><span class="lb">/10</span></div>
+<div class="fr"><span class="lb nav">2.</span><span class="fl"></span><span class="lb">/10</span></div>
+<div class="fr"><span class="lb nav">3.</span><span class="fl"></span><span class="lb">/10</span></div>
+<div class="fr"><span class="lb">Expectation</span><span class="fl"></span></div>
+<div class="fr"><span class="lb">Timeline</span><span class="fl"></span></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+  </main>
+  <footer class="pg-ftr">
+    <div class="ftr-top">
+      <span><b>Clinician</b> <span class="fl l"></span> <b>Date</b> <span class="fl l"></span></span>
+      <span>Underline = Atlas card &middot; &#9656; = video &middot; Evidence: <span class="eb eb-h">H</span> high <span class="eb eb-m">M</span> moderate <span class="eb eb-l">L</span> low <span class="eb eb-e">E</span> expert &middot; Confidential &middot; v2026.10</span>
+    </div>
+    <div class="pnav-wrap">
+      <nav class="pnav" aria-label="Dossier pages">
+        <span class="nl">GO TO</span>
+        <a class="ptab on" href="#page-1">1</a>
+        <a class="ptab" href="#page-2">2</a>
+        <a class="ptab" href="#page-3">3</a>
+        <a class="ptab" href="#page-4">4</a>
+        <a class="ptab" href="#page-5">5</a>
+        <a class="ptab" href="#page-6">6</a>
+        <a class="ptab" href="#page-7">7</a>
+        <a class="ptab" href="#page-8">8</a>
+        <a class="ptab" href="#page-9">9</a>
+      </nav>
+    </div>
+  </footer>
+</div>
+<!-- ===================== PAGE 2 ===================== -->
+<div class="clinical-page" id="page-2" data-accent="blue">
+  <header class="pg-hdr">
+    <div class="brand">
+      <div class="logo">KNEE</div>
+      <div>
+        <div class="kicker">Knee Complex &middot; Master Clinical Assessment &amp; Rehabilitation Dossier</div>
+        <h1 class="pg-title">Unbiased Differential Diagnosis &amp; Neurological Matrix</h1>
+      </div>
+    </div>
+    <div class="hdr-right">
+      <div class="fr"><span class="lb">Patient</span><span class="fl l"></span></div>
+      <div class="pgno">02 / 09</div>
+    </div>
+  </header>
+  <main class="pg-body">
+ <div class="note xs"><b class="nav">Bias-free decision architecture:</b> screen <b>every</b> compartment before committing to a hypothesis. Tick all <b>suspected</b> conditions, then rank the top 3 in the Working Hypothesis box. Mark L/R where relevant. Hip and lumbar spine are screened on every knee patient (bottom card).</div>
+<div class="grid grid-cols-2 gap-[1.5mm]">
+<section class="card" id="p2-anterior">
+<div class="card-h"><span>1 · Anterior Knee</span><span class="tag">7 TARGETS</span></div>
+<div class="card-b">
+<div class="ci"><span class="cb n"></span><div><a class="test-link" href="https://azhry-x.github.io/knee-atlas/#pfp-diagnosis" rel="noopener" target="_blank"><b>Patellofemoral pain (PFP)</b></a> — retro/peripatellar pain on squat, stairs, prolonged sitting; diagnosis of exclusion</div></div>
+<div class="ci"><span class="cb n"></span><div><a class="test-link has-video" href="https://azhry-x.github.io/knee-atlas/#patellar-tendinopathy" rel="noopener" target="_blank"><b>Patellar tendinopathy</b></a> — inferior pole, load-dependent (jump/energy storage) • <b>Quadriceps tendinopathy</b> — superior pole</div></div>
+<div class="ci"><span class="cb n"></span><div><b>Patellar instability</b> — subluxation / dislocation history; (+) <a class="test-link has-video" href="https://azhry-x.github.io/knee-atlas/#moving-patellar-apprehension" rel="noopener" target="_blank">moving apprehension test</a>; J-sign; Beighton</div></div>
+<div class="ci"><span class="cb n"></span><div><a class="test-link has-video" href="https://azhry-x.github.io/knee-atlas/#hoffa-test" rel="noopener" target="_blank"><b>Infrapatellar fat pad (Hoffa)</b></a> — pain in terminal extension / hyperextension, either side of patellar tendon</div></div>
+<div class="ci"><span class="cb n"></span><div><b>Osgood-Schlatter</b> (tibial tubercle) • <b>Sinding-Larsen-Johansson</b> (inferior pole) — adolescent apophysitis</div></div>
+<div class="ci"><span class="cb n"></span><div><b>Prepatellar / infrapatellar bursitis</b> — superficial fluctuant swelling, kneeling; <span class="crim b">warm + fever → septic (p1)</span></div></div>
+<div class="ci"><span class="cb n"></span><div><b>Medial plica</b> — painful click, tender band medial to patella</div></div>
+</div>
+</section>
+<section class="card" id="p2-medial">
+<div class="card-h"><span>2 · Medial Knee</span><span class="tag">5 TARGETS</span></div>
+<div class="card-b">
+<div class="ci"><span class="cb n"></span><div><a class="test-link has-video" href="https://azhry-x.github.io/knee-atlas/#valgus-stress-test" rel="noopener" target="_blank"><b>MCL sprain</b></a> — valgus stress 30° (isolated) / 0° (laxity = combined injury): <span class="cio"><span class="cb sm"></span>Gr I</span><span class="cio"><span class="cb sm"></span>Gr II</span><span class="cio"><span class="cb sm r"></span>Gr III</span></div></div>
+<div class="ci"><span class="cb n"></span><div><b>Medial meniscus tear</b> — <a class="test-link has-video" href="https://azhry-x.github.io/knee-atlas/#joint-line-tenderness" rel="noopener" target="_blank">joint line tenderness</a>, <a class="test-link has-video" href="https://azhry-x.github.io/knee-atlas/#mcmurray-test" rel="noopener" target="_blank">McMurray</a>, <a class="test-link has-video" href="https://azhry-x.github.io/knee-atlas/#thessaly-test" rel="noopener" target="_blank">Thessaly</a> → composite p4</div></div>
+<div class="ci"><span class="cb n"></span><div><b>Pes anserine bursitis / tendinopathy</b> — 2–5 cm below medial joint line, often with OA</div></div>
+<div class="ci"><span class="cb n"></span><div><a class="test-link" href="https://azhry-x.github.io/knee-atlas/#knee-oa-clinical" rel="noopener" target="_blank"><b>Medial tibiofemoral OA</b></a> — age ≥ 45, activity-related pain, AM stiffness ≤ 30 min</div></div>
+<div class="ci"><span class="cb n"></span><div><b>Saphenous nerve</b> — burning medial knee / leg; Tinel at adductor canal; (+) saphenous neurodynamic test</div></div>
+</div>
+</section>
+<section class="card" id="p2-lateral">
+<div class="card-h"><span>3 · Lateral Knee</span><span class="tag">5 TARGETS</span></div>
+<div class="card-b">
+<div class="ci"><span class="cb n"></span><div><b>ITB syndrome</b> — runners / cyclists, pain ~30° flexion at lateral epicondyle; (+) <a class="test-link has-video" href="https://azhry-x.github.io/knee-atlas/#noble-test" rel="noopener" target="_blank">Noble compression</a>, <a class="test-link has-video" href="https://azhry-x.github.io/knee-atlas/#ober-test" rel="noopener" target="_blank">Ober</a></div></div>
+<div class="ci"><span class="cb n"></span><div><b>LCL / posterolateral corner</b> — <a class="test-link has-video" href="https://azhry-x.github.io/knee-atlas/#varus-stress-test" rel="noopener" target="_blank">varus stress 0° / 30°</a>; <a class="test-link has-video" href="https://azhry-x.github.io/knee-atlas/#dial-test" rel="noopener" target="_blank">dial test</a> &gt; 10° side-to-side</div></div>
+<div class="ci"><span class="cb n"></span><div><b>Lateral meniscus tear</b> — lateral joint line tenderness, Thessaly, McMurray</div></div>
+<div class="ci"><span class="cb n"></span><div><b>Popliteus tendinopathy</b> (downhill running) • <b>Proximal tibiofibular joint</b> instability</div></div>
+<div class="ci"><span class="cb n"></span><div><b>Common peroneal nerve</b> — Tinel at fibular neck, dorsum-foot numbness, <span class="crim b">foot drop</span></div></div>
+</div>
+</section>
+<section class="card" id="p2-posterior">
+<div class="card-h"><span>4 · Posterior Knee</span><span class="tag">5 TARGETS</span></div>
+<div class="card-b">
+<div class="ci"><span class="cb n"></span><div><b>Baker’s (popliteal) cyst</b> — posteromedial swelling, often with OA / meniscal tear; <span class="crim b">rupture mimics DVT → duplex US</span></div></div>
+<div class="ci"><span class="cb n"></span><div><b>PCL injury</b> — dashboard / fall on flexed knee; (+) <a class="test-link has-video" href="https://azhry-x.github.io/knee-atlas/#posterior-sag" rel="noopener" target="_blank">posterior sag</a>, <a class="test-link has-video" href="https://azhry-x.github.io/knee-atlas/#posterior-drawer" rel="noopener" target="_blank">posterior drawer</a></div></div>
+<div class="ci"><span class="cb n"></span><div><b>Distal hamstring / biceps femoris tendinopathy</b> — pain on resisted flexion, insertion tenderness</div></div>
+<div class="ci"><span class="cb n"></span><div><b>Medial gastrocnemius strain</b> (“tennis leg”) — sudden calf pain on push-off</div></div>
+<div class="ci"><span class="cb n"></span><div><b>Popliteal artery</b> aneurysm / entrapment, <b>DVT</b> → vascular red flags p1</div></div>
+</div>
+</section>
+<section class="card" id="p2-intra">
+<div class="card-h"><span>5 · Intra-Articular &amp; Global</span><span class="tag">6 TARGETS</span></div>
+<div class="card-b">
+<div class="ci"><span class="cb n"></span><div><a class="test-link has-video" href="https://azhry-x.github.io/knee-atlas/#lachman-test" rel="noopener" target="_blank"><b>ACL rupture</b></a> — pivot mechanism, “pop”, haemarthrosis &lt; 2 h, giving way → cluster p4</div></div>
+<div class="ci"><span class="cb n"></span><div><a class="test-link" href="https://azhry-x.github.io/knee-atlas/#meniscal-composite" rel="noopener" target="_blank"><b>Meniscal tear</b></a> — catching / locking, delayed effusion (6–24 h) → composite p4</div></div>
+<div class="ci"><span class="cb n"></span><div><b>Osteochondral lesion / OCD</b> — adolescent, vague pain, effusion, catching; <a class="test-link" href="https://azhry-x.github.io/knee-atlas/#wilson-test" rel="noopener" target="_blank">Wilson test</a> <span class="eb eb-l">L</span></div></div>
+<div class="ci"><span class="cb n"></span><div><b>Patellofemoral / tibiofemoral OA</b> — crepitus, bony enlargement, no warmth (ACR p4)</div></div>
+<div class="ci"><span class="cb n"></span><div><b>Inflammatory / crystal arthritis</b> — warm effusion, AM stiffness &gt; 30 min → p1</div></div>
+<div class="ci"><span class="cb n"></span><div><b>Post-op arthrofibrosis</b> — persistent extension loss, ↓ patellar mobility, patella infera</div></div>
+</div>
+</section>
+<section class="card soft" id="p2-hypothesis">
+<div class="card-h"><span>Working Hypothesis Ranking</span><span class="tag">SYNTHESIS</span></div>
+<div class="card-b flex flex-col gap-[3px]">
+<div class="fr"><span class="lb nav">1°</span><span class="fl"></span><span class="lb">Conf.</span><span class="fl s"></span><span class="lb">%</span></div>
+<div class="fr"><span class="lb nav">2°</span><span class="fl"></span><span class="lb">Conf.</span><span class="fl s"></span><span class="lb">%</span></div>
+<div class="fr"><span class="lb nav">3°</span><span class="fl"></span><span class="lb">Conf.</span><span class="fl s"></span><span class="lb">%</span></div>
+<div class="fr"><span class="lb">Must-not-miss excluded?</span><span class="cio"><span class="cb g"></span>Yes</span><span class="cio"><span class="cb r"></span>No</span></div>
+<div class="fr"><span class="lb">Irritability</span><span class="cio"><span class="cb"></span>Low</span><span class="cio"><span class="cb"></span>Mod</span><span class="cio"><span class="cb"></span>High</span></div>
+<div class="fr"><span class="lb">Mechanism</span><span class="cio"><span class="cb"></span>Nociceptive</span><span class="cio"><span class="cb"></span>Neuropathic</span><span class="cio"><span class="cb"></span>Nociplastic</span></div>
+<div class="fr"><span class="lb">Imaging</span><span class="cio"><span class="cb"></span>Not needed</span><span class="cio"><span class="cb"></span>X-ray</span><span class="cio"><span class="cb"></span>MRI</span><span class="cio"><span class="cb"></span>US</span></div>
+</div>
+</section>
+</div>
+<section class="card" id="p2-neuro">
+<div class="card-h"><span>Spinal, Hip &amp; Kinetic Chain Screening — Lumbar L2–S1 Neuro-Mapping</span><span class="tag">NEURO</span></div>
+<div class="card-b">
+<table class="t">
+<thead><tr><th>Level</th><th>Myotome (key muscle)</th><th>Reflex</th><th>Dermatome</th><th class="c">Myotome L / R (0–5)</th><th class="c">Reflex L / R (0–4+)</th><th class="c">Sensation L / R</th></tr></thead>
+<tbody>
+<tr><td class="k nav">L2</td><td>Iliopsoas (hip flexion)</td><td>—</td><td>Anterior upper thigh</td><td class="c w"><span class="lr">L<span class="fl s"></span>R<span class="fl s"></span></span></td><td class="c w"><span class="lr">L<span class="fl s"></span>R<span class="fl s"></span></span></td><td class="c w"><span class="lr">L<span class="fl s"></span>R<span class="fl s"></span></span></td></tr>
+<tr><td class="k nav">L3</td><td>Quadriceps (knee extension)</td><td>Patellar (L3–L4)</td><td>Anterior thigh → medial knee</td><td class="c w"><span class="lr">L<span class="fl s"></span>R<span class="fl s"></span></span></td><td class="c w"><span class="lr">L<span class="fl s"></span>R<span class="fl s"></span></span></td><td class="c w"><span class="lr">L<span class="fl s"></span>R<span class="fl s"></span></span></td></tr>
+<tr><td class="k nav">L4</td><td>Tibialis anterior (DF / inversion)</td><td>Patellar</td><td>Medial leg &amp; medial malleolus</td><td class="c w"><span class="lr">L<span class="fl s"></span>R<span class="fl s"></span></span></td><td class="c w"><span class="lr">L<span class="fl s"></span>R<span class="fl s"></span></span></td><td class="c w"><span class="lr">L<span class="fl s"></span>R<span class="fl s"></span></span></td></tr>
+<tr><td class="k nav">L5</td><td>Extensor hallucis longus</td><td>Medial hamstring</td><td>Dorsum foot / 1st web space</td><td class="c w"><span class="lr">L<span class="fl s"></span>R<span class="fl s"></span></span></td><td class="c w"><span class="lr">L<span class="fl s"></span>R<span class="fl s"></span></span></td><td class="c w"><span class="lr">L<span class="fl s"></span>R<span class="fl s"></span></span></td></tr>
+<tr><td class="k nav">S1</td><td>Gastrocnemius &amp; peroneals</td><td>Achilles</td><td>Lateral foot &amp; sole</td><td class="c w"><span class="lr">L<span class="fl s"></span>R<span class="fl s"></span></span></td><td class="c w"><span class="lr">L<span class="fl s"></span>R<span class="fl s"></span></span></td><td class="c w"><span class="lr">L<span class="fl s"></span>R<span class="fl s"></span></span></td></tr>
+</tbody>
+</table>
+<div class="xs mut mt-[1px]">Grading key: myotome ≤ 4/5 = deficit · reflex 0–1+ hypo / ≥ 3+ hyper · sensation intact / impaired / absent</div>
+<div class="sh mt-[3px]"><span>Neural Tension &amp; Distal Biasing</span><span class="stat">Positive = familiar Sx + structural differentiation</span></div>
+<table class="t">
+<thead><tr><th>Test</th><th>Sequence / bias</th><th class="c">Onset angle L / R (°)</th><th class="c">Familiar Sx</th><th class="c">Structural diff. (+)</th></tr></thead>
+<tbody>
+<tr><td class="k"><a class="test-link has-video" href="https://azhry-x.github.io/knee-atlas/#prone-knee-bend" rel="noopener" target="_blank">Prone Knee Bend — Femoral</a></td><td>Prone knee flexion (+ hip extension); L2–L4 / anterior thigh</td><td class="c w"><span class="lr">L<span class="fl m"></span>R<span class="fl m"></span></span></td><td class="c"><span class="cb"></span></td><td class="c"><span class="cb"></span> <span class="xs mut">slump-PKB neck flex</span></td></tr>
+<tr><td class="k"><a class="test-link has-video" href="https://azhry-x.github.io/knee-atlas/#slump-test" rel="noopener" target="_blank">Slump — Sciatic / tibial</a></td><td>Thoracic + cervical flexion, knee ext, ankle DF → release neck</td><td class="c w"><span class="lr">L<span class="fl m"></span>R<span class="fl m"></span></span></td><td class="c"><span class="cb"></span></td><td class="c"><span class="cb"></span> <span class="xs mut">Sx ↓ neck ext</span></td></tr>
+<tr><td class="k">Saphenous bias</td><td>Prone: hip ext + abd, knee ext, ankle DF + eversion</td><td class="c w"><span class="lr">L<span class="fl m"></span>R<span class="fl m"></span></span></td><td class="c"><span class="cb"></span></td><td class="c"><span class="cb"></span></td></tr>
+<tr><td class="k">Common peroneal bias</td><td>SLR + ankle plantarflexion + inversion</td><td class="c w"><span class="lr">L<span class="fl m"></span>R<span class="fl m"></span></span></td><td class="c"><span class="cb"></span></td><td class="c"><span class="cb"></span></td></tr>
+</tbody>
+</table>
+<div class="flex flex-wrap items-center mt-[3px]" style="row-gap:1px">
+<span class="lb mr-2">Hip &amp; chain:</span>
+<span class="cio"><span class="cb"></span>Hip IR loss / pain</span>
+<span class="cio"><span class="cb"></span><a class="test-link has-video" href="https://azhry-x.github.io/knee-atlas/#fadir-faber" rel="noopener" target="_blank">FADIR / FABER</a> reproduces Sx</span>
+<span class="cio"><span class="cb"></span>Lumbar ROM reproduces Sx</span>
+<span class="cio"><span class="cb"></span>Hip abductor weakness</span>
+<span class="cio"><span class="cb"></span>Dynamic knee valgus</span>
+<span class="cio"><span class="cb"></span>Ankle DF deficit</span>
+</div>
+<div class="crit mt-[3px]"><svg aria-hidden="true" class="stop" viewbox="0 0 12 12"><path d="M3.5 .5h5l3 3v5l-3 3h-5l-3-3v-5z" fill="#991b1b"></path><rect fill="#fff" height="1.6" width="6" x="3" y="5.2"></rect></svg><span class="cio" style="margin:0"><span class="cb r"></span></span><span>HIP REFERRAL — adolescent with knee pain + limp + ↓ hip IR = SCFE until proven otherwise (urgent hip X-ray, non-weight-bearing). Adults: hip OA often presents as knee pain — always examine the hip.</span></div>
+</div>
+</section>
+<div class="dots fill" id="p2-notes"><span class="dots-l">Differential Reasoning Notes · Imaging Findings</span></div>
+
+  </main>
+  <footer class="pg-ftr">
+    <div class="ftr-top">
+      <span><b>Clinician</b> <span class="fl l"></span> <b>Date</b> <span class="fl l"></span></span>
+      <span>Underline = Atlas card &middot; &#9656; = video &middot; Evidence: <span class="eb eb-h">H</span> high <span class="eb eb-m">M</span> moderate <span class="eb eb-l">L</span> low <span class="eb eb-e">E</span> expert &middot; Confidential &middot; v2026.10</span>
+    </div>
+    <div class="pnav-wrap">
+      <nav class="pnav" aria-label="Dossier pages">
+        <span class="nl">GO TO</span>
+        <a class="ptab" href="#page-1">1</a>
+        <a class="ptab on" href="#page-2">2</a>
+        <a class="ptab" href="#page-3">3</a>
+        <a class="ptab" href="#page-4">4</a>
+        <a class="ptab" href="#page-5">5</a>
+        <a class="ptab" href="#page-6">6</a>
+        <a class="ptab" href="#page-7">7</a>
+        <a class="ptab" href="#page-8">8</a>
+        <a class="ptab" href="#page-9">9</a>
+      </nav>
+    </div>
+  </footer>
+</div>
+<!-- ===================== PAGE 3 ===================== -->
+<div class="clinical-page" id="page-3" data-accent="blue">
+  <header class="pg-hdr">
+    <div class="brand">
+      <div class="logo">KNEE</div>
+      <div>
+        <div class="kicker">Knee Complex &middot; Master Clinical Assessment &amp; Rehabilitation Dossier</div>
+        <h1 class="pg-title">Objective Biomechanics, Quantitative Metrics &amp; Palpation</h1>
+      </div>
+    </div>
+    <div class="hdr-right">
+      <div class="fr"><span class="lb">Patient</span><span class="fl l"></span></div>
+      <div class="pgno">03 / 09</div>
+    </div>
+  </header>
+  <main class="pg-body">
+ <section class="card" id="p3-mobility">
+<div class="card-h"><span>Quantitative Mobility &amp; Joint Status — Left vs Right</span><span class="tag">ROM · EFFUSION · ALIGNMENT</span></div>
+<div class="card-b" style="padding:.8mm 1.2mm;">
+<table class="t dense">
+<thead><tr><th style="width:27%">Measure</th><th style="width:30%">Normative / threshold</th><th class="c" style="width:9%">Left</th><th class="c" style="width:9%">Right</th><th class="c" style="width:7%">Δ</th><th style="width:18%">Flag / interpretation</th></tr></thead>
+<tbody>
+<tr><td class="k"><a class="test-link" href="https://azhry-x.github.io/knee-atlas/#knee-rom" rel="noopener" target="_blank">Knee extension (°)</a></td><td>0° to −5° hyperextension · <b class="crim">any deficit vs other side matters</b> <span class="eb eb-e">E</span></td><td></td><td></td><td></td><td><span class="cio"><span class="cb sm r"></span>Extension deficit</span></td></tr>
+<tr><td class="k"><a class="test-link" href="https://azhry-x.github.io/knee-atlas/#knee-rom" rel="noopener" target="_blank">Prone heel-height difference (cm)</a></td><td>≈ 1 cm → 1° extension loss <span class="eb eb-e">E</span></td><td></td><td></td><td></td><td><span class="cio"><span class="cb sm"></span>&gt; 1 cm</span></td></tr>
+<tr><td class="k"><a class="test-link" href="https://azhry-x.github.io/knee-atlas/#knee-rom" rel="noopener" target="_blank">Knee flexion (°)</a></td><td>135–150° · gait ≈ 65° · stairs ≈ 90–100° · squat ≥ 115° <span class="eb eb-e">E</span></td><td></td><td></td><td></td><td><span class="cio"><span class="cb sm"></span>Functional limit</span></td></tr>
+<tr><td class="k"><a class="test-link has-video" href="https://azhry-x.github.io/knee-atlas/#stroke-test" rel="noopener" target="_blank">Effusion — stroke test</a></td><td>0 / trace / 1+ / 2+ / 3+ · inter-rater κ 0.75 <span class="eb eb-m">M</span></td><td></td><td></td><td></td><td><span class="cio"><span class="cb sm r"></span>≥ 1+ → reduce load</span></td></tr>
+<tr><td class="k"><a class="test-link" href="https://azhry-x.github.io/knee-atlas/#patellar-mobility" rel="noopener" target="_blank">Patellar mobility (quadrants)</a></td><td>Med / lat glide 1–2 quadrants · sup / inf glide symmetric <span class="eb eb-e">E</span></td><td></td><td></td><td></td><td><span class="cio"><span class="cb sm"></span>Hypo</span><span class="cio"><span class="cb sm"></span>Hyper (≥ 3)</span></td></tr>
+<tr><td class="k">Thigh girth 10 / 15 cm above patella (cm)</td><td>Side-to-side difference = quadriceps atrophy</td><td></td><td></td><td></td><td><span class="cio"><span class="cb sm"></span>Atrophy</span></td></tr>
+<tr><td class="k">Hip IR, prone (°)</td><td>Compare sides · loss + groin pain → screen hip (p2)</td><td></td><td></td><td></td><td><span class="cio"><span class="cb sm"></span>Restricted</span></td></tr>
+<tr><td class="k">Hip extension — modified Thomas (°)</td><td>Thigh on table, knee ≈ 80° flexed (rectus femoris) <span class="eb eb-l">L</span></td><td></td><td></td><td></td><td><span class="cio"><span class="cb sm"></span>Iliopsoas</span><span class="cio"><span class="cb sm"></span>RF</span></td></tr>
+<tr><td class="k">Hamstring 90/90 AKE (° from full ext)</td><td>Compare sides; deficit = hamstring length <span class="eb eb-l">L</span></td><td></td><td></td><td></td><td><span class="cio"><span class="cb sm"></span>Short</span></td></tr>
+<tr><td class="k"><a class="test-link" href="https://azhry-x.github.io/ankle-atlas/#wblt" rel="noopener" target="_blank">Ankle DF — WBLT (cm)</a></td><td>≥ 10 cm · asymmetry &gt; 1.5 cm (knee valgus driver) <span class="eb eb-m">M</span></td><td></td><td></td><td></td><td><span class="cio"><span class="cb sm"></span>Restricted</span></td></tr>
+<tr><td class="k"><a class="test-link has-video" href="https://azhry-x.github.io/knee-atlas/#beighton" rel="noopener" target="_blank">Beighton score (/9)</a> <a class="calc-badge" href="https://azhry-x.github.io/knee-atlas/#beighton" rel="noopener" target="_blank"><svg aria-hidden="true" class="badge-ico" viewbox="0 0 10 10"><rect fill="none" height="8.8" rx="1.4" stroke="currentColor" stroke-width="1.1" width="8.8" x=".6" y=".6"></rect><rect fill="currentColor" height="1.7" rx=".3" width="5.6" x="2.2" y="2.1"></rect><circle cx="2.9" cy="5.6" fill="currentColor" r=".62"></circle><circle cx="5" cy="5.6" fill="currentColor" r=".62"></circle><circle cx="7.1" cy="5.6" fill="currentColor" r=".62"></circle><circle cx="2.9" cy="7.6" fill="currentColor" r=".62"></circle><circle cx="5" cy="7.6" fill="currentColor" r=".62"></circle><circle cx="7.1" cy="7.6" fill="currentColor" r=".62"></circle></svg>Calc</a></td><td>Hypermobile: ≥ 5 adults to 50 y · ≥ 6 children · ≥ 4 over 50 y <span class="eb eb-m">M</span></td><td class="c" colspan="3">       / 9</td><td><span class="cio"><span class="cb sm"></span>Hypermobile</span></td></tr>
+<tr><td class="k">Static alignment</td><td colspan="5"><span class="cio"><span class="cb sm"></span>Genu varum</span><span class="cio"><span class="cb sm"></span>Genu valgum</span><span class="cio"><span class="cb sm"></span>Recurvatum</span><span class="cio"><span class="cb sm"></span>Patella alta</span><span class="cio"><span class="cb sm"></span>Squinting patellae</span><span class="cio"><span class="cb sm"></span>Pronated foot (<a class="test-link" href="https://azhry-x.github.io/ankle-atlas/#fpi-6-info" rel="noopener" target="_blank">FPI-6</a> <span class="fl s"></span>)</span></td></tr>
+</tbody>
+</table>
+<div class="xxs mut mt-[1px]">Goniometry: measurement error ≈ 3–5° between sessions — differences smaller than this are not meaningful.</div>
+</div>
+</section>
+<section class="card" id="p3-strength">
+<div class="card-h"><span>Muscle Capacity — Hand-Held Dynamometry (N · Nm/kg) <a aria-label="Open Atlas info card" class="info-icon" href="https://azhry-x.github.io/knee-atlas/#hhd-testing" rel="noopener" target="_blank"><svg aria-hidden="true" class="info-svg" viewbox="0 0 24 24"><circle cx="12" cy="12" fill="none" r="10" stroke="currentColor" stroke-width="2.2"></circle><line stroke="currentColor" stroke-width="2.4" x1="12" x2="12" y1="16.5" y2="10.5"></line><circle cx="12" cy="7.3" fill="currentColor" r="1.4"></circle></svg></a></span><span class="tag">HHD · LSI</span></div>
+<div class="card-b" style="padding:.8mm 1.2mm;">
+<div class="flex items-center gap-x-4 xs mb-[2px]"><span class="lr">Body mass <span class="fl m"></span> kg</span><span class="lr">Lever arm <span class="fl m"></span> m</span><span class="mut">Torque (Nm/kg) = Force (N) × lever arm (m) ÷ body mass (kg) · strap-fixed HHD for quadriceps <span class="eb eb-m">M</span></span></div>
+<table class="t dense">
+<thead><tr><th style="width:18%">Muscle</th><th style="width:30%">Test position</th><th class="c">L (N)</th><th class="c">R (N)</th><th class="c">L Nm/kg</th><th class="c">R Nm/kg</th><th class="c">LSI %</th></tr></thead>
+<tbody>
+<tr><td class="k">Quadriceps</td><td>Seated, knee 60–90°, strap to frame, 3 × 5 s MVIC</td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td class="k">Hamstrings</td><td>Prone or seated, knee 90°</td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td class="k">Hip abductors</td><td>Side-lying, hip neutral, strap above knee</td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td class="k">Hip external rotators</td><td>Seated, hip &amp; knee 90°</td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td class="k">Hip extensors</td><td>Prone, knee 90°</td><td></td><td></td><td></td><td></td><td></td></tr>
+</tbody>
+</table>
+<div class="flex flex-wrap items-center mt-[2px] xs" style="row-gap:1px">
+<span class="lb mr-2">Quadriceps activation:</span>
+<span class="cio"><span class="cb sm r"></span>Extensor lag on SLR</span>
+<span class="cio"><span class="cb sm r"></span>No superior patellar glide on quad set</span>
+<span class="cio"><span class="cb sm r"></span>Arthrogenic inhibition (AMI) suspected</span>
+<span class="mut">→ NMES / cryotherapy p6</span>
+</div>
+</div>
+</section>
+<div class="grid grid-cols-2 gap-[1.5mm]">
+<section class="card" id="p3-function">
+<div class="card-h"><span>Functional Performance <a aria-label="Open Atlas info card" class="info-icon" href="https://azhry-x.github.io/knee-atlas/#oarsi-performance-tests" rel="noopener" target="_blank"><svg aria-hidden="true" class="info-svg" viewbox="0 0 24 24"><circle cx="12" cy="12" fill="none" r="10" stroke="currentColor" stroke-width="2.2"></circle><line stroke="currentColor" stroke-width="2.4" x1="12" x2="12" y1="16.5" y2="10.5"></line><circle cx="12" cy="7.3" fill="currentColor" r="1.4"></circle></svg></a></span><span class="tag">OARSI · SPORT</span></div>
+<div class="card-b" style="padding:.8mm 1.2mm;">
+<table class="t dense">
+<thead><tr><th>Test</th><th class="c">Result</th><th class="c">Re-test</th></tr></thead>
+<tbody>
+<tr><td class="k">30-s chair stand (reps) <span class="eb eb-h">H</span></td><td></td><td></td></tr>
+<tr><td class="k">40-m fast-paced walk (s → m/s) <span class="eb eb-h">H</span></td><td></td><td></td></tr>
+<tr><td class="k">Stair climb test (s) <span class="eb eb-h">H</span></td><td></td><td></td></tr>
+<tr><td class="k">Timed Up &amp; Go (s)</td><td></td><td></td></tr>
+<tr><td class="k"><a class="test-link has-video" href="https://azhry-x.github.io/knee-atlas/#single-leg-squat" rel="noopener" target="_blank">Single-leg squat × 5</a> <span class="eb eb-m">M</span></td><td class="c xs" colspan="2"><span class="cio"><span class="cb sm g"></span>Good</span><span class="cio"><span class="cb sm"></span>Fair</span><span class="cio"><span class="cb sm r"></span>Poor</span></td></tr>
+<tr><td class="k" colspan="3" style="font-weight:600"><span class="mut">Fault:</span> <span class="cio"><span class="cb sm"></span>Trunk lean</span><span class="cio"><span class="cb sm"></span>Pelvic drop</span><span class="cio"><span class="cb sm"></span>Hip adduction / IR</span><span class="cio"><span class="cb sm"></span>Knee valgus</span></td></tr>
+</tbody>
+</table>
+<div class="xxs mut mt-[1px]">OARSI-recommended core set for knee OA: 30-s chair stand, 40-m fast-paced walk, stair climb.</div>
+</div>
+</section>
+<section class="card" id="p3-palpation">
+<div class="card-h"><span>Systematic Palpation — 17 Targets (map p1)</span><span class="tag">TICK TENDER SIDE</span></div>
+<div class="card-b" style="padding:.8mm 1.2mm;">
+<div class="grid grid-cols-2 gap-x-2 xs" style="row-gap:0">
+<div>
+<div class="sh n" style="margin:0 0 .3mm">Anterior <span class="mut" style="text-transform:none">L · R</span></div>
+<div class="flex justify-between"><span>1. Quadriceps tendon</span><span><span class="cb sm"></span> <span class="cb sm"></span></span></div>
+<div class="flex justify-between"><span>2. Patella / retinacula</span><span><span class="cb sm"></span> <span class="cb sm"></span></span></div>
+<div class="flex justify-between"><span>3. Inferior pole / pat. tendon</span><span><span class="cb sm"></span> <span class="cb sm"></span></span></div>
+<div class="flex justify-between"><span>4. Tibial tubercle</span><span><span class="cb sm"></span> <span class="cb sm"></span></span></div>
+<div class="flex justify-between"><span>5. Infrapatellar fat pad</span><span><span class="cb sm"></span> <span class="cb sm"></span></span></div>
+<div class="sh n" style="margin:.6mm 0 .3mm">Medial</div>
+<div class="flex justify-between"><span>6. MCL (origin → insertion)</span><span><span class="cb sm"></span> <span class="cb sm"></span></span></div>
+<div class="flex justify-between"><span>7. Medial joint line</span><span><span class="cb sm"></span> <span class="cb sm"></span></span></div>
+<div class="flex justify-between"><span>8. Pes anserine</span><span><span class="cb sm"></span> <span class="cb sm"></span></span></div>
+<div class="flex justify-between"><span>9. Adductor tubercle / MPFL</span><span><span class="cb sm"></span> <span class="cb sm"></span></span></div>
+</div>
+<div>
+<div class="sh n" style="margin:0 0 .3mm">Lateral <span class="mut" style="text-transform:none">L · R</span></div>
+<div class="flex justify-between"><span>10. ITB / lat. epicondyle</span><span><span class="cb sm"></span> <span class="cb sm"></span></span></div>
+<div class="flex justify-between"><span>11. Gerdy’s tubercle</span><span><span class="cb sm"></span> <span class="cb sm"></span></span></div>
+<div class="flex justify-between"><span>12. LCL</span><span><span class="cb sm"></span> <span class="cb sm"></span></span></div>
+<div class="flex justify-between"><span>13. Lateral joint line</span><span><span class="cb sm"></span> <span class="cb sm"></span></span></div>
+<div class="flex justify-between"><span>14. Fibular head / CPN</span><span><span class="cb sm"></span> <span class="cb sm"></span></span></div>
+<div class="sh n" style="margin:.6mm 0 .3mm">Posterior</div>
+<div class="flex justify-between"><span>15. Popliteal fossa / Baker’s</span><span><span class="cb sm"></span> <span class="cb sm"></span></span></div>
+<div class="flex justify-between"><span>16. Hamstring tendons</span><span><span class="cb sm"></span> <span class="cb sm"></span></span></div>
+<div class="flex justify-between"><span>17. Gastrocnemius heads</span><span><span class="cb sm"></span> <span class="cb sm"></span></span></div>
+<div class="flex items-center gap-x-1 mt-[.6mm]"><span class="lb">Warmth</span><span class="cio"><span class="cb sm"></span>L</span><span class="cio"><span class="cb sm"></span>R</span><span class="lb">Crepitus</span><span class="cio"><span class="cb sm"></span>PFJ</span><span class="cio"><span class="cb sm"></span>TFJ</span></div>
+</div>
+</div>
+</div>
+</section>
+</div>
+<section class="card" id="p3-movement">
+<div class="card-h"><span>Dynamic Movement Quality</span><span class="tag">GAIT · STEP-DOWN · LANDING</span></div>
+<div class="card-b" style="padding:.8mm 1.2mm;">
+<table class="t dense">
+<thead><tr><th style="width:21%">Task</th><th>Observed faults (tick)</th><th class="c" style="width:9%">L</th><th class="c" style="width:9%">R</th></tr></thead>
+<tbody>
+<tr><td class="k">Gait</td><td><span class="cio"><span class="cb sm"></span>Antalgic</span><span class="cio"><span class="cb sm"></span>Stiff-knee / quad avoidance</span><span class="cio"><span class="cb sm"></span>No terminal extension at heel strike</span><span class="cio"><span class="cb sm"></span>Varus / valgus thrust</span></td><td></td><td></td></tr>
+<tr><td class="k"><a class="test-link" href="https://azhry-x.github.io/knee-atlas/#lateral-step-down" rel="noopener" target="_blank">Lateral step-down (0–6)</a> <span class="eb eb-m">M</span></td><td><span class="cio"><span class="cb sm"></span>Arm strategy</span><span class="cio"><span class="cb sm"></span>Trunk lean</span><span class="cio"><span class="cb sm"></span>Pelvis not level</span><span class="cio"><span class="cb sm"></span>Knee medial to 2nd toe (1) / foot (2)</span><span class="cio"><span class="cb sm"></span>Unsteady</span> <span class="mut">0–1 good · 2–3 moderate · ≥ 4 poor</span></td><td></td><td></td></tr>
+<tr><td class="k">Drop vertical jump</td><td><span class="cio"><span class="cb sm"></span>Knee valgus on landing</span><span class="cio"><span class="cb sm"></span>Stiff landing (little knee flexion)</span><span class="cio"><span class="cb sm"></span>Side-to-side asymmetry</span> <span class="mut">→ full LESS scoring p8</span></td><td></td><td></td></tr>
+</tbody>
+</table>
+</div>
+</section>
+<div class="dots fill" id="p3-notes"><span class="dots-l">Gait · Observation · Movement Quality Notes</span></div>
+
+  </main>
+  <footer class="pg-ftr">
+    <div class="ftr-top">
+      <span><b>Clinician</b> <span class="fl l"></span> <b>Date</b> <span class="fl l"></span></span>
+      <span>Underline = Atlas card &middot; &#9656; = video &middot; Evidence: <span class="eb eb-h">H</span> high <span class="eb eb-m">M</span> moderate <span class="eb eb-l">L</span> low <span class="eb eb-e">E</span> expert &middot; Confidential &middot; v2026.10</span>
+    </div>
+    <div class="pnav-wrap">
+      <nav class="pnav" aria-label="Dossier pages">
+        <span class="nl">GO TO</span>
+        <a class="ptab" href="#page-1">1</a>
+        <a class="ptab" href="#page-2">2</a>
+        <a class="ptab on" href="#page-3">3</a>
+        <a class="ptab" href="#page-4">4</a>
+        <a class="ptab" href="#page-5">5</a>
+        <a class="ptab" href="#page-6">6</a>
+        <a class="ptab" href="#page-7">7</a>
+        <a class="ptab" href="#page-8">8</a>
+        <a class="ptab" href="#page-9">9</a>
+      </nav>
+    </div>
+  </footer>
+</div>
+<!-- ===================== PAGE 4 ===================== -->
+<div class="clinical-page" id="page-4" data-accent="blue">
+  <header class="pg-hdr">
+    <div class="brand">
+      <div class="logo">KNEE</div>
+      <div>
+        <div class="kicker">Knee Complex &middot; Master Clinical Assessment &amp; Rehabilitation Dossier</div>
+        <h1 class="pg-title">Evidence-Based Special Test Clusters &amp; Validated PROMs</h1>
+      </div>
+    </div>
+    <div class="hdr-right">
+      <div class="fr"><span class="lb">Patient</span><span class="fl l"></span></div>
+      <div class="pgno">04 / 09</div>
+    </div>
+  </header>
+  <main class="pg-body">
+ <div class="note xs"><b class="nav">How to read:</b> statistics belong to the exact test or cluster named — never transfer a cluster value to a single test. Sn rules <b>out</b> when negative; Sp rules <b>in</b> when positive. <span class="mut">· Interactive:</span> <u>underline</u> = Atlas card · <b class="nav">▸</b> = video · <span class="calc-badge">Calc</span> = calculator · <span class="guide-badge">Guide</span> = open-access guideline</div>
+<div class="grid grid-cols-2 gap-[1.5mm]">
+<section class="card" id="p4-acl">
+<div class="card-h"><span>ACL Rupture <a aria-label="Open Atlas info card" class="info-icon" href="https://azhry-x.github.io/knee-atlas/#acl-cluster" rel="noopener" target="_blank"><svg aria-hidden="true" class="info-svg" viewbox="0 0 24 24"><circle cx="12" cy="12" fill="none" r="10" stroke="currentColor" stroke-width="2.2"></circle><line stroke="currentColor" stroke-width="2.4" x1="12" x2="12" y1="16.5" y2="10.5"></line><circle cx="12" cy="7.3" fill="currentColor" r="1.4"></circle></svg></a></span><span class="tag">INSTABILITY</span></div>
+<div class="card-b">
+<div class="flex flex-wrap xs" style="row-gap:1px"><span class="lb mr-1">History:</span><span class="cio"><span class="cb sm"></span>Non-contact pivot</span><span class="cio"><span class="cb sm"></span>“Pop”</span><span class="cio"><span class="cb sm"></span>Haemarthrosis &lt; 2 h</span><span class="cio"><span class="cb sm"></span>Giving way</span></div>
+<div class="ci"><span class="cb n"></span><div class="flex-1 flex justify-between gap-1"><a class="test-link has-video" href="https://azhry-x.github.io/knee-atlas/#lachman-test" rel="noopener" target="_blank"><b>Lachman</b></a><span><span class="stat">Sn 85% · Sp 94%</span> <span class="eb eb-h">H</span></span></div></div>
+<div class="ci"><span class="cb n"></span><div class="flex-1 flex justify-between gap-1"><span><a class="test-link has-video" href="https://azhry-x.github.io/knee-atlas/#pivot-shift" rel="noopener" target="_blank"><b>Pivot shift</b></a> <span class="mut xs">rule-in; often − when guarding</span></span><span><span class="stat">Sn 24% · Sp 98%</span> <span class="eb eb-h">H</span></span></div></div>
+<div class="ci"><span class="cb n"></span><div class="flex-1 flex justify-between gap-1"><span><a class="test-link has-video" href="https://azhry-x.github.io/knee-atlas/#anterior-drawer" rel="noopener" target="_blank"><b>Anterior drawer</b></a> <span class="mut xs">chronic only; unreliable acute</span></span><span><span class="stat">Sn 92% · Sp 91%</span> <span class="eb eb-m">M</span></span></div></div>
+<div class="ci"><span class="cb n"></span><div class="flex-1 flex justify-between gap-1"><a class="test-link has-video" href="https://azhry-x.github.io/knee-atlas/#lever-sign" rel="noopener" target="_blank"><b>Lever sign</b></a><span><span class="stat">Sn 81% · Sp 78% · −LR 0.21</span> <span class="eb eb-m">M</span></span></div></div>
+<div class="flex flex-wrap xs mt-[1px] pt-[1px] border-t border-dashed border-slate-300"><span class="cio"><span class="cb r"></span><b class="crim">ACL suspected → MRI / orthopaedic</b></span><span class="cio"><span class="cb g"></span>Not supported</span></div>
+</div>
+</section>
+<section class="card" id="p4-meniscus">
+<div class="card-h"><span>Meniscal Tear — Composite <a aria-label="Open Atlas info card" class="info-icon" href="https://azhry-x.github.io/knee-atlas/#meniscal-composite" rel="noopener" target="_blank"><svg aria-hidden="true" class="info-svg" viewbox="0 0 24 24"><circle cx="12" cy="12" fill="none" r="10" stroke="currentColor" stroke-width="2.2"></circle><line stroke="currentColor" stroke-width="2.4" x1="12" x2="12" y1="16.5" y2="10.5"></line><circle cx="12" cy="7.3" fill="currentColor" r="1.4"></circle></svg></a></span><span class="tag">5 ITEMS</span></div>
+<div class="card-b">
+<div class="grid grid-cols-2 gap-x-2">
+<div class="ci"><span class="cb n"></span><div>Catching / locking history</div></div>
+<div class="ci"><span class="cb n"></span><div>Pain on forced hyperextension</div></div>
+<div class="ci"><span class="cb n"></span><div>Pain on maximal passive flexion</div></div>
+<div class="ci"><span class="cb n"></span><div><a class="test-link has-video" href="https://azhry-x.github.io/knee-atlas/#mcmurray-test" rel="noopener" target="_blank">McMurray</a> pain / click</div></div>
+<div class="ci"><span class="cb n"></span><div><a class="test-link has-video" href="https://azhry-x.github.io/knee-atlas/#joint-line-tenderness" rel="noopener" target="_blank">Joint line tenderness</a></div></div>
+<div class="ci"><span class="lb">Total</span> <span class="fl s"></span> <span class="lb">/ 5</span></div>
+</div>
+<div class="xs"><span class="stat">5/5 PPV 92%</span> <span class="stat">≥ 3/5 PPV &gt; 75% (no ACL / OA)</span> <span class="eb eb-m">M</span></div>
+<div class="xs mt-[1px] mut">Single tests (pooled): JLT <b>Sn 83% Sp 83%</b> · McMurray <b>Sn 61% Sp 84%</b> · <a class="test-link has-video" href="https://azhry-x.github.io/knee-atlas/#thessaly-test" rel="noopener" target="_blank">Thessaly 20°</a> <b>Sn 75% Sp 87%</b> <span class="eb eb-m">M</span></div>
+</div>
+</section>
+<section class="card" id="p4-collateral">
+<div class="card-h"><span>Collaterals &amp; Posterolateral Corner</span><span class="tag">VALGUS · VARUS · DIAL</span></div>
+<div class="card-b">
+<div class="grid grid-cols-2 gap-x-2">
+<div class="ci"><span class="cb n"></span><div><a class="test-link has-video" href="https://azhry-x.github.io/knee-atlas/#valgus-stress-test" rel="noopener" target="_blank">Valgus 30°</a> → MCL</div></div>
+<div class="ci"><span class="cb r"></span><div>Valgus 0° laxity → <b class="crim">combined</b></div></div>
+<div class="ci"><span class="cb n"></span><div><a class="test-link has-video" href="https://azhry-x.github.io/knee-atlas/#varus-stress-test" rel="noopener" target="_blank">Varus 30°</a> → LCL</div></div>
+<div class="ci"><span class="cb r"></span><div>Varus 0° laxity → <b class="crim">PLC + cruciate</b></div></div>
+</div>
+<div class="ci"><span class="cb n"></span><div><a class="test-link has-video" href="https://azhry-x.github.io/knee-atlas/#dial-test" rel="noopener" target="_blank">Dial test</a>: &gt; 10° ER side-to-side at <b>30° only</b> → PLC · at <b>30° and 90°</b> → PLC + PCL <span class="eb eb-e">E</span></div></div>
+<div class="xs mut">Grade (joint opening): I ≤ 5 mm firm end-point · II 5–10 mm · III &gt; 10 mm, no end-point <span class="eb eb-e">E</span></div>
+</div>
+</section>
+<section class="card" id="p4-pcl">
+<div class="card-h"><span>PCL</span><span class="tag">POSTERIOR</span></div>
+<div class="card-b">
+<div class="grid grid-cols-3 gap-x-2">
+<div class="ci"><span class="cb n"></span><div><a class="test-link has-video" href="https://azhry-x.github.io/knee-atlas/#posterior-sag" rel="noopener" target="_blank">Posterior sag</a></div></div>
+<div class="ci"><span class="cb n"></span><div><a class="test-link has-video" href="https://azhry-x.github.io/knee-atlas/#posterior-drawer" rel="noopener" target="_blank">Posterior drawer</a></div></div>
+<div class="ci"><span class="cb n"></span><div><a class="test-link has-video" href="https://azhry-x.github.io/knee-atlas/#quadriceps-active-test" rel="noopener" target="_blank">Quad active</a></div></div>
+</div>
+<div class="xs"><span class="stat">Clinical exam overall Sn 90% · Sp 99%</span> <span class="eb eb-m">M</span> <span class="mut">posterior drawer = most accurate single test</span></div>
+<div class="xs mut mt-[1px]">Grade by medial tibial step-off at 90°: I still anterior · II flush with condyles · III posterior (suspect combined) <span class="eb eb-e">E</span></div>
+</div>
+</section>
+<section class="card" id="p4-pfj">
+<div class="card-h"><span>Patellofemoral Pain &amp; Instability <a aria-label="Open Atlas info card" class="info-icon" href="https://azhry-x.github.io/knee-atlas/#pfp-diagnosis" rel="noopener" target="_blank"><svg aria-hidden="true" class="info-svg" viewbox="0 0 24 24"><circle cx="12" cy="12" fill="none" r="10" stroke="currentColor" stroke-width="2.2"></circle><line stroke="currentColor" stroke-width="2.4" x1="12" x2="12" y1="16.5" y2="10.5"></line><circle cx="12" cy="7.3" fill="currentColor" r="1.4"></circle></svg></a></span><span class="tag">PFJ</span></div>
+<div class="card-b">
+<div class="sh n" style="margin:0 0 .3mm">PFP — all three required <span class="eb eb-m">M</span></div>
+<div class="ci"><span class="cb n"></span><div>Retro- or peripatellar pain</div></div>
+<div class="ci"><span class="cb n"></span><div>Reproduced by ≥ 1 PFJ-loading task: <span class="cio"><span class="cb sm"></span>Squat (most sensitive)</span><span class="cio"><span class="cb sm"></span>Stairs</span><span class="cio"><span class="cb sm"></span>Prolonged sitting</span><span class="cio"><span class="cb sm"></span>Kneeling / jumping</span></div></div>
+<div class="ci"><span class="cb n"></span><div>Other conditions excluded (p2)</div></div>
+<div class="sh n" style="margin:.6mm 0 .3mm">Instability</div>
+<div class="ci"><span class="cb n"></span><div class="flex-1 flex justify-between gap-1"><a class="test-link has-video" href="https://azhry-x.github.io/knee-atlas/#moving-patellar-apprehension" rel="noopener" target="_blank">Moving patellar apprehension</a><span><span class="stat">Sn 100% · Sp 88%</span> <span class="eb eb-l">L</span></span></div></div>
+<div class="flex flex-wrap xs"><span class="cio"><span class="cb sm"></span>J-sign</span><span class="cio"><span class="cb sm"></span>Beighton ≥ 5 (p3)</span><span class="cio"><span class="cb sm"></span>Prior dislocation</span></div>
+</div>
+</section>
+<section class="card" id="p4-tendon-oa">
+<div class="card-h"><span>Patellar Tendinopathy &amp; Knee OA <a aria-label="Open Atlas info card" class="info-icon" href="https://azhry-x.github.io/knee-atlas/#knee-oa-clinical" rel="noopener" target="_blank"><svg aria-hidden="true" class="info-svg" viewbox="0 0 24 24"><circle cx="12" cy="12" fill="none" r="10" stroke="currentColor" stroke-width="2.2"></circle><line stroke="currentColor" stroke-width="2.4" x1="12" x2="12" y1="16.5" y2="10.5"></line><circle cx="12" cy="7.3" fill="currentColor" r="1.4"></circle></svg></a></span><span class="tag">LOAD · DEGENERATIVE</span></div>
+<div class="card-b">
+<div class="sh n" style="margin:0 0 .3mm"><a class="test-link has-video" href="https://azhry-x.github.io/knee-atlas/#patellar-tendinopathy" rel="noopener" target="_blank">Patellar tendinopathy</a></div>
+<div class="flex flex-wrap"><span class="cio"><span class="cb sm"></span>Inferior-pole pain</span><span class="cio"><span class="cb sm"></span>Load-dependent</span><span class="cio"><span class="cb sm"></span><a class="test-link" href="https://azhry-x.github.io/knee-atlas/#single-leg-decline-squat" rel="noopener" target="_blank">SL decline squat</a> <span class="fl s"></span>/10</span></div>
+<div class="xs mut">Palpation tenderness alone has low specificity (common in asymptomatic athletes) <span class="eb eb-m">M</span></div>
+<div class="sh n" style="margin:.6mm 0 .3mm">Knee OA — ACR clinical: pain + ≥ 3 of 6 <span class="stat">Sn 95% · Sp 69%</span> <span class="eb eb-m">M</span></div>
+<div class="grid grid-cols-3 gap-x-1 xs">
+<span class="cio"><span class="cb sm"></span>Age &gt; 50</span><span class="cio"><span class="cb sm"></span>Stiffness &lt; 30 min</span><span class="cio"><span class="cb sm"></span>Crepitus</span>
+<span class="cio"><span class="cb sm"></span>Bony tenderness</span><span class="cio"><span class="cb sm"></span>Bony enlargement</span><span class="cio"><span class="cb sm"></span>No palpable warmth</span>
+</div>
+<div class="xs mt-[1px]"><b class="emer">NICE:</b> ≥ 45 y + activity-related pain + no / ≤ 30 min AM stiffness = <b>clinical diagnosis, no imaging needed</b> <span class="eb eb-h">H</span></div>
+</div>
+</section>
+</div>
+<section class="card" id="p4-log">
+<div class="card-h"><span>Additional Individual Tests — Result Log</span><span class="tag">L · R · (+) / (−)</span></div>
+<div class="card-b" style="padding:.8mm 1.2mm;">
+<table class="t dense">
+<thead><tr><th>Test</th><th class="c">L</th><th class="c">R</th><th>Test</th><th class="c">L</th><th class="c">R</th><th>Test</th><th class="c">L</th><th class="c">R</th></tr></thead>
+<tbody>
+<tr><td><a class="test-link has-video" href="https://azhry-x.github.io/knee-atlas/#noble-test" rel="noopener" target="_blank">Noble compression</a> <span class="eb eb-e">E</span></td><td></td><td></td><td><a class="test-link has-video" href="https://azhry-x.github.io/knee-atlas/#ober-test" rel="noopener" target="_blank">Ober</a> <span class="eb eb-l">L</span></td><td></td><td></td><td><a class="test-link has-video" href="https://azhry-x.github.io/knee-atlas/#hoffa-test" rel="noopener" target="_blank">Hoffa (fat pad)</a> <span class="eb eb-e">E</span></td><td></td><td></td></tr>
+<tr><td><a class="test-link" href="https://azhry-x.github.io/knee-atlas/#wilson-test" rel="noopener" target="_blank">Wilson (OCD)</a> <span class="eb eb-l">L</span></td><td></td><td></td><td><a class="test-link has-video" href="https://azhry-x.github.io/knee-atlas/#prone-knee-bend" rel="noopener" target="_blank">Prone knee bend</a></td><td></td><td></td><td><a class="test-link has-video" href="https://azhry-x.github.io/knee-atlas/#stroke-test" rel="noopener" target="_blank">Stroke test grade</a></td><td></td><td></td></tr>
+<tr><td>Patellar tilt</td><td></td><td></td><td><a class="test-link has-video" href="https://azhry-x.github.io/knee-atlas/#apley-test" rel="noopener" target="_blank">Apley grind</a> <span class="eb eb-l">L</span></td><td></td><td></td><td> </td><td></td><td></td></tr>
+</tbody>
+</table>
+</div>
+</section>
+<section class="card" id="p4-proms">
+<div class="card-h"><span>Standardised Patient-Reported Outcome Measures (PROMs) Dashboard</span><span class="tag">MCID · TRACKING</span></div>
+<div class="card-b" style="padding:.8mm 1.2mm;">
+<table class="t dense">
+<thead><tr><th style="width:25%">Measure</th><th class="c">Range</th><th class="c">MCID / MIC</th><th class="c">Base</th><th class="c">Wk 4</th><th class="c">Wk 8</th><th class="c">Wk 12</th><th class="c">D/C</th><th class="c">≥ MCID</th></tr></thead>
+<tbody>
+<tr class="sub"><td colspan="9"><a class="test-link" href="https://azhry-x.github.io/knee-atlas/#koos" rel="noopener" target="_blank">KOOS</a> — 5 subscales, 100 = no problems <a class="calc-badge" href="https://orthotoolkit.com/koos/" rel="noopener" target="_blank"><svg aria-hidden="true" class="badge-ico" viewbox="0 0 10 10"><rect fill="none" height="8.8" rx="1.4" stroke="currentColor" stroke-width="1.1" width="8.8" x=".6" y=".6"></rect><rect fill="currentColor" height="1.7" rx=".3" width="5.6" x="2.2" y="2.1"></rect><circle cx="2.9" cy="5.6" fill="currentColor" r=".62"></circle><circle cx="5" cy="5.6" fill="currentColor" r=".62"></circle><circle cx="7.1" cy="5.6" fill="currentColor" r=".62"></circle><circle cx="2.9" cy="7.6" fill="currentColor" r=".62"></circle><circle cx="5" cy="7.6" fill="currentColor" r=".62"></circle><circle cx="7.1" cy="7.6" fill="currentColor" r=".62"></circle></svg>KOOS Calc</a></td></tr>
+<tr><td class="k">KOOS Pain</td><td class="c">0–100</td><td class="c">8–10 <span class="eb eb-m">M</span></td><td></td><td></td><td></td><td></td><td></td><td class="c"><span class="cb sm"></span></td></tr>
+<tr><td class="k">KOOS Symptoms</td><td class="c">0–100</td><td class="c">8–10 <span class="eb eb-m">M</span></td><td></td><td></td><td></td><td></td><td></td><td class="c"><span class="cb sm"></span></td></tr>
+<tr><td class="k">KOOS ADL</td><td class="c">0–100</td><td class="c">8–10 <span class="eb eb-m">M</span></td><td></td><td></td><td></td><td></td><td></td><td class="c"><span class="cb sm"></span></td></tr>
+<tr><td class="k">KOOS Sport / Rec</td><td class="c">0–100</td><td class="c">8–10 <span class="eb eb-m">M</span></td><td></td><td></td><td></td><td></td><td></td><td class="c"><span class="cb sm"></span></td></tr>
+<tr><td class="k">KOOS QOL</td><td class="c">0–100</td><td class="c">8–10 <span class="eb eb-m">M</span></td><td></td><td></td><td></td><td></td><td></td><td class="c"><span class="cb sm"></span></td></tr>
+<tr><td class="k"><a class="test-link" href="https://azhry-x.github.io/knee-atlas/#ikdc" rel="noopener" target="_blank">IKDC subjective</a> <a class="calc-badge" href="https://orthotoolkit.com/ikdc/" rel="noopener" target="_blank"><svg aria-hidden="true" class="badge-ico" viewbox="0 0 10 10"><rect fill="none" height="8.8" rx="1.4" stroke="currentColor" stroke-width="1.1" width="8.8" x=".6" y=".6"></rect><rect fill="currentColor" height="1.7" rx=".3" width="5.6" x="2.2" y="2.1"></rect><circle cx="2.9" cy="5.6" fill="currentColor" r=".62"></circle><circle cx="5" cy="5.6" fill="currentColor" r=".62"></circle><circle cx="7.1" cy="5.6" fill="currentColor" r=".62"></circle><circle cx="2.9" cy="7.6" fill="currentColor" r=".62"></circle><circle cx="5" cy="7.6" fill="currentColor" r=".62"></circle><circle cx="7.1" cy="7.6" fill="currentColor" r=".62"></circle></svg>Calc</a></td><td class="c">0–100</td><td class="c">11.5 (6 mo) <span class="eb eb-m">M</span></td><td></td><td></td><td></td><td></td><td></td><td class="c"><span class="cb sm"></span></td></tr>
+<tr><td class="k"><a class="test-link" href="https://azhry-x.github.io/knee-atlas/#kujala-akps" rel="noopener" target="_blank">Kujala / AKPS</a> (PFP) <a class="calc-badge" href="https://orthotoolkit.com/kujala/" rel="noopener" target="_blank"><svg aria-hidden="true" class="badge-ico" viewbox="0 0 10 10"><rect fill="none" height="8.8" rx="1.4" stroke="currentColor" stroke-width="1.1" width="8.8" x=".6" y=".6"></rect><rect fill="currentColor" height="1.7" rx=".3" width="5.6" x="2.2" y="2.1"></rect><circle cx="2.9" cy="5.6" fill="currentColor" r=".62"></circle><circle cx="5" cy="5.6" fill="currentColor" r=".62"></circle><circle cx="7.1" cy="5.6" fill="currentColor" r=".62"></circle><circle cx="2.9" cy="7.6" fill="currentColor" r=".62"></circle><circle cx="5" cy="7.6" fill="currentColor" r=".62"></circle><circle cx="7.1" cy="7.6" fill="currentColor" r=".62"></circle></svg>Calc</a></td><td class="c">0–100</td><td class="c">10 <span class="eb eb-m">M</span></td><td></td><td></td><td></td><td></td><td></td><td class="c"><span class="cb sm"></span></td></tr>
+<tr><td class="k"><a class="test-link" href="https://azhry-x.github.io/knee-atlas/#visa-p" rel="noopener" target="_blank">VISA-P</a> (tendinopathy)</td><td class="c">0–100</td><td class="c">track trend</td><td></td><td></td><td></td><td></td><td></td><td class="c"><span class="cb sm"></span></td></tr>
+<tr><td class="k"><a class="test-link" href="https://azhry-x.github.io/knee-atlas/#oxford-knee-score" rel="noopener" target="_blank">Oxford Knee Score</a> (OA / TKA) <a class="calc-badge" href="https://azhry-x.github.io/knee-atlas/#oxford-knee-score" rel="noopener" target="_blank"><svg aria-hidden="true" class="badge-ico" viewbox="0 0 10 10"><rect fill="none" height="8.8" rx="1.4" stroke="currentColor" stroke-width="1.1" width="8.8" x=".6" y=".6"></rect><rect fill="currentColor" height="1.7" rx=".3" width="5.6" x="2.2" y="2.1"></rect><circle cx="2.9" cy="5.6" fill="currentColor" r=".62"></circle><circle cx="5" cy="5.6" fill="currentColor" r=".62"></circle><circle cx="7.1" cy="5.6" fill="currentColor" r=".62"></circle><circle cx="2.9" cy="7.6" fill="currentColor" r=".62"></circle><circle cx="5" cy="7.6" fill="currentColor" r=".62"></circle><circle cx="7.1" cy="7.6" fill="currentColor" r=".62"></circle></svg>Calc</a></td><td class="c">0–48</td><td class="c">7 indiv. · 5 group <span class="eb eb-h">H</span></td><td></td><td></td><td></td><td></td><td></td><td class="c"><span class="cb sm"></span></td></tr>
+<tr><td class="k"><a class="test-link" href="https://azhry-x.github.io/knee-atlas/#acl-rsi" rel="noopener" target="_blank">ACL-RSI</a> (psychological) <a class="calc-badge" href="https://orthotoolkit.com/acl-rsi/" rel="noopener" target="_blank"><svg aria-hidden="true" class="badge-ico" viewbox="0 0 10 10"><rect fill="none" height="8.8" rx="1.4" stroke="currentColor" stroke-width="1.1" width="8.8" x=".6" y=".6"></rect><rect fill="currentColor" height="1.7" rx=".3" width="5.6" x="2.2" y="2.1"></rect><circle cx="2.9" cy="5.6" fill="currentColor" r=".62"></circle><circle cx="5" cy="5.6" fill="currentColor" r=".62"></circle><circle cx="7.1" cy="5.6" fill="currentColor" r=".62"></circle><circle cx="2.9" cy="7.6" fill="currentColor" r=".62"></circle><circle cx="5" cy="7.6" fill="currentColor" r=".62"></circle><circle cx="7.1" cy="7.6" fill="currentColor" r=".62"></circle></svg>Calc</a></td><td class="c">0–100</td><td class="c">no universal cut-off</td><td></td><td></td><td></td><td></td><td></td><td class="c"><span class="cb sm"></span></td></tr>
+<tr><td class="k">Tegner activity level</td><td class="c">0–10</td><td class="c">pre-injury <span class="fl s"></span></td><td></td><td></td><td></td><td></td><td></td><td class="c"><span class="cb sm"></span></td></tr>
+</tbody>
+</table>
+<div class="crim b xs mt-[1px]">Non-responder rule: &lt; MCID by week 6 → re-screen p1 red flags, reconsider the diagnosis, consider imaging or referral.</div>
+</div>
+</section>
+<div class="dots fill" id="p4-notes"><span class="dots-l">Clinical Diagnosis · ICD-10 · Prognosis &amp; SMART Goals</span></div>
+
+  </main>
+  <footer class="pg-ftr">
+    <div class="ftr-top">
+      <span><b>Clinician</b> <span class="fl l"></span> <b>Date</b> <span class="fl l"></span></span>
+      <span>Underline = Atlas card &middot; &#9656; = video &middot; Evidence: <span class="eb eb-h">H</span> high <span class="eb eb-m">M</span> moderate <span class="eb eb-l">L</span> low <span class="eb eb-e">E</span> expert &middot; Confidential &middot; v2026.10</span>
+    </div>
+    <div class="pnav-wrap">
+      <nav class="pnav" aria-label="Dossier pages">
+        <span class="nl">GO TO</span>
+        <a class="ptab" href="#page-1">1</a>
+        <a class="ptab" href="#page-2">2</a>
+        <a class="ptab" href="#page-3">3</a>
+        <a class="ptab on" href="#page-4">4</a>
+        <a class="ptab" href="#page-5">5</a>
+        <a class="ptab" href="#page-6">6</a>
+        <a class="ptab" href="#page-7">7</a>
+        <a class="ptab" href="#page-8">8</a>
+        <a class="ptab" href="#page-9">9</a>
+      </nav>
+    </div>
+  </footer>
+</div>
+<!-- ===================== PAGE 5 ===================== -->
+<div class="clinical-page" id="page-5" data-accent="purple">
+  <header class="pg-hdr">
+    <div class="brand">
+      <div class="logo">KNEE</div>
+      <div>
+        <div class="kicker">Knee Complex &middot; Master Clinical Assessment &amp; Rehabilitation Dossier</div>
+        <h1 class="pg-title">Criterion-Based Post-Surgical Protocols</h1>
+      </div>
+    </div>
+    <div class="hdr-right">
+      <div class="fr"><span class="lb">Patient</span><span class="fl l"></span></div>
+      <div class="pgno">05 / 09</div>
+    </div>
+  </header>
+  <main class="pg-body">
+ <div class="box a xs" style="padding:.7mm 1.6mm;">
+<div class="flex flex-wrap items-center" style="row-gap:1px"><b class="acc mr-2">UNIVERSAL PROGRESSION GATE (every phase):</b>
+<span class="cio"><span class="cb sm"></span>Wound healed, no infection signs</span>
+<span class="cio"><span class="cb sm"></span>Pain ≤ 3/10 at rest</span>
+<span class="cio"><span class="cb sm"></span>Effusion ≤ 1+ and no rise after session (<a class="test-link has-video" href="https://azhry-x.github.io/knee-atlas/#stroke-test" rel="noopener" target="_blank">stroke test</a>)</span>
+<span class="cio"><span class="cb sm"></span>Full passive extension</span>
+<span class="cio"><span class="cb sm r"></span>No DVT signs (Wells p1)</span>
+</div>
+<div class="flex flex-wrap items-center mt-[1px]" style="row-gap:1px"><b class="mr-2">VTE prophylaxis:</b><span class="cio"><span class="cb sm"></span>Prescribed</span><span class="cio"><span class="cb sm"></span>Not indicated</span><span class="cio"><span class="cb sm"></span>Surgeon-directed</span><span class="mut">· re-screen Wells every visit while immobilised · <b>surgeon-specific restrictions override this template; time frames are minimums — progress on criteria</b></span></div>
+</div>
+<section class="card" id="p5-aclr">
+<div class="card-h"><span>1 · ACL Reconstruction — Criterion-Based Phases <a class="guide-badge" href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11785408/" rel="noopener" target="_blank"><svg aria-hidden="true" class="badge-ico" viewbox="0 0 10 10"><path d="M2 .7h4.2L8.3 2.8V9.3H2z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.05"></path><path d="M6.1.8v2.1h2.1" fill="none" stroke="currentColor" stroke-width="1"></path><path d="M3.3 5h3.5M3.3 6.6h3.5M3.3 8.1h2.2" stroke="currentColor" stroke-width=".85"></path></svg>Aspetar CPG 2023</a></span><span class="tag" style="display:inline-flex;gap:1.2mm;align-items:center"><span class="cio" style="margin:0"><span class="cb sm w"></span>BPTB</span><span class="cio" style="margin:0"><span class="cb sm w"></span>HS</span><span class="cio" style="margin:0"><span class="cb sm w"></span>QT</span><span class="cio" style="margin:0"><span class="cb sm w"></span>Allo</span><span class="cio" style="margin:0"><span class="cb sm w"></span>+ meniscal repair</span></span></div>
+<div class="card-b" style="padding:.8mm 1.2mm;">
+<table class="t dense">
+<thead><tr><th style="width:15%">Phase</th><th style="width:47%">Goals &amp; key interventions</th><th>Criteria to progress</th><th class="c" style="width:6%">Met</th></tr></thead>
+<tbody>
+<tr><td class="k">1 · Protection<br/><span class="mut">0–2 wk</span></td><td>Full passive extension = other side · quad activation: <b>NMES daily</b> <span class="eb eb-m">M</span> · patellar mobilisation · cryo-compression · WBAT with crutches (unless meniscal repair)</td><td>Full extension · SLR without lag · effusion ≤ 1+ · flexion ≥ 90°</td><td class="c"><span class="cb"></span></td></tr>
+<tr><td class="k">2 · Early strength<br/><span class="mut">2–6 wk</span></td><td>Normal gait · CKC strength · <b>OKC knee extension 90→45° from week 4</b> (monitor anterior knee pain) <span class="eb eb-m">M</span> · low-load BFR optional (p8) <span class="eb eb-m">M</span></td><td>Normal gait without aids · flexion ≥ 120° · effusion ≤ trace</td><td class="c"><span class="cb"></span></td></tr>
+<tr><td class="k">3 · Strength<br/><span class="mut">6–12 wk</span></td><td>Progressive heavy strength (quads, hamstrings, hip, calf) · single-leg control · widen OKC range as symptoms allow</td><td><b>Return-to-running gate p8:</b> ≥ 12 wk · full ROM · quad LSI &gt; 80%</td><td class="c"><span class="cb"></span></td></tr>
+<tr><td class="k">4 · Power<br/><span class="mut">3–6 mo</span></td><td>Running progression · plyometrics · change of direction · landing technique</td><td>Quad &amp; hop LSI ≥ 90% · good landing quality (LESS)</td><td class="c"><span class="cb"></span></td></tr>
+<tr><td class="k">5 · Return to sport<br/><span class="mut">≥ 9 mo</span></td><td>On-field rehabilitation · sport-specific load · psychological readiness</td><td>Pass p8 RTS battery · ACL-RSI rising · ≥ 9 months <span class="eb eb-m">M</span></td><td class="c"><span class="cb"></span></td></tr>
+<tr><td class="k">Graft notes</td><td colspan="3"><b>BPTB:</b> anterior knee / kneeling pain → patellar tendon load management · <b>HS:</b> avoid heavy isolated resisted knee flexion early (≈ 6–8 wk) <span class="eb eb-e">E</span> · <b>QT:</b> marked quadriceps inhibition → prioritise NMES &amp; quad loading</td></tr>
+</tbody>
+</table>
+<div class="crit mt-[2px]"><svg aria-hidden="true" class="stop" viewbox="0 0 12 12"><path d="M3.5 .5h5l3 3v5l-3 3h-5l-3-3v-5z" fill="#991b1b"></path><rect fill="#fff" height="1.6" width="6" x="3" y="5.2"></rect></svg><span>RED LINE: no pivoting, cutting or jumping before criteria. Reinjury risk falls 51% for each month RTS is delayed, up to 9 months (Grindem 2016).</span></div>
+</div>
+</section>
+<div class="grid grid-cols-2 gap-[1.5mm]">
+<section class="card" id="p5-meniscus">
+<div class="card-h"><span>2 · Meniscus — Meniscectomy vs Repair <a class="guide-badge" href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12290329/" rel="noopener" target="_blank"><svg aria-hidden="true" class="badge-ico" viewbox="0 0 10 10"><path d="M2 .7h4.2L8.3 2.8V9.3H2z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.05"></path><path d="M6.1.8v2.1h2.1" fill="none" stroke="currentColor" stroke-width="1"></path><path d="M3.3 5h3.5M3.3 6.6h3.5M3.3 8.1h2.2" stroke="currentColor" stroke-width=".85"></path></svg>OJSM 2025</a></span><span class="tag">APM · REPAIR</span></div>
+<div class="card-b" style="padding:.8mm 1.2mm;">
+<div class="flex flex-wrap xs mb-[1px]"><span class="cio"><span class="cb sm"></span>APM</span><span class="cio"><span class="cb sm"></span>Repair: longitudinal / bucket</span><span class="cio"><span class="cb sm r"></span>Repair: radial / root</span></div>
+<table class="t dense">
+<thead><tr><th style="width:24%">Parameter</th><th>Partial meniscectomy</th><th>Repair</th><th class="c" style="width:9%">Met</th></tr></thead>
+<tbody>
+<tr><td class="k">Weight-bearing</td><td>As tolerated from day 1</td><td>Longitudinal: WBAT in brace (extension) · <b class="crim">radial / root: NWB–TTWB 4–6 wk</b></td><td class="c"><span class="cb sm"></span></td></tr>
+<tr><td class="k">ROM</td><td>Full as tolerated</td><td>0–90° for 4–6 wk, then progress</td><td class="c"><span class="cb sm"></span></td></tr>
+<tr><td class="k">Loaded flexion</td><td>As tolerated</td><td><b class="crim">No deep squat / loaded flexion &gt; 90° ≈ 12–16 wk</b></td><td class="c"><span class="cb sm"></span></td></tr>
+<tr><td class="k">Running</td><td>≈ 4–6 wk (criteria)</td><td>≈ 12–16 wk (criteria)</td><td class="c"><span class="cb sm"></span></td></tr>
+<tr><td class="k">Return to sport</td><td>≈ 6–8 wk</td><td>≈ 4–6 months</td><td class="c"><span class="cb sm"></span></td></tr>
+</tbody>
+</table>
+<div class="xxs mut mt-[1px]">Typical ranges <span class="eb eb-e">E</span>; early WBAT after isolated repair shows comparable failure rates in recent reviews — follow the surgeon.</div>
+</div>
+</section>
+<section class="card" id="p5-tka">
+<div class="card-h"><span>3 · Total Knee Arthroplasty <a class="guide-badge" href="https://pmc.ncbi.nlm.nih.gov/articles/PMC7462050/" rel="noopener" target="_blank"><svg aria-hidden="true" class="badge-ico" viewbox="0 0 10 10"><path d="M2 .7h4.2L8.3 2.8V9.3H2z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.05"></path><path d="M6.1.8v2.1h2.1" fill="none" stroke="currentColor" stroke-width="1"></path><path d="M3.3 5h3.5M3.3 6.6h3.5M3.3 8.1h2.2" stroke="currentColor" stroke-width=".85"></path></svg>TKA CPG 2020</a></span><span class="tag">TKA</span></div>
+<div class="card-b" style="padding:.8mm 1.2mm;">
+<table class="t dense">
+<thead><tr><th style="width:24%">Parameter</th><th>Target / intervention</th><th class="c" style="width:9%">Met</th></tr></thead>
+<tbody>
+<tr><td class="k">Start &amp; mobilise</td><td>PT within 24 h · out of bed day 0–1 · wean gait aid on criteria</td><td class="c"><span class="cb sm"></span></td></tr>
+<tr><td class="k">ROM</td><td>Ext 0° · flex ≥ 90° early → ≥ 110–120° by 6–12 wk · <b class="crim">no CPM</b> (primary TKA) <span class="eb eb-h">H</span></td><td class="c"><span class="cb sm"></span></td></tr>
+<tr><td class="k">Quadriceps NMES</td><td>From 48 h: 15 contractions, 2×/day, max tolerable, 6 wk <span class="eb eb-h">H</span></td><td class="c"><span class="cb sm"></span></td></tr>
+<tr><td class="k">Strength &amp; function</td><td>High-intensity strength from week 1 + balance / gait-symmetry training · cryotherapy early <span class="eb eb-h">H</span></td><td class="c"><span class="cb sm"></span></td></tr>
+<tr><td class="k">Measures</td><td>KOOS JR · 30-s sit-to-stand · TUG (first &amp; last visit)</td><td class="c"><span class="cb sm"></span></td></tr>
+<tr><td class="k">Flag</td><td><b class="crim">Flexion &lt; 90° at 6 wk → inform surgeon</b> (manipulation window) <span class="eb eb-e">E</span></td><td class="c"><span class="cb sm r"></span></td></tr>
+</tbody>
+</table>
+</div>
+</section>
+</div>
+<section class="card" id="p5-mpfl">
+<div class="card-h"><span>4 · MPFL Reconstruction (Patellar Stabilisation) <a class="guide-badge" href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12222034/" rel="noopener" target="_blank"><svg aria-hidden="true" class="badge-ico" viewbox="0 0 10 10"><path d="M2 .7h4.2L8.3 2.8V9.3H2z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.05"></path><path d="M6.1.8v2.1h2.1" fill="none" stroke="currentColor" stroke-width="1"></path><path d="M3.3 5h3.5M3.3 6.6h3.5M3.3 8.1h2.2" stroke="currentColor" stroke-width=".85"></path></svg>IJSPT 2025 review</a></span><span class="tag">PATELLAR INSTABILITY</span></div>
+<div class="card-b" style="padding:.8mm 1.2mm;">
+<table class="t dense">
+<thead><tr><th style="width:15%">Phase</th><th style="width:50%">Goals &amp; key interventions</th><th>Criteria to progress</th><th class="c" style="width:6%">Met</th></tr></thead>
+<tbody>
+<tr><td class="k">Protection<br/><span class="mut">0–6 wk</span></td><td>Brace / WB per surgeon (full WB 0–8 wk) · flexion from 0–30°, +20–30°/wk · <b class="crim">no lateral patellar glides</b> · quad activation</td><td>Full extension · SLR no lag · effusion ≤ 1+</td><td class="c"><span class="cb"></span></td></tr>
+<tr><td class="k">Strength<br/><span class="mut">6–12 wk</span></td><td>Full flexion (by 4–12 wk) · CKC → OKC strength · hip &amp; trunk control</td><td>Normal gait · full ROM · no apprehension</td><td class="c"><span class="cb"></span></td></tr>
+<tr><td class="k">Advanced<br/><span class="mut">12–16 wk</span></td><td>Running, agility ladder, double-leg plyometrics, valgus-control landing</td><td>Quad LSI &gt; 80% · hop LSI &gt; 80%</td><td class="c"><span class="cb"></span></td></tr>
+<tr><td class="k">RTS<br/><span class="mut">&gt; 16 wk</span></td><td>Cutting / pivoting drills → sport · no consensus RTS criteria — use p8 battery <span class="eb eb-l">L</span></td><td>Quad &amp; hop LSI ≥ 90% · confidence</td><td class="c"><span class="cb"></span></td></tr>
+</tbody>
+</table>
+</div>
+</section>
+<div class="grid grid-cols-2 gap-[1.5mm]">
+<section class="card" id="p5-cartilage">
+<div class="card-h"><span>5 · Cartilage Repair (Microfracture / MACI)</span><span class="tag">CONDYLE · PFJ</span></div>
+<div class="card-b" style="padding:.8mm 1.2mm;">
+<table class="t dense">
+<thead><tr><th style="width:24%">Parameter</th><th>Femoral condyle / plateau</th><th>Patellofemoral lesion</th><th class="c" style="width:9%">Met</th></tr></thead>
+<tbody>
+<tr><td class="k">Weight-bearing</td><td><b class="crim">Protected (TTWB–PWB) ≈ 6 wk</b>, full by 8–12 wk</td><td>WBAT in brace locked in extension</td><td class="c"><span class="cb sm"></span></td></tr>
+<tr><td class="k">ROM</td><td>Early full passive ROM encouraged</td><td>Flexion limited early (≈ 0–40/60°), progress</td><td class="c"><span class="cb sm"></span></td></tr>
+<tr><td class="k">Loading</td><td>CKC then OKC as graft matures</td><td>Avoid loading through the lesion contact arc</td><td class="c"><span class="cb sm"></span></td></tr>
+<tr><td class="k">Running / RTS</td><td colspan="2">Running ≈ 6–9 mo · impact sport ≈ 9–18 mo (MACI longer than microfracture)</td><td class="c"><span class="cb sm"></span></td></tr>
+</tbody>
+</table>
+<div class="xxs mut mt-[1px]">Typical ranges <span class="eb eb-e">E</span> — lesion size, site and technique change everything: follow the operative note.</div>
+</div>
+</section>
+<section class="card" id="p5-extensor">
+<div class="card-h"><span>6 · Quadriceps / Patellar Tendon Repair</span><span class="tag">EXTENSOR MECHANISM</span></div>
+<div class="card-b" style="padding:.8mm 1.2mm;">
+<table class="t dense">
+<thead><tr><th style="width:24%">Parameter</th><th>Typical progression</th><th class="c" style="width:9%">Met</th></tr></thead>
+<tbody>
+<tr><td class="k">Brace / WB</td><td>WBAT in brace <b>locked in extension</b> ≈ 6 wk</td><td class="c"><span class="cb sm"></span></td></tr>
+<tr><td class="k">ROM</td><td>0–30° (wk 0–2) → 0–60° (2–4) → 0–90° (4–6)</td><td class="c"><span class="cb sm"></span></td></tr>
+<tr><td class="k">Quadriceps</td><td>Isometrics only; <b class="crim">no active / resisted extension ≈ 6 wk</b></td><td class="c"><span class="cb sm"></span></td></tr>
+<tr><td class="k">Strength → RTS</td><td>Progressive strength 6–12 wk · running ≈ 4–5 mo · RTS ≥ 6 mo</td><td class="c"><span class="cb sm"></span></td></tr>
+</tbody>
+</table>
+<div class="xxs mut mt-[1px]">Typical ranges <span class="eb eb-e">E</span> — surgeon protocol overrides.</div>
+</div>
+</section>
+</div>
+<div class="dots fill" id="p5-notes"><span class="dots-l">Surgeon-Specific Instructions · Operative Findings · Phase Log</span></div>
+
+  </main>
+  <footer class="pg-ftr">
+    <div class="ftr-top">
+      <span><b>Clinician</b> <span class="fl l"></span> <b>Date</b> <span class="fl l"></span></span>
+      <span>Underline = Atlas card &middot; &#9656; = video &middot; Evidence: <span class="eb eb-h">H</span> high <span class="eb eb-m">M</span> moderate <span class="eb eb-l">L</span> low <span class="eb eb-e">E</span> expert &middot; Confidential &middot; v2026.10</span>
+    </div>
+    <div class="pnav-wrap">
+      <nav class="pnav" aria-label="Dossier pages">
+        <span class="nl">GO TO</span>
+        <a class="ptab" href="#page-1">1</a>
+        <a class="ptab" href="#page-2">2</a>
+        <a class="ptab" href="#page-3">3</a>
+        <a class="ptab" href="#page-4">4</a>
+        <a class="ptab on" href="#page-5">5</a>
+        <a class="ptab" href="#page-6">6</a>
+        <a class="ptab" href="#page-7">7</a>
+        <a class="ptab" href="#page-8">8</a>
+        <a class="ptab" href="#page-9">9</a>
+      </nav>
+    </div>
+  </footer>
+</div>
+<!-- ===================== PAGE 6 ===================== -->
+<div class="clinical-page" id="page-6" data-accent="orange">
+  <header class="pg-hdr">
+    <div class="brand">
+      <div class="logo">KNEE</div>
+      <div>
+        <div class="kicker">Knee Complex &middot; Master Clinical Assessment &amp; Rehabilitation Dossier</div>
+        <h1 class="pg-title">Electrophysical Agents</h1>
+      </div>
+    </div>
+    <div class="hdr-right">
+      <div class="fr"><span class="lb">Patient</span><span class="fl l"></span></div>
+      <div class="pgno">06 / 09</div>
+    </div>
+  </header>
+  <main class="pg-body">
+ <section class="card" id="p6-eswt">
+<div class="card-h"><span>Extracorporeal Shockwave Therapy (ESWT) <a aria-label="Open Atlas info card" class="info-icon" href="https://azhry-x.github.io/knee-atlas/#eswt-knee" rel="noopener" target="_blank"><svg aria-hidden="true" class="info-svg" viewbox="0 0 24 24"><circle cx="12" cy="12" fill="none" r="10" stroke="currentColor" stroke-width="2.2"></circle><line stroke="currentColor" stroke-width="2.4" x1="12" x2="12" y1="16.5" y2="10.5"></line><circle cx="12" cy="7.3" fill="currentColor" r="1.4"></circle></svg></a> <a class="guide-badge" href="https://shockwavetherapy.org/indications/" rel="noopener" target="_blank"><svg aria-hidden="true" class="badge-ico" viewbox="0 0 10 10"><path d="M2 .7h4.2L8.3 2.8V9.3H2z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.05"></path><path d="M6.1.8v2.1h2.1" fill="none" stroke="currentColor" stroke-width="1"></path><path d="M3.3 5h3.5M3.3 6.6h3.5M3.3 8.1h2.2" stroke="currentColor" stroke-width=".85"></path></svg>ISMST Indications</a></span><span class="tag">3–5 SESSIONS · WEEKLY</span></div>
+<div class="card-b" style="padding:.8mm 1.2mm;">
+<table class="t dense">
+<thead><tr><th class="c">Rx</th><th>Indication</th><th>ISMST status</th><th>Type</th><th>Energy</th><th>Pulses</th><th>Freq</th><th>Technique</th></tr></thead>
+<tbody>
+<tr><td class="c"><span class="cb"></span></td><td class="k">Patellar tendinopathy <span class="eb eb-m">M</span></td><td>Approved standard</td><td>fESWT</td><td><b>0.10–0.30 mJ/mm²</b></td><td>1500–2000</td><td>4–8 Hz</td><td>Knee 30–60° flexed; focus on inferior pole tenderness</td></tr>
+<tr><td class="c"><span class="cb"></span></td><td class="k">Patellar tendinopathy</td><td>Approved standard</td><td>rESWT</td><td><b>2.0–3.0 bar</b></td><td>2000–3000</td><td>8–12 Hz</td><td>Sweep proximal tendon; avoid patella bone impact</td></tr>
+<tr><td class="c"><span class="cb"></span></td><td class="k">Pes anserine tendinopathy <span class="eb eb-l">L</span></td><td>Empirically tested</td><td>rESWT</td><td><b>1.5–2.5 bar</b></td><td>2000</td><td>8–10 Hz</td><td>Anteromedial tibia, below joint line</td></tr>
+<tr><td class="c"><span class="cb"></span></td><td class="k">Knee osteoarthritis <span class="eb eb-l">L</span></td><td>Empirically tested</td><td>r / fESWT</td><td><b>2.0–2.5 bar</b></td><td>2000–4000</td><td>8–10 Hz</td><td>Tender joint-line &amp; periarticular points</td></tr>
+<tr><td class="c"><span class="cb"></span></td><td class="k">Osgood-Schlatter <span class="eb eb-l">L</span></td><td>Empirically tested</td><td>rESWT</td><td><b>1.5–2.0 bar</b></td><td>1500–2000</td><td>8 Hz</td><td>Low energy only over the apophysis</td></tr>
+</tbody>
+</table>
+<div class="xxs mut mt-[1px]">Energy / pulse ranges are typical clinical settings <span class="eb eb-e">E</span>; combine with progressive tendon loading (p8). ISMST contraindications: malignant tumour, fetus or pacemaker in the shockwave field.</div>
+<div class="crit mt-[2px] flex-col items-start gap-[1px]" style="font-size:7.3px;">
+<div class="flex items-center gap-1.5"><svg aria-hidden="true" class="stop" viewbox="0 0 12 12"><path d="M3.5 .5h5l3 3v5l-3 3h-5l-3-3v-5z" fill="#991b1b"></path><rect fill="#fff" height="1.6" width="6" x="3" y="5.2"></rect></svg><span><b>DRUG &amp; LOAD INTERLOCK:</b> avoid routine NSAIDs during the loading phase where possible (mechanistic concern, evidence limited — prescribing rests with the physician). No ballistic loading for 48 h after ESWT.</span></div>
+<div class="crim font-bold" style="padding-left:14px;">FLUOROQUINOLONE (current or within 6 months) or recent tendon steroid injection → NO ESWT and no heavy tendon loading.</div>
+</div>
+</div>
+</section>
+<div class="grid grid-cols-2 gap-[1.5mm]">
+<section class="card" id="p6-pbm">
+<div class="card-h"><span>Photobiomodulation (Laser) <a class="guide-badge" href="https://pmc.ncbi.nlm.nih.gov/articles/PMC6830679/" rel="noopener" target="_blank"><svg aria-hidden="true" class="badge-ico" viewbox="0 0 10 10"><path d="M2 .7h4.2L8.3 2.8V9.3H2z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.05"></path><path d="M6.1.8v2.1h2.1" fill="none" stroke="currentColor" stroke-width="1"></path><path d="M3.3 5h3.5M3.3 6.6h3.5M3.3 8.1h2.2" stroke="currentColor" stroke-width=".85"></path></svg>BMJ Open 2019</a></span><span class="tag" style="background:#991b1b;border-color:#fecaca">EYEWEAR</span></div>
+<div class="card-b" style="padding:.8mm 1.2mm;">
+<table class="t dense">
+<thead><tr><th class="c">Rx</th><th>Indication</th><th style="text-transform:none">λ</th><th>Dose per spot</th><th class="c">Ev.</th></tr></thead>
+<tbody>
+<tr><td class="c"><span class="cb"></span></td><td class="k">Knee OA</td><td>785–860 nm</td><td><b>4–8 J</b></td><td class="c"><span class="eb eb-m">M</span></td></tr>
+<tr><td class="c"><span class="cb"></span></td><td class="k">Knee OA</td><td>904 nm</td><td><b>1–3 J</b></td><td class="c"><span class="eb eb-m">M</span></td></tr>
+<tr><td class="c"><span class="cb"></span></td><td class="k">Tendinopathy / post-op</td><td>810–980 nm</td><td>WALT ranges</td><td class="c"><span class="eb eb-l">L</span></td></tr>
+</tbody>
+</table>
+<div class="xs mt-[1px]">6–10 spots along joint lines &amp; popliteal fossa, 2–3×/wk × 2–4 wk <span class="eb eb-e">E</span>. Meta-analysis at these doses: ≈ 19 mm VAS less pain than placebo — <b class="crim">but NICE 2022 does not recommend laser for OA</b>: adjunct only, discuss with patient.</div>
+<div class="xs mut mt-[1px]">CI: malignancy in field, pregnancy (abdomen), photosensitising drugs, tattoos, eyes; Class IV (HILT): thermal risk.</div>
+</div>
+</section>
+<section class="card" id="p6-tecar">
+<div class="card-h"><span>TECAR Therapy (448 kHz)</span><span class="tag">CET · RET</span></div>
+<div class="card-b" style="padding:.8mm 1.2mm;">
+<table class="t dense">
+<thead><tr><th>Mode</th><th>Electrode</th><th>Target tissue</th></tr></thead>
+<tbody>
+<tr><td class="k">CET</td><td>Insulated (capacitive)</td><td>Muscle, oedema, superficial</td></tr>
+<tr><td class="k">RET</td><td>Conductive (resistive)</td><td>Tendon, capsule, ligament</td></tr>
+</tbody>
+</table>
+<table class="t dense mt-[2px]">
+<thead><tr><th class="c">Rx</th><th>Level</th><th>Intensity</th><th>Phase</th></tr></thead>
+<tbody>
+<tr><td class="c"><span class="cb"></span></td><td class="k">Athermic</td><td>5–15%</td><td>Acute 0–72 h</td></tr>
+<tr><td class="c"><span class="cb"></span></td><td class="k">Mild thermal</td><td>20–35%</td><td>Subacute</td></tr>
+<tr><td class="c"><span class="cb"></span></td><td class="k">Hyperthermic</td><td>55–75%</td><td>Chronic / stiffness</td></tr>
+</tbody>
+</table>
+<div class="xs mut mt-[1px]">Evidence <span class="eb eb-l">L</span> · CI: pacemaker, pregnancy, DVT, malignancy, sensory loss, <b>metal implant in field (thermal modes, e.g. TKA)</b>.</div>
+</div>
+</section>
+</div>
+<section class="card" id="p6-cryo">
+<div class="card-h"><span>Cryotherapy &amp; Compression</span><span class="tag">POST-OP · AMI</span></div>
+<div class="card-b flex flex-wrap items-center justify-between text-[7.2px] gap-x-2" style="padding:.8mm 1.2mm;">
+<div><b>Post-op / acute:</b> cryo-compression or ice 15–20 min, barrier, every 2–3 h · <b>Arthrogenic muscle inhibition (AMI):</b> cryotherapy 20 min <b>then</b> quadriceps exercise <span class="eb eb-m">M</span> <a class="guide-badge" href="https://pmc.ncbi.nlm.nih.gov/articles/PMC6579490/" rel="noopener" target="_blank"><svg aria-hidden="true" class="badge-ico" viewbox="0 0 10 10"><path d="M2 .7h4.2L8.3 2.8V9.3H2z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.05"></path><path d="M6.1.8v2.1h2.1" fill="none" stroke="currentColor" stroke-width="1"></path><path d="M3.3 5h3.5M3.3 6.6h3.5M3.3 8.1h2.2" stroke="currentColor" stroke-width=".85"></path></svg>AMI review 2019</a></div>
+<div class="crim"><b>CI:</b> cold urticaria, Raynaud’s, cryoglobulinaemia, sensory loss, peripheral vascular disease, superficial peroneal / CPN pressure.</div>
+</div>
+</section>
+<section class="card" id="p6-electro">
+<div class="card-h"><span>Electrotherapy — NMES <a aria-label="Open Atlas info card" class="info-icon" href="https://azhry-x.github.io/knee-atlas/#nmes-quadriceps" rel="noopener" target="_blank"><svg aria-hidden="true" class="info-svg" viewbox="0 0 24 24"><circle cx="12" cy="12" fill="none" r="10" stroke="currentColor" stroke-width="2.2"></circle><line stroke="currentColor" stroke-width="2.4" x1="12" x2="12" y1="16.5" y2="10.5"></line><circle cx="12" cy="7.3" fill="currentColor" r="1.4"></circle></svg></a> · TENS <a aria-label="Open Atlas info card" class="info-icon" href="https://azhry-x.github.io/knee-atlas/#tens-dosing" rel="noopener" target="_blank"><svg aria-hidden="true" class="info-svg" viewbox="0 0 24 24"><circle cx="12" cy="12" fill="none" r="10" stroke="currentColor" stroke-width="2.2"></circle><line stroke="currentColor" stroke-width="2.4" x1="12" x2="12" y1="16.5" y2="10.5"></line><circle cx="12" cy="7.3" fill="currentColor" r="1.4"></circle></svg></a> · IFC · HVPC · EMG Biofeedback</span><span class="tag">QUADRICEPS FIRST</span></div>
+<div class="card-b" style="padding:.8mm 1.2mm;">
+<table class="t dense">
+<thead><tr><th class="c">Rx</th><th>Goal</th><th>Current</th><th>Frequency</th><th>Pulse / carrier</th><th>Intensity</th><th>Dose</th><th class="c">Ev.</th></tr></thead>
+<tbody>
+<tr><td class="c"><span class="cb"></span></td><td class="k">Quadriceps strength — post-TKA</td><td>NMES biphasic symmetric</td><td>30–50 Hz</td><td>250–400 µs</td><td>Max tolerable</td><td>15 contractions · 2×/day from 48 h · 10–15 s on / 45–50 s off · 6 wk</td><td class="c"><span class="eb eb-h">H</span></td></tr>
+<tr><td class="c"><span class="cb"></span></td><td class="k">Quadriceps — post-ACLR / AMI</td><td>NMES biphasic symmetric</td><td>30–50 Hz</td><td>250–400 µs</td><td>Max tolerable, with voluntary contraction</td><td>10–20 contractions daily, early phase · knee 60°, strap-resisted</td><td class="c"><span class="eb eb-m">M</span></td></tr>
+<tr><td class="c"><span class="cb"></span></td><td class="k">Strength (alternative)</td><td>Russian current</td><td>50 Hz bursts</td><td>Carrier 2500 Hz</td><td>Max tolerable</td><td>10 s on / 50 s off · 10–15 reps</td><td class="c"><span class="eb eb-l">L</span></td></tr>
+<tr><td class="c"><span class="cb"></span></td><td class="k">Pain — acute / during exercise</td><td>Conventional TENS</td><td>80–120 Hz</td><td>50–100 µs</td><td>Strong, comfortable, sub-motor</td><td>30–60 min; can run during exercise</td><td class="c"><span class="eb eb-l">L</span></td></tr>
+<tr><td class="c"><span class="cb"></span></td><td class="k">Pain — chronic</td><td>Acupuncture-like TENS</td><td>2–4 Hz</td><td>150–250 µs</td><td>Visible rhythmic contraction</td><td>20–30 min</td><td class="c"><span class="eb eb-l">L</span></td></tr>
+<tr><td class="c"><span class="cb"></span></td><td class="k">Pain — deep tissue</td><td>IFC quadripolar</td><td>Beat 80–150 / 1–10 Hz</td><td>Carrier 4000 Hz</td><td>Strong comfortable</td><td>15–20 min, sweep on</td><td class="c"><span class="eb eb-l">L</span></td></tr>
+<tr><td class="c"><span class="cb"></span></td><td class="k">Oedema — acute</td><td>HVPC (negative)</td><td>100–120 Hz</td><td>Twin-peak monophasic</td><td>Sub-motor</td><td>30 min, limb elevated</td><td class="c"><span class="eb eb-l">L</span></td></tr>
+<tr><td class="c"><span class="cb"></span></td><td class="k">Oedema — calf muscle pump</td><td>Motor-level NMES</td><td>1–10 Hz</td><td>200–300 µs</td><td>Rhythmic contraction</td><td>20–30 min, elevated</td><td class="c"><span class="eb eb-l">L</span></td></tr>
+<tr><td class="c"><span class="cb"></span></td><td class="k">Quadriceps activation</td><td>EMG biofeedback</td><td colspan="3">Visual / auditory threshold on VMO during quad sets &amp; SLR</td><td>3 × 10 contractions, every session</td><td class="c"><span class="eb eb-l">L</span></td></tr>
+</tbody>
+</table>
+<div class="note mt-[2px] xs"><b>Quadriceps NMES set-up:</b> electrode 1 over the VMO motor point (distal medial thigh) · electrode 2 over proximal lateral thigh (VL / RF) · knee 60° with strap resistance · intensity is the dose: aim for the strongest tolerable contraction. · <b>TENS:</b> intensity is the key parameter; identical daily settings produce tolerance within days — vary frequency.</div>
+<div class="box r xs mt-[2px]" style="padding:.5mm 1.2mm;"><b class="crim">Guideline limits:</b> <b>Knee OA</b> — NICE 2022 does <b>not</b> recommend TENS, IFC, ultrasound, laser, pulsed short-wave or NMES (exercise, education &amp; weight management first) <span class="eb eb-h">H</span> · <b>Patellofemoral pain</b> — electrophysical agents not recommended (2016 consensus) <span class="eb eb-m">M</span> · NMES after <b>TKA / ACLR</b> is a different indication and is recommended.</div>
+<div class="crim b mt-[1px] xs">CI: pacemaker / ICD · over DVT · pregnancy (abdomen, low back) · active malignancy in field · broken skin · impaired sensation · epilepsy (head / neck) · transthoracic placement.</div>
+</div>
+</section>
+<div class="dots fill" id="p6-notes"><span class="dots-l">Treatment Response · Adverse Reactions · Dosage Adjustments</span></div>
+
+  </main>
+  <footer class="pg-ftr">
+    <div class="ftr-top">
+      <span><b>Clinician</b> <span class="fl l"></span> <b>Date</b> <span class="fl l"></span></span>
+      <span>Underline = Atlas card &middot; &#9656; = video &middot; Evidence: <span class="eb eb-h">H</span> high <span class="eb eb-m">M</span> moderate <span class="eb eb-l">L</span> low <span class="eb eb-e">E</span> expert &middot; Confidential &middot; v2026.10</span>
+    </div>
+    <div class="pnav-wrap">
+      <nav class="pnav" aria-label="Dossier pages">
+        <span class="nl">GO TO</span>
+        <a class="ptab" href="#page-1">1</a>
+        <a class="ptab" href="#page-2">2</a>
+        <a class="ptab" href="#page-3">3</a>
+        <a class="ptab" href="#page-4">4</a>
+        <a class="ptab" href="#page-5">5</a>
+        <a class="ptab on" href="#page-6">6</a>
+        <a class="ptab" href="#page-7">7</a>
+        <a class="ptab" href="#page-8">8</a>
+        <a class="ptab" href="#page-9">9</a>
+      </nav>
+    </div>
+  </footer>
+</div>
+<!-- ===================== PAGE 7 ===================== -->
+<div class="clinical-page" id="page-7" data-accent="teal">
+  <header class="pg-hdr">
+    <div class="brand">
+      <div class="logo">KNEE</div>
+      <div>
+        <div class="kicker">Knee Complex &middot; Master Clinical Assessment &amp; Rehabilitation Dossier</div>
+        <h1 class="pg-title">Manual Therapy, Soft Tissue &amp; Dry Needling</h1>
+      </div>
+    </div>
+    <div class="hdr-right">
+      <div class="fr"><span class="lb">Patient</span><span class="fl l"></span></div>
+      <div class="pgno">07 / 09</div>
+    </div>
+  </header>
+  <main class="pg-body">
+ <section class="card" id="p7-manual">
+<div class="card-h"><span>Manual Therapy &amp; Neurodynamics <a aria-label="Open Atlas info card" class="info-icon" href="https://azhry-x.github.io/knee-atlas/#knee-manual-therapy" rel="noopener" target="_blank"><svg aria-hidden="true" class="info-svg" viewbox="0 0 24 24"><circle cx="12" cy="12" fill="none" r="10" stroke="currentColor" stroke-width="2.2"></circle><line stroke="currentColor" stroke-width="2.4" x1="12" x2="12" y1="16.5" y2="10.5"></line><circle cx="12" cy="7.3" fill="currentColor" r="1.4"></circle></svg></a></span><span class="tag">MAITLAND · MULLIGAN</span></div>
+<div class="card-b grid grid-cols-12 gap-x-2" style="padding:.8mm 1.2mm;">
+<div class="col-span-7">
+<table class="t dense">
+<thead><tr><th class="c">Rx</th><th>Technique</th><th>Target</th><th>Grade / dose</th></tr></thead>
+<tbody>
+<tr><td class="c"><span class="cb"></span></td><td class="k">Tibiofemoral PA glide</td><td>Extension ↓</td><td>III–IV, 3 × 30–60 s</td></tr>
+<tr><td class="c"><span class="cb"></span></td><td class="k">Tibiofemoral AP glide</td><td>Flexion ↓</td><td>III–IV, 3 × 30–60 s</td></tr>
+<tr><td class="c"><span class="cb"></span></td><td class="k">Patellar glides (sup / inf / med)</td><td>Post-op stiffness, patella infera</td><td>II–IV, 2–3 × 60 s</td></tr>
+<tr><td class="c"><span class="cb"></span></td><td class="k">Long-axis distraction</td><td>OA pain</td><td>I–II, 3 × 30–60 s</td></tr>
+<tr><td class="c"><span class="cb"></span></td><td class="k">Proximal tibiofibular glide</td><td>Lateral knee / PTFJ</td><td>II–IV, 3 × 30 s</td></tr>
+<tr><td class="c"><span class="cb"></span></td><td class="k">MWM: tibial IR / ER glide</td><td>Painful flexion / extension</td><td>3 × 10, pain-free only</td></tr>
+<tr><td class="c"><span class="cb"></span></td><td class="k">Hip mobilisation</td><td>Knee OA with hip signs</td><td>III–IV, 3 × 30–60 s <span class="eb eb-l">L</span></td></tr>
+</tbody>
+</table>
+<div class="xxs mt-[1px]"><b class="crim">No lateral patellar glides</b> after MPFL reconstruction or with lateral instability. Knee OA: manual therapy only <b>alongside</b> exercise <span class="eb eb-m">M</span>. <b class="crim">PFP: patellofemoral, knee &amp; lumbar mobilisations not recommended</b> (2016 consensus) <span class="eb eb-m">M</span>.</div>
+</div>
+<div class="col-span-5">
+<table class="t dense">
+<thead><tr><th>Nerve</th><th class="c">Slider</th><th class="c">Tensioner</th></tr></thead>
+<tbody>
+<tr><td class="k">Femoral (PKB / side-lying slump)</td><td class="c"><span class="cb"></span></td><td class="c"><span class="cb"></span></td></tr>
+<tr><td class="k">Saphenous</td><td class="c"><span class="cb"></span></td><td class="c"><span class="cb"></span></td></tr>
+<tr><td class="k">Sciatic / tibial (slump)</td><td class="c"><span class="cb"></span></td><td class="c"><span class="cb"></span></td></tr>
+<tr><td class="k">Common peroneal</td><td class="c"><span class="cb"></span></td><td class="c"><span class="cb"></span></td></tr>
+<tr><td class="k xs">Dose</td><td class="xs">2–3 × 10–15 (acute / irritable)</td><td class="xs">3 × 5–10 (chronic)</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section class="card red" id="p7-dn">
+<div class="card-h"><span>Dry Needling Safety Mapping <a aria-label="Open Atlas info card" class="info-icon" href="https://azhry-x.github.io/knee-atlas/#dry-needling-knee" rel="noopener" target="_blank"><svg aria-hidden="true" class="info-svg" viewbox="0 0 24 24"><circle cx="12" cy="12" fill="none" r="10" stroke="currentColor" stroke-width="2.2"></circle><line stroke="currentColor" stroke-width="2.4" x1="12" x2="12" y1="16.5" y2="10.5"></line><circle cx="12" cy="7.3" fill="currentColor" r="1.4"></circle></svg></a></span><span class="tag">DEPTH VARIES WITH BMI · US GUIDANCE ADVISED</span></div>
+<div class="card-b" style="padding:.8mm 1.2mm;">
+<table class="t dense red">
+<thead><tr><th class="c">Rx</th><th>Muscle</th><th>Needle</th><th>Depth</th><th>Approach &amp; neurovascular safety</th></tr></thead>
+<tbody>
+<tr><td class="c"><span class="cb"></span></td><td class="k">Vastus lateralis</td><td>0.30 × 50–60 mm</td><td>2–5 cm</td><td>Lateral thigh, perpendicular to femur; large safe window</td></tr>
+<tr><td class="c"><span class="cb"></span></td><td class="k">Vastus medialis (VMO)</td><td>0.30 × 40–50 mm</td><td>1.5–3 cm</td><td>Distal medial thigh; <b class="crim">stay anterior to sartorius</b> — femoral vessels in the adductor canal</td></tr>
+<tr><td class="c"><span class="cb"></span></td><td class="k">Rectus femoris</td><td>0.30 × 50–60 mm</td><td>2–4 cm</td><td>Anterior mid-thigh; <b class="crim">avoid the femoral triangle</b> proximally</td></tr>
+<tr><td class="c"><span class="cb"></span></td><td class="k">Biceps femoris (distal)</td><td>0.30 × 40–50 mm</td><td>1.5–3 cm</td><td>Lateral approach aimed laterally; <b class="crim">common peroneal nerve runs medial to the tendon</b></td></tr>
+<tr><td class="c"><span class="cb"></span></td><td class="k">Semitendinosus / membranosus</td><td>0.30 × 40–60 mm</td><td>2–4 cm</td><td>Posteromedial thigh, aimed medially, away from the sciatic / tibial nerve</td></tr>
+<tr><td class="c"><span class="cb"></span></td><td class="k">Gastrocnemius heads</td><td>0.30 × 40–50 mm</td><td>1.5–3 cm</td><td>Pincer grip on each head; <b class="crim">never the centre of the popliteal fossa</b></td></tr>
+<tr class="redrow"><td class="c"><span class="cb r"></span></td><td class="k">Popliteus <span class="crim">(advanced)</span></td><td>0.30 × 40–50 mm</td><td>2–3 cm</td><td>Posteromedial tibial border aimed laterally; popliteal artery, vein &amp; tibial nerve lie centrally</td></tr>
+<tr><td class="c"><span class="cb"></span></td><td class="k">TFL / gluteus medius</td><td>0.30 × 60–75 mm</td><td>3–6 cm</td><td>Lateral-knee referral; perpendicular, superior to greater trochanter</td></tr>
+</tbody>
+</table>
+<div class="flex flex-wrap items-center mt-[2px] xs box r" style="padding:.5mm 1.2mm;">
+<b class="crim mr-1">Safety screen:</b>
+<span class="cio"><span class="cb sm r"></span>Anticoagulants / bleeding screened</span>
+<span class="cio"><span class="cb sm r"></span>No infection / lymphoedema</span>
+<span class="cio"><span class="cb sm r"></span>Vasovagal history screened</span>
+<span class="cio"><span class="cb sm r"></span><b>No needling into the joint or near a knee replacement</b></span>
+<span class="crim" style="margin-left:1mm"><b>Knee OA:</b> NICE 2022 — do not offer dry needling / acupuncture</span>
+</div>
+</div>
+</section>
+<section class="card" id="p7-release">
+<div class="card-h"><span>Manual Release &amp; Cupping <a aria-label="Open Atlas info card" class="info-icon" href="https://azhry-x.github.io/knee-atlas/#cupping-knee" rel="noopener" target="_blank"><svg aria-hidden="true" class="info-svg" viewbox="0 0 24 24"><circle cx="12" cy="12" fill="none" r="10" stroke="currentColor" stroke-width="2.2"></circle><line stroke="currentColor" stroke-width="2.4" x1="12" x2="12" y1="16.5" y2="10.5"></line><circle cx="12" cy="7.3" fill="currentColor" r="1.4"></circle></svg></a></span><span class="tag">SOFT TISSUE</span></div>
+<div class="card-b" style="padding:.8mm 1.2mm;">
+<table class="t dense">
+<thead><tr><th class="c">Rx</th><th>Technique</th><th>Parameters</th><th class="c">Ev.</th></tr></thead>
+<tbody>
+<tr><td class="c"><span class="cb"></span></td><td class="k">IASTM</td><td>Quadriceps, TFL, hamstrings · 30–45° stroke angle · light–moderate pressure · 30–120 s per region · 1–2×/wk</td><td class="c"><span class="eb eb-l">L</span></td></tr>
+<tr><td class="c"><span class="cb"></span></td><td class="k">Active release / pin-and-stretch</td><td>Pin in shortened position → active lengthening · 3–5 passes</td><td class="c"><span class="eb eb-l">L</span></td></tr>
+<tr><td class="c"><span class="cb"></span></td><td class="k">Foam rolling (self-release)</td><td>Quadriceps / lateral thigh · 30–60 s × 3 · warm-up use; the ITB itself does not lengthen</td><td class="c"><span class="eb eb-l">L</span></td></tr>
+<tr><td class="c"><span class="cb"></span></td><td class="k">Dry cupping — static</td><td>Light–moderate suction · 5–10 min</td><td class="c"><span class="eb eb-l">L</span></td></tr>
+<tr><td class="c"><span class="cb"></span></td><td class="k">Dynamic (sliding) cupping</td><td>Lubricant · light suction · 3–5 min along fibre direction</td><td class="c"><span class="eb eb-l">L</span></td></tr>
+<tr><td class="c"><span class="cb"></span></td><td class="k">Cupping with movement</td><td>Cup in place + active knee ROM · 2–3 min</td><td class="c"><span class="eb eb-l">L</span></td></tr>
+<tr class="redrow"><td class="c"><span class="cb r"></span></td><td class="k">Wet cupping (Hijama)</td><td>Skin-breaching: sterile single-use equipment, bloodborne-pathogen precautions. Confirm scope of practice &amp; licensure before use.</td><td class="c"><span class="eb eb-l">L</span></td></tr>
+</tbody>
+</table>
+<div class="crim b mt-[1px] xs">CI: anticoagulants / bleeding disorders · fragile skin (elderly, chronic steroids) · over DVT / varicosities · open wounds or unhealed incisions · neuropathy · active infection · pregnancy (abdomen). Wet cupping also: anaemia, immunosuppression.</div>
+</div>
+</section>
+<section class="card" id="p7-bracing">
+<div class="card-h"><span>Taping, Bracing &amp; Orthoses <a class="guide-badge" href="https://pmc.ncbi.nlm.nih.gov/articles/PMC4975825/" rel="noopener" target="_blank"><svg aria-hidden="true" class="badge-ico" viewbox="0 0 10 10"><path d="M2 .7h4.2L8.3 2.8V9.3H2z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.05"></path><path d="M6.1.8v2.1h2.1" fill="none" stroke="currentColor" stroke-width="1"></path><path d="M3.3 5h3.5M3.3 6.6h3.5M3.3 8.1h2.2" stroke="currentColor" stroke-width=".85"></path></svg>PFP Consensus 2016</a></span><span class="tag">ADJUNCTS</span></div>
+<div class="card-b" style="padding:.8mm 1.2mm;">
+<table class="t dense">
+<thead><tr><th class="c">Rx</th><th style="width:22%">Device</th><th style="width:30%">Indication</th><th>Recommendation</th><th class="c">Ev.</th></tr></thead>
+<tbody>
+<tr><td class="c"><span class="cb"></span></td><td class="k">Foot orthoses (prefabricated)</td><td>Patellofemoral pain</td><td>Short-term pain relief; benefit varies between individuals</td><td class="c"><span class="eb eb-m">M</span></td></tr>
+<tr><td class="c"><span class="cb"></span></td><td class="k">Patellar taping / bracing</td><td>PFP, as part of combined care</td><td>Role on its own unclear — use only within exercise-based care</td><td class="c"><span class="eb eb-l">L</span></td></tr>
+<tr><td class="c"><span class="cb"></span></td><td class="k">Unloader (valgus) brace / insoles</td><td>Medial knee OA</td><td>Not routine (NICE): only with instability or abnormal loading when exercise alone is insufficient</td><td class="c"><span class="eb eb-m">M</span></td></tr>
+<tr><td class="c"><span class="cb"></span></td><td class="k">Hinged post-operative brace</td><td>ACLR / meniscal repair / MPFL / extensor repair</td><td>Surgeon-directed: lock angle &amp; duration in operative note</td><td class="c"><span class="eb eb-e">E</span></td></tr>
+<tr><td class="c"><span class="cb"></span></td><td class="k">Functional ACL brace</td><td>Return to sport after ACLR</td><td>No clear reduction in reinjury — does not replace RTS criteria</td><td class="c"><span class="eb eb-l">L</span></td></tr>
+</tbody>
+</table>
+<div class="xs mt-[1px]"><b class="emer">PFP first line:</b> combined hip + knee exercise <span class="eb eb-h">H</span> · <b class="crim">not recommended for PFP:</b> PF / knee / lumbar mobilisation, electrophysical agents <span class="eb eb-m">M</span></div>
+</div>
+</section>
+<div class="box r flex flex-wrap items-center xs" style="padding:.7mm 1.6mm;">
+<b class="crim mr-2">CONSENT OBTAINED FOR:</b>
+<span class="cio"><span class="cb r"></span>ESWT</span>
+<span class="cio"><span class="cb r"></span>Dry needling</span>
+<span class="cio"><span class="cb r"></span>Grade III–IV manual therapy</span>
+<span class="cio"><span class="cb r"></span>Cupping (dry / wet)</span>
+<span class="mut mr-1">|</span><span class="cio"><span class="cb r"></span>Risks &amp; alternatives discussed</span>
+<span class="cio"><span class="cb r"></span>Patient may decline</span>
+<span class="lr" style="margin-left:auto">Signature <span class="fl l"></span></span>
+</div>
+<div class="dots fill" id="p7-notes"><span class="dots-l">Technique Response · Adverse Reactions</span></div>
+
+  </main>
+  <footer class="pg-ftr">
+    <div class="ftr-top">
+      <span><b>Clinician</b> <span class="fl l"></span> <b>Date</b> <span class="fl l"></span></span>
+      <span>Underline = Atlas card &middot; &#9656; = video &middot; Evidence: <span class="eb eb-h">H</span> high <span class="eb eb-m">M</span> moderate <span class="eb eb-l">L</span> low <span class="eb eb-e">E</span> expert &middot; Confidential &middot; v2026.10</span>
+    </div>
+    <div class="pnav-wrap">
+      <nav class="pnav" aria-label="Dossier pages">
+        <span class="nl">GO TO</span>
+        <a class="ptab" href="#page-1">1</a>
+        <a class="ptab" href="#page-2">2</a>
+        <a class="ptab" href="#page-3">3</a>
+        <a class="ptab" href="#page-4">4</a>
+        <a class="ptab" href="#page-5">5</a>
+        <a class="ptab" href="#page-6">6</a>
+        <a class="ptab on" href="#page-7">7</a>
+        <a class="ptab" href="#page-8">8</a>
+        <a class="ptab" href="#page-9">9</a>
+      </nav>
+    </div>
+  </footer>
+</div>
+<!-- ===================== PAGE 8 ===================== -->
+<div class="clinical-page" id="page-8" data-accent="green">
+  <header class="pg-hdr">
+    <div class="brand">
+      <div class="logo">KNEE</div>
+      <div>
+        <div class="kicker">Knee Complex &middot; Master Clinical Assessment &amp; Rehabilitation Dossier</div>
+        <h1 class="pg-title">Progressive Loading Continuum &amp; Return-to-Sport Battery</h1>
+      </div>
+    </div>
+    <div class="hdr-right">
+      <div class="fr"><span class="lb">Patient</span><span class="fl l"></span></div>
+      <div class="pgno">08 / 09</div>
+    </div>
+  </header>
+  <main class="pg-body">
+ <section class="card green" id="p8-tendon">
+<div class="card-h"><span>Tendon Loading Continuum — Patellar / Quadriceps Tendinopathy <a aria-label="Open Atlas info card" class="info-icon" href="https://azhry-x.github.io/knee-atlas/#tendon-loading-knee" rel="noopener" target="_blank"><svg aria-hidden="true" class="info-svg" viewbox="0 0 24 24"><circle cx="12" cy="12" fill="none" r="10" stroke="currentColor" stroke-width="2.2"></circle><line stroke="currentColor" stroke-width="2.4" x1="12" x2="12" y1="16.5" y2="10.5"></line><circle cx="12" cy="7.3" fill="currentColor" r="1.4"></circle></svg></a> <a class="guide-badge" href="https://pmc.ncbi.nlm.nih.gov/articles/PMC8070614/" rel="noopener" target="_blank"><svg aria-hidden="true" class="badge-ico" viewbox="0 0 10 10"><path d="M2 .7h4.2L8.3 2.8V9.3H2z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.05"></path><path d="M6.1.8v2.1h2.1" fill="none" stroke="currentColor" stroke-width="1"></path><path d="M3.3 5h3.5M3.3 6.6h3.5M3.3 8.1h2.2" stroke="currentColor" stroke-width=".85"></path></svg>BJSM 2021 RCT</a></span><span class="tag">TICK CURRENT STAGE</span></div>
+<div class="card-b" style="padding:.8mm 1.2mm;">
+<table class="t dense green">
+<thead><tr><th class="c">Now</th><th style="width:19%">Stage</th><th>Parameters</th><th style="width:27%">Progress when</th></tr></thead>
+<tbody>
+<tr><td class="c"><span class="cb g"></span></td><td class="k">1 · Isometric</td><td>Single-leg leg press or leg extension at 60° knee flexion · <b>5 × 45 s at ≈ 70% MVC</b> · daily</td><td rowspan="3">Single-leg squat pain <b>≤ 3/10</b> and ≥ 1 week at the stage</td></tr>
+<tr><td class="c"><span class="cb g"></span></td><td class="k">2 · Isotonic (heavy, slow)</td><td>Leg press · split squat · leg extension · 3 s up / 3 s down · 15RM → 6RM over 12 wk (log below) · 3×/wk</td></tr>
+<tr><td class="c"><span class="cb g"></span></td><td class="k">3 · Energy storage</td><td>Jumps, hops, bounding · progress volume → height → speed · every 2–3 days</td></tr>
+<tr><td class="c"><span class="cb g"></span></td><td class="k">4 · Sport-specific</td><td>Return to training → competition · keep stage 1–2 twice weekly</td><td>Stage 4 tolerated with pain ≤ 3/10 → compete</td></tr>
+</tbody>
+</table>
+<div class="xxs mut mt-[1px]">Progressive tendon loading beat eccentric decline squats: VISA-P +28 vs +18 points at 24 wk <span class="eb eb-m">M</span>. Isometrics: analgesia not consistently better than isotonic loading — use for load tolerance, not as the whole programme.</div>
+</div>
+</section>
+<section class="card" id="p8-hsr">
+<div class="card-h"><span>Quadriceps Strength — 12-Week Heavy-Slow Progression &amp; Load Log</span><span class="tag">3 SESSIONS / WK</span></div>
+<div class="card-b" style="padding:.8mm 1.2mm;">
+<div class="flex flex-wrap xs mb-[1px]"><span class="lb mr-1">Exercises:</span><span class="cio"><span class="cb sm"></span>Leg press</span><span class="cio"><span class="cb sm"></span>Split squat</span><span class="cio"><span class="cb sm"></span>Leg extension (OKC)</span><span class="cio"><span class="cb sm"></span>Step-up</span><span class="cio"><span class="cb sm"></span>Spanish squat</span><span class="cio"><span class="cb sm"></span>Hamstring curl / RDL</span></div>
+<table class="t dense">
+<thead><tr><th style="width:17%">Block</th><th class="c">Wk 1</th><th class="c">Wks 2–3</th><th class="c">Wks 4–5</th><th class="c">Wks 6–8</th><th class="c">Wks 9–12</th></tr></thead>
+<tbody>
+<tr><td class="k">Target RM × sets</td><td class="c b">15RM × 3</td><td class="c b">12RM × 3</td><td class="c b">10RM × 4</td><td class="c b">8RM × 4</td><td class="c b">6RM × 4</td></tr>
+<tr><td class="k">Load (kg)</td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td class="k">Pain during / 24 h</td><td></td><td></td><td></td><td></td><td></td></tr>
+</tbody>
+</table>
+<div class="grid grid-cols-3 gap-[1.2mm] mt-[2px] xs">
+<div class="box g" style="padding:.4mm 1mm"><b class="emer">GREEN 0–2/10</b> — safe, progress load</div>
+<div class="box" style="padding:.4mm 1mm;border-color:#f59e0b;background:#fffbeb"><b style="color:#b45309">AMBER 3–5/10</b> — acceptable if settled by next morning</div>
+<div class="box r" style="padding:.4mm 1mm"><b class="crim">RED &gt; 5/10</b> or worse next day — regress one step</div>
+</div>
+</div>
+</section>
+<div class="grid grid-cols-2 gap-[1.5mm]">
+<section class="card green" id="p8-bfr">
+<div class="card-h"><span>Blood Flow Restriction (BFR) <a aria-label="Open Atlas info card" class="info-icon" href="https://azhry-x.github.io/knee-atlas/#bfr-knee" rel="noopener" target="_blank"><svg aria-hidden="true" class="info-svg" viewbox="0 0 24 24"><circle cx="12" cy="12" fill="none" r="10" stroke="currentColor" stroke-width="2.2"></circle><line stroke="currentColor" stroke-width="2.4" x1="12" x2="12" y1="16.5" y2="10.5"></line><circle cx="12" cy="7.3" fill="currentColor" r="1.4"></circle></svg></a> <a class="guide-badge" href="https://pmc.ncbi.nlm.nih.gov/articles/PMC6530612/" rel="noopener" target="_blank"><svg aria-hidden="true" class="badge-ico" viewbox="0 0 10 10"><path d="M2 .7h4.2L8.3 2.8V9.3H2z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.05"></path><path d="M6.1.8v2.1h2.1" fill="none" stroke="currentColor" stroke-width="1"></path><path d="M3.3 5h3.5M3.3 6.6h3.5M3.3 8.1h2.2" stroke="currentColor" stroke-width=".85"></path></svg>BFR Position Stand 2019</a></span><span class="tag">AOP · DOPPLER</span></div>
+<div class="card-b" style="padding:.8mm 1.2mm;">
+<div class="ci"><span class="cb g"></span><div><b>AOP</b> <span class="fl m"></span> mmHg → working <b>40–80% AOP</b> = <span class="fl m"></span> mmHg <a class="calc-badge" href="https://azhry-x.github.io/knee-atlas/#bfr-knee" rel="noopener" target="_blank"><svg aria-hidden="true" class="badge-ico" viewbox="0 0 10 10"><rect fill="none" height="8.8" rx="1.4" stroke="currentColor" stroke-width="1.1" width="8.8" x=".6" y=".6"></rect><rect fill="currentColor" height="1.7" rx=".3" width="5.6" x="2.2" y="2.1"></rect><circle cx="2.9" cy="5.6" fill="currentColor" r=".62"></circle><circle cx="5" cy="5.6" fill="currentColor" r=".62"></circle><circle cx="7.1" cy="5.6" fill="currentColor" r=".62"></circle><circle cx="2.9" cy="7.6" fill="currentColor" r=".62"></circle><circle cx="5" cy="7.6" fill="currentColor" r=".62"></circle><circle cx="7.1" cy="7.6" fill="currentColor" r=".62"></circle></svg>Calc</a></div></div>
+<div class="ci"><span class="cb g"></span><div><b>Active BFR:</b> 30-15-15-15 reps at 20–40% 1RM, 30–60 s rest, 5–10 min per exercise then deflate · 2–3×/wk <span class="eb eb-m">M</span></div></div>
+<div class="crit mt-[1px]" style="font-size:7px;"><svg aria-hidden="true" class="stop" viewbox="0 0 12 12"><path d="M3.5 .5h5l3 3v5l-3 3h-5l-3-3v-5z" fill="#991b1b"></path><rect fill="#fff" height="1.6" width="6" x="3" y="5.2"></rect></svg><span>Cuff on the PROXIMAL THIGH only — never below the knee (common peroneal nerve).</span></div>
+<div class="flex flex-wrap xs mt-[1px]" style="row-gap:1px"><b class="crim mr-1">Exclude if:</b><span class="cio"><span class="cb sm r"></span>DVT / VTE history</span><span class="cio"><span class="cb sm r"></span>PAD</span><span class="cio"><span class="cb sm r"></span>Sickle cell</span><span class="cio"><span class="cb sm r"></span>Uncontrolled HTN</span><span class="cio"><span class="cb sm r"></span>Pregnancy</span><span class="cio"><span class="cb sm r"></span>Infection / malignancy</span></div>
+</div>
+</section>
+<section class="card green" id="p8-rtr">
+<div class="card-h"><span>Return-to-Running Gate (Post-Op) <a aria-label="Open Atlas info card" class="info-icon" href="https://azhry-x.github.io/knee-atlas/#return-to-running" rel="noopener" target="_blank"><svg aria-hidden="true" class="info-svg" viewbox="0 0 24 24"><circle cx="12" cy="12" fill="none" r="10" stroke="currentColor" stroke-width="2.2"></circle><line stroke="currentColor" stroke-width="2.4" x1="12" x2="12" y1="16.5" y2="10.5"></line><circle cx="12" cy="7.3" fill="currentColor" r="1.4"></circle></svg></a></span><span class="tag">ALL REQUIRED</span></div>
+<div class="card-b" style="padding:.8mm 1.2mm;">
+<div class="grid grid-cols-2 gap-x-2">
+<div class="ci"><span class="cb g"></span><div>≥ 12 weeks after ACLR</div></div>
+<div class="ci"><span class="cb g"></span><div>Full extension, flexion ≥ 95%</div></div>
+<div class="ci"><span class="cb g"></span><div>Effusion ≤ trace</div></div>
+<div class="ci"><span class="cb g"></span><div>Pain ≤ 2/10</div></div>
+<div class="ci"><span class="cb g"></span><div>Quadriceps LSI &gt; 80%</div></div>
+<div class="ci"><span class="cb g"></span><div>Pain-free repeated SL hops</div></div>
+<div class="ci"><span class="cb g"></span><div>30 min brisk walk pain-free</div></div>
+<div class="ci"><span class="cb g"></span><div>Normal gait, no limp</div></div>
+</div>
+<div class="xxs mut mt-[1px]">Expert-consensus criteria <span class="eb eb-e">E</span>; most studies use time alone (median 12 wk) — add the clinical criteria.</div>
+</div>
+</section>
+</div>
+<section class="card green" id="p8-rts">
+<div class="card-h"><span>Comprehensive Knee Return-to-Sport Battery <a aria-label="Open Atlas info card" class="info-icon" href="https://azhry-x.github.io/knee-atlas/#rts-battery-knee" rel="noopener" target="_blank"><svg aria-hidden="true" class="info-svg" viewbox="0 0 24 24"><circle cx="12" cy="12" fill="none" r="10" stroke="currentColor" stroke-width="2.2"></circle><line stroke="currentColor" stroke-width="2.4" x1="12" x2="12" y1="16.5" y2="10.5"></line><circle cx="12" cy="7.3" fill="currentColor" r="1.4"></circle></svg></a> <a class="guide-badge" href="https://pmc.ncbi.nlm.nih.gov/articles/PMC4912389/" rel="noopener" target="_blank"><svg aria-hidden="true" class="badge-ico" viewbox="0 0 10 10"><path d="M2 .7h4.2L8.3 2.8V9.3H2z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.05"></path><path d="M6.1.8v2.1h2.1" fill="none" stroke="currentColor" stroke-width="1"></path><path d="M3.3 5h3.5M3.3 6.6h3.5M3.3 8.1h2.2" stroke="currentColor" stroke-width=".85"></path></svg>Delaware-Oslo 2016</a></span><span class="tag">PASS: LSI ≥ 90% UNLESS STATED</span></div>
+<div class="card-b" style="padding:.8mm 1.2mm;">
+<table class="t dense">
+<thead><tr><th style="width:27%">Test</th><th>Pass criterion</th><th class="c" style="width:10%">Left</th><th class="c" style="width:10%">Right</th><th class="c" style="width:8%">LSI %</th><th class="c" style="width:6%">Pass</th></tr></thead>
+<tbody>
+<tr class="sub"><td colspan="6">Strength</td></tr>
+<tr><td class="k">Quadriceps (isokinetic 60°/s or HHD)</td><td>LSI ≥ 90% · pivoting sport aim 100% <span class="eb eb-m">M</span></td><td></td><td></td><td></td><td class="c"><span class="cb sm"></span></td></tr>
+<tr><td class="k">Hamstrings</td><td>LSI ≥ 90%</td><td></td><td></td><td></td><td class="c"><span class="cb sm"></span></td></tr>
+<tr class="sub"><td colspan="6">Hop battery <a aria-label="Open Atlas info card" class="info-icon" href="https://azhry-x.github.io/knee-atlas/#hop-tests" rel="noopener" target="_blank"><svg aria-hidden="true" class="info-svg" viewbox="0 0 24 24"><circle cx="12" cy="12" fill="none" r="10" stroke="currentColor" stroke-width="2.2"></circle><line stroke="currentColor" stroke-width="2.4" x1="12" x2="12" y1="16.5" y2="10.5"></line><circle cx="12" cy="7.3" fill="currentColor" r="1.4"></circle></svg></a></td></tr>
+<tr><td class="k"><a class="test-link has-video" href="https://azhry-x.github.io/knee-atlas/#hop-tests" rel="noopener" target="_blank">Single hop for distance</a></td><td>LSI ≥ 90% <span class="eb eb-m">M</span></td><td></td><td></td><td></td><td class="c"><span class="cb sm"></span></td></tr>
+<tr><td class="k">Triple hop for distance</td><td>LSI ≥ 90%</td><td></td><td></td><td></td><td class="c"><span class="cb sm"></span></td></tr>
+<tr><td class="k">Crossover hop</td><td>LSI ≥ 90%</td><td></td><td></td><td></td><td class="c"><span class="cb sm"></span></td></tr>
+<tr><td class="k">6-m timed hop</td><td>LSI = uninvolved ÷ involved time ≥ 90%</td><td></td><td></td><td></td><td class="c"><span class="cb sm"></span></td></tr>
+<tr class="sub"><td colspan="6">Power, landing &amp; balance</td></tr>
+<tr><td class="k">Countermovement jump height</td><td>LSI ≥ 90% · drop-jump RSI &gt; 1.3 (2-leg) / &gt; 0.5 (1-leg) field sport <span class="eb eb-e">E</span></td><td></td><td></td><td></td><td class="c"><span class="cb sm"></span></td></tr>
+<tr><td class="k"><a class="test-link" href="https://azhry-x.github.io/knee-atlas/#less-landing" rel="noopener" target="_blank">Landing Error Scoring System</a></td><td>≤ 4 errors (≥ 5 = risk cut-point, Sn 86% Sp 64%) <span class="eb eb-l">L</span></td><td class="c" colspan="3">score <span class="fl s"></span></td><td class="c"><span class="cb sm"></span></td></tr>
+<tr><td class="k"><a class="test-link has-video" href="https://azhry-x.github.io/knee-atlas/#y-balance" rel="noopener" target="_blank">Y-Balance — anterior reach (cm)</a></td><td>Asymmetry &lt; 4 cm (&gt; 4 cm ≈ 2.5× injury odds) <span class="eb eb-m">M</span></td><td></td><td></td><td></td><td class="c"><span class="cb sm"></span></td></tr>
+<tr><td class="k">Change of direction (5-0-5 / T-test, s)</td><td>Within pre-injury / team norm · COD deficit symmetric <span class="eb eb-e">E</span></td><td></td><td></td><td></td><td class="c"><span class="cb sm"></span></td></tr>
+<tr class="sub"><td colspan="6">Patient-reported &amp; time</td></tr>
+<tr><td class="k">KOS-ADLS / global rating</td><td>≥ 90% <span class="eb eb-m">M</span></td><td class="c" colspan="3"><span class="fl m"></span> % · <span class="fl m"></span> %</td><td class="c"><span class="cb sm"></span></td></tr>
+<tr><td class="k"><a class="test-link" href="https://azhry-x.github.io/knee-atlas/#acl-rsi" rel="noopener" target="_blank">ACL-RSI</a> · <a class="test-link" href="https://azhry-x.github.io/knee-atlas/#tsk-11" rel="noopener" target="_blank">TSK-11</a></td><td>Rising trend, no fear-avoidance flags <span class="eb eb-m">M</span></td><td class="c" colspan="3">RSI <span class="fl s"></span> · TSK <span class="fl s"></span></td><td class="c"><span class="cb sm"></span></td></tr>
+<tr><td class="k">Time since ACLR</td><td>≥ 9 months — reinjury ↓ 51% per month of delay up to 9 mo <span class="eb eb-m">M</span></td><td class="c" colspan="3"><span class="fl m"></span> months</td><td class="c"><span class="cb sm"></span></td></tr>
+</tbody>
+</table>
+<div class="flex flex-wrap items-center mt-[2px] xs" style="row-gap:1px">
+<span class="lb mr-1">RTS decision:</span><span class="cio"><span class="cb g"></span><b class="emer">Cleared — full RTS</b></span><span class="cio"><span class="cb"></span>Modified training</span><span class="cio"><span class="cb r"></span><b class="crim">Not cleared</b></span>
+<span class="lr" style="margin-left:auto">Tests passed <span class="fl s"></span> / 13</span>
+</div>
+<div class="xxs mt-[1px]"><b class="crim">LSI caution:</b> the uninvolved limb also deconditions, so LSI overestimates recovery — compare with pre-injury or normative values where available <span class="eb eb-m">M</span>. Each 1% gain in quadriceps symmetry ≈ 3% lower reinjury rate.</div>
+</div>
+</section>
+<div class="dots fill" id="p8-notes"><span class="dots-l">Movement Quality · Landing Mechanics · Readiness Notes</span></div>
+
+  </main>
+  <footer class="pg-ftr">
+    <div class="ftr-top">
+      <span><b>Clinician</b> <span class="fl l"></span> <b>Date</b> <span class="fl l"></span></span>
+      <span>Underline = Atlas card &middot; &#9656; = video &middot; Evidence: <span class="eb eb-h">H</span> high <span class="eb eb-m">M</span> moderate <span class="eb eb-l">L</span> low <span class="eb eb-e">E</span> expert &middot; Confidential &middot; v2026.10</span>
+    </div>
+    <div class="pnav-wrap">
+      <nav class="pnav" aria-label="Dossier pages">
+        <span class="nl">GO TO</span>
+        <a class="ptab" href="#page-1">1</a>
+        <a class="ptab" href="#page-2">2</a>
+        <a class="ptab" href="#page-3">3</a>
+        <a class="ptab" href="#page-4">4</a>
+        <a class="ptab" href="#page-5">5</a>
+        <a class="ptab" href="#page-6">6</a>
+        <a class="ptab" href="#page-7">7</a>
+        <a class="ptab on" href="#page-8">8</a>
+        <a class="ptab" href="#page-9">9</a>
+      </nav>
+    </div>
+  </footer>
+</div>
+<!-- ===================== PAGE 9 ===================== -->
+<div class="clinical-page" id="page-9" data-accent="slate">
+  <header class="pg-hdr">
+    <div class="brand">
+      <div class="logo">KNEE</div>
+      <div>
+        <div class="kicker">Knee Complex &middot; Master Clinical Assessment &amp; Rehabilitation Dossier</div>
+        <h1 class="pg-title">Longitudinal Session-by-Session Tracking Flowsheet</h1>
+      </div>
+    </div>
+    <div class="hdr-right">
+      <div class="fr"><span class="lb">Patient</span><span class="fl l"></span></div>
+      <div class="pgno">09 / 09</div>
+    </div>
+  </header>
+  <main class="pg-body">
+ <table class="t flow slate" id="p9-flowsheet" style="table-layout:fixed;">
+<thead>
+<tr>
+<th class="c" style="width:3.5%">#</th>
+<th style="width:7%">Date</th>
+<th style="width:6.5%">NPRS R/A</th>
+<th style="width:6.5%">Effusion</th>
+<th style="width:8%">Ext / Flex °</th>
+<th style="width:5.5%">SLR lag</th>
+<th style="width:23%">Modalities delivered</th>
+<th style="width:18%">Manual &amp; neuro applied</th>
+<th style="width:10.5%">Load &amp; stage</th>
+<th style="width:7.5%">Adherence</th>
+<th class="c" style="width:4%">Init</th>
+</tr>
+</thead>
+<tbody>
+<tr style="height:13.6mm;">
+<td class="vnum">1</td>
+<td></td><td></td><td></td><td></td><td></td>
+<td style="vertical-align:bottom;padding-bottom:1.2px;"><div class="p">ESWT | PBM | TECAR | BFR | Cryo | NMES | Cup</div></td>
+<td style="vertical-align:bottom;padding-bottom:1.2px;"><div class="p">Maitland | Mulligan | DN | IASTM | Neuro</div></td>
+<td style="vertical-align:bottom;padding-bottom:1.2px;"><div class="p">St 1 | St 2 | St 3 | St 4</div></td>
+<td></td><td></td>
+</tr>
+<tr style="height:13.6mm;">
+<td class="vnum">2</td>
+<td></td><td></td><td></td><td></td><td></td>
+<td style="vertical-align:bottom;padding-bottom:1.2px;"><div class="p">ESWT | PBM | TECAR | BFR | Cryo | NMES | Cup</div></td>
+<td style="vertical-align:bottom;padding-bottom:1.2px;"><div class="p">Maitland | Mulligan | DN | IASTM | Neuro</div></td>
+<td style="vertical-align:bottom;padding-bottom:1.2px;"><div class="p">St 1 | St 2 | St 3 | St 4</div></td>
+<td></td><td></td>
+</tr>
+<tr style="height:13.6mm;">
+<td class="vnum">3</td>
+<td></td><td></td><td></td><td></td><td></td>
+<td style="vertical-align:bottom;padding-bottom:1.2px;"><div class="p">ESWT | PBM | TECAR | BFR | Cryo | NMES | Cup</div></td>
+<td style="vertical-align:bottom;padding-bottom:1.2px;"><div class="p">Maitland | Mulligan | DN | IASTM | Neuro</div></td>
+<td style="vertical-align:bottom;padding-bottom:1.2px;"><div class="p">St 1 | St 2 | St 3 | St 4</div></td>
+<td></td><td></td>
+</tr>
+<tr style="height:13.6mm;">
+<td class="vnum">4</td>
+<td></td><td></td><td></td><td></td><td></td>
+<td style="vertical-align:bottom;padding-bottom:1.2px;"><div class="p">ESWT | PBM | TECAR | BFR | Cryo | NMES | Cup</div></td>
+<td style="vertical-align:bottom;padding-bottom:1.2px;"><div class="p">Maitland | Mulligan | DN | IASTM | Neuro</div></td>
+<td style="vertical-align:bottom;padding-bottom:1.2px;"><div class="p">St 1 | St 2 | St 3 | St 4</div></td>
+<td></td><td></td>
+</tr>
+<tr style="height:13.6mm;">
+<td class="vnum">5</td>
+<td></td><td></td><td></td><td></td><td></td>
+<td style="vertical-align:bottom;padding-bottom:1.2px;"><div class="p">ESWT | PBM | TECAR | BFR | Cryo | NMES | Cup</div></td>
+<td style="vertical-align:bottom;padding-bottom:1.2px;"><div class="p">Maitland | Mulligan | DN | IASTM | Neuro</div></td>
+<td style="vertical-align:bottom;padding-bottom:1.2px;"><div class="p">St 1 | St 2 | St 3 | St 4</div></td>
+<td></td><td></td>
+</tr>
+<tr style="height:13.6mm;">
+<td class="vnum">6</td>
+<td></td><td></td><td></td><td></td><td></td>
+<td style="vertical-align:bottom;padding-bottom:1.2px;"><div class="p">ESWT | PBM | TECAR | BFR | Cryo | NMES | Cup</div></td>
+<td style="vertical-align:bottom;padding-bottom:1.2px;"><div class="p">Maitland | Mulligan | DN | IASTM | Neuro</div></td>
+<td style="vertical-align:bottom;padding-bottom:1.2px;"><div class="p">St 1 | St 2 | St 3 | St 4</div></td>
+<td></td><td></td>
+</tr>
+<tr style="height:13.6mm;">
+<td class="vnum">7</td>
+<td></td><td></td><td></td><td></td><td></td>
+<td style="vertical-align:bottom;padding-bottom:1.2px;"><div class="p">ESWT | PBM | TECAR | BFR | Cryo | NMES | Cup</div></td>
+<td style="vertical-align:bottom;padding-bottom:1.2px;"><div class="p">Maitland | Mulligan | DN | IASTM | Neuro</div></td>
+<td style="vertical-align:bottom;padding-bottom:1.2px;"><div class="p">St 1 | St 2 | St 3 | St 4</div></td>
+<td></td><td></td>
+</tr>
+<tr style="height:13.6mm;">
+<td class="vnum">8</td>
+<td></td><td></td><td></td><td></td><td></td>
+<td style="vertical-align:bottom;padding-bottom:1.2px;"><div class="p">ESWT | PBM | TECAR | BFR | Cryo | NMES | Cup</div></td>
+<td style="vertical-align:bottom;padding-bottom:1.2px;"><div class="p">Maitland | Mulligan | DN | IASTM | Neuro</div></td>
+<td style="vertical-align:bottom;padding-bottom:1.2px;"><div class="p">St 1 | St 2 | St 3 | St 4</div></td>
+<td></td><td></td>
+</tr>
+<tr style="height:13.6mm;">
+<td class="vnum">9</td>
+<td></td><td></td><td></td><td></td><td></td>
+<td style="vertical-align:bottom;padding-bottom:1.2px;"><div class="p">ESWT | PBM | TECAR | BFR | Cryo | NMES | Cup</div></td>
+<td style="vertical-align:bottom;padding-bottom:1.2px;"><div class="p">Maitland | Mulligan | DN | IASTM | Neuro</div></td>
+<td style="vertical-align:bottom;padding-bottom:1.2px;"><div class="p">St 1 | St 2 | St 3 | St 4</div></td>
+<td></td><td></td>
+</tr>
+<tr style="height:13.6mm;">
+<td class="vnum">10</td>
+<td></td><td></td><td></td><td></td><td></td>
+<td style="vertical-align:bottom;padding-bottom:1.2px;"><div class="p">ESWT | PBM | TECAR | BFR | Cryo | NMES | Cup</div></td>
+<td style="vertical-align:bottom;padding-bottom:1.2px;"><div class="p">Maitland | Mulligan | DN | IASTM | Neuro</div></td>
+<td style="vertical-align:bottom;padding-bottom:1.2px;"><div class="p">St 1 | St 2 | St 3 | St 4</div></td>
+<td></td><td></td>
+</tr>
+<tr style="height:13.6mm;">
+<td class="vnum">11</td>
+<td></td><td></td><td></td><td></td><td></td>
+<td style="vertical-align:bottom;padding-bottom:1.2px;"><div class="p">ESWT | PBM | TECAR | BFR | Cryo | NMES | Cup</div></td>
+<td style="vertical-align:bottom;padding-bottom:1.2px;"><div class="p">Maitland | Mulligan | DN | IASTM | Neuro</div></td>
+<td style="vertical-align:bottom;padding-bottom:1.2px;"><div class="p">St 1 | St 2 | St 3 | St 4</div></td>
+<td></td><td></td>
+</tr>
+<tr style="height:13.6mm;">
+<td class="vnum">12</td>
+<td></td><td></td><td></td><td></td><td></td>
+<td style="vertical-align:bottom;padding-bottom:1.2px;"><div class="p">ESWT | PBM | TECAR | BFR | Cryo | NMES | Cup</div></td>
+<td style="vertical-align:bottom;padding-bottom:1.2px;"><div class="p">Maitland | Mulligan | DN | IASTM | Neuro</div></td>
+<td style="vertical-align:bottom;padding-bottom:1.2px;"><div class="p">St 1 | St 2 | St 3 | St 4</div></td>
+<td></td><td></td>
+</tr>
+</tbody>
+</table>
+<div class="grid grid-cols-12 gap-[1.5mm]">
+<section class="card col-span-7" id="p9-discharge">
+<div class="card-h"><span>Discharge &amp; Milestone Summary</span><span class="tag">FINAL OUTCOME</span></div>
+<div class="card-b" style="padding:.8mm 1.2mm;">
+<table class="t dense slate">
+<thead><tr><th>PROM</th><th class="c">Initial</th><th class="c">Discharge</th><th class="c">Δ</th><th class="c">MCID met</th></tr></thead>
+<tbody>
+<tr><td class="k">KOOS Sport / Rec (8–10)</td><td class="c">/100</td><td class="c">/100</td><td></td><td class="c"><span class="cb sm"></span></td></tr>
+<tr><td class="k">IKDC subjective (11.5)</td><td class="c">/100</td><td class="c">/100</td><td></td><td class="c"><span class="cb sm"></span></td></tr>
+<tr><td class="k">Kujala / VISA-P (10 / trend)</td><td class="c">/100</td><td class="c">/100</td><td></td><td class="c"><span class="cb sm"></span></td></tr>
+<tr><td class="k">Oxford Knee Score (7)</td><td class="c">/48</td><td class="c">/48</td><td></td><td class="c"><span class="cb sm"></span></td></tr>
+<tr><td class="k">ACL-RSI (trend)</td><td class="c">/100</td><td class="c">/100</td><td></td><td class="c"><span class="cb sm"></span></td></tr>
+<tr><td class="k">PSFS average (MDC 2)</td><td class="c">/10</td><td class="c">/10</td><td></td><td class="c"><span class="cb sm"></span></td></tr>
+</tbody>
+</table>
+<div class="flex flex-wrap items-center mt-[2px] xs" style="row-gap:1px"><span class="lb mr-1">Discharge:</span><span class="cio"><span class="cb g"></span>Goals met</span><span class="cio"><span class="cb"></span>Self-management plan</span><span class="cio"><span class="cb"></span>Referred on</span><span class="cio"><span class="cb r"></span>Non-responder (p4 rule)</span></div>
+</div>
+</section>
+<section class="card col-span-5" id="p9-milestones">
+<div class="card-h"><span>Objective Re-Test Milestones</span><span class="tag">L / R</span></div>
+<div class="card-b" style="padding:.8mm 1.2mm;">
+<table class="t dense slate">
+<thead><tr><th>Measure</th><th class="c">Base</th><th class="c">Wk 4</th><th class="c">Wk 8</th><th class="c">Wk 12</th><th class="c">D/C</th></tr></thead>
+<tbody>
+<tr><td class="k">Extension °</td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td class="k">Flexion °</td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td class="k">Effusion grade</td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td class="k">Quad LSI %</td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td class="k">Single hop LSI %</td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td class="k">Y-Bal ant. Δ cm</td><td></td><td></td><td></td><td></td><td></td></tr>
+</tbody>
+</table>
+</div>
+</section>
+</div>
+<div class="dots fill" id="p9-notes" style="min-height:8mm"><span class="dots-l">Home Programme · Discharge Advice · Relapse Plan</span></div>
+<div class="fr xs" style="gap:2mm"><span class="lb">Physician follow-up / sign-off</span><span class="fl"></span><span class="lb">Signature</span><span class="fl"></span><span class="lb">Date</span><span class="fl m"></span></div>
+
+  </main>
+  <footer class="pg-ftr">
+    <div class="ftr-top">
+      <span><b>Discharging Clinician</b> <span class="fl l"></span> <b>Sig.</b> <span class="fl l"></span></span>
+      <span>Underline = Atlas card &middot; &#9656; = video &middot; Evidence: <span class="eb eb-h">H</span> high <span class="eb eb-m">M</span> moderate <span class="eb eb-l">L</span> low <span class="eb eb-e">E</span> expert &middot; Confidential &middot; v2026.10</span>
+    </div>
+    <div class="pnav-wrap">
+      <nav class="pnav" aria-label="Dossier pages">
+        <span class="nl">GO TO</span>
+        <a class="ptab" href="#page-1">1</a>
+        <a class="ptab" href="#page-2">2</a>
+        <a class="ptab" href="#page-3">3</a>
+        <a class="ptab" href="#page-4">4</a>
+        <a class="ptab" href="#page-5">5</a>
+        <a class="ptab" href="#page-6">6</a>
+        <a class="ptab" href="#page-7">7</a>
+        <a class="ptab" href="#page-8">8</a>
+        <a class="ptab on" href="#page-9">9</a>
+      </nav>
+    </div>
+  </footer>
+</div>
+</body>
+</html>
