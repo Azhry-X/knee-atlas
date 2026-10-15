@@ -172,6 +172,10 @@ h4{margin:12px 0 6px;font-size:13px;letter-spacing:.06em;text-transform:uppercas
 .ch{font-size:12px;font-weight:800;color:#6ee7b7;text-transform:uppercase;letter-spacing:.05em;margin:10px 0 2px}
 .fi{display:flex;align-items:center;gap:10px;padding:7px 0;border-bottom:1px solid rgba(255,255,255,.06)}
 .fi label{flex:1 1 auto}
+.fi.st{flex-wrap:wrap}
+.fi.st label{flex:1 1 14em;line-height:1.35}
+.fi.st select{width:100%;max-width:26em}
+.cnote{font-size:12.5px;color:var(--mut);margin:2px 0 6px;line-height:1.4}
 .fi input[type=checkbox]{width:22px;height:22px;accent-color:#10b981;flex:0 0 auto}
 .fi input[type=number],.fi select{width:9.5em;max-width:55%;padding:7px 9px;border-radius:8px;border:1px solid var(--line);background:#0b1220;color:var(--ink);font-size:16px}
 .res{margin-top:10px;border-radius:10px;padding:10px 12px;font-weight:700;background:#0b1220;border:1px solid var(--line)}
@@ -281,19 +285,35 @@ JS = r"""
   }
   function scale(spec,host){
     const step=spec.step||1; const sels=[];
+    if(spec.note) host.appendChild(el('div',{className:'cnote'},spec.note));
+    function addRange(s,lo,hi,st,desc,labels){
+      const vals=[]; for(let x=lo;x<=hi+1e-9;x+=st) vals.push(Math.round(x*100)/100);
+      if(desc) vals.reverse();
+      vals.forEach(x=>s.appendChild(el('option',{value:x},(labels&&labels[x]!=null)?labels[x]:String(x))));
+    }
     for(let i=1;i<=spec.items;i++){
-      const id=host.closest('.card').id+'-i'+i; const row=el('div',{className:'fi'});
-      const s=el('select',{id}); s.appendChild(el('option',{value:''},'—'));
-      for(let x=spec.min;x<=spec.max;x+=step) s.appendChild(el('option',{value:x},String(x)));
-      row.append(el('label',{htmlFor:id},(spec.item_label||'Item')+' '+i), s); host.appendChild(row); sels.push(s);
+      const id=host.closest('.card').id+'-i'+i;
+      const lab=(spec.item_labels&&spec.item_labels[i-1])?(i+'. '+spec.item_labels[i-1]):((spec.item_label||'Item')+' '+i);
+      const row=el('div',{className:'fi st'});
+      const s=el('select',{id}); s.appendChild(el('option',{value:''},'— select —'));
+      const io=spec.item_options&&spec.item_options[i-1];
+      if(Array.isArray(io)&&io.length&&io[0]&&io[0].group){
+        io.forEach(g=>{ const og=el('optgroup',{label:g.group}); g.options.forEach(o=>og.appendChild(el('option',{value:o[0]},o[1]))); s.appendChild(og); });
+      } else if(Array.isArray(io)){
+        io.forEach(o=>s.appendChild(el('option',{value:o[0]},o[1])));
+      } else if(io&&io.range10){
+        addRange(s,0,10,1,false,{0:'0 · '+io.range10,10:'10 · none / no problem'});
+      } else addRange(s,spec.min,spec.max,step,spec.order==='desc',spec.option_labels);
+      row.append(el('label',{htmlFor:id},lab), s); host.appendChild(row); sels.push(s);
     }
     const res=el('div',{className:'res'}); host.appendChild(res);
     const reset=el('button',{className:'reset',type:'button'},'Reset'); host.appendChild(reset);
     function calc(){
       const vals=sels.map(s=>s.value===''?null:+s.value).filter(v=>v!==null);
-      if(!vals.length){ res.className='res'; res.innerHTML='Select a value for each item (item wording is on the official form)'; return; }
+      if(!vals.length){ res.className='res'; res.innerHTML='Answer each item to see the score'; return; }
       const sum=vals.reduce((a,b)=>a+b,0); const v=spec.aggregate==='mean'?sum/vals.length:sum;
-      res.className='res good'; res.innerHTML='<span class="val">'+fmt(v,spec.decimals)+'</span><span>'+spec.value_label+' &middot; '+vals.length+'/'+spec.items+' items answered</span>';
+      const done=vals.length===spec.items;
+      res.className='res '+(done?'good':'warn'); res.innerHTML='<span class="val">'+fmt(v,spec.decimals)+'</span><span>'+spec.value_label+' &middot; '+vals.length+'/'+spec.items+' items answered'+(done?'':' (incomplete)')+'</span>';
     }
     host.addEventListener('change',calc); reset.addEventListener('click',()=>{sels.forEach(s=>s.value=''); calc();}); calc();
   }

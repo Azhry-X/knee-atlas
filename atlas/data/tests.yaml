@@ -323,6 +323,10 @@
     min: 0
     max: 10
     item_label: Activity
+    note: Patient names up to 3 activities they have difficulty with, then rates each.
+    option_labels:
+      0: 0 · unable to perform
+      10: 10 · able at pre-injury level
     aggregate: mean
     decimals: 1
     value_label: PSFS average
@@ -1190,13 +1194,48 @@
   page: 4
   summary: 8-item questionnaire on pain, function and sport for patellar tendinopathy, 0–100 (100 = asymptomatic).
   steps:
-  - Patient completes all 8 questions.
-  - Track the score across the loading programme.
+  - Patient completes all 8 questions (question 8 has three branches — answer only one).
+  - Sum the item scores (0–100) and track the trend across the loading programme.
   interpretation: In the 2021 progressive-loading trial, scores improved by 28 points (vs 18 with eccentric training) over 24 weeks.
   evidence: M
   video_url: null
+  calculator:
+    kind: scale
+    items: 8
+    min: 0
+    max: 10
+    note: 'Item topics are summarised from the VISA-P (Visentini 1998); use the official form for exact wording. 100 = no symptoms.'
+    item_labels:
+    - How many minutes you can sit pain-free
+    - Pain walking downstairs with a normal gait
+    - Pain at full active knee extension, non-weight-bearing
+    - Pain doing a full weight-bearing lunge
+    - Problems squatting
+    - Pain during or straight after 10 single-leg hops
+    - Current sport / physical activity
+    - Training / practice time (pick the ONE line that fits)
+    item_options:
+    - [[0, '0 min'], [1, '10 min'], [2, '20 min'], [3, '30 min'], [4, '40 min'], [5, '50 min'], [6, '60 min'], [7, '70 min'], [8, '80 min'], [9, '90 min'], [10, '100 min or more']]
+    - range10: strong / severe pain
+    - range10: strong / severe pain
+    - range10: strong / severe pain
+    - range10: unable
+    - range10: strong / severe pain / unable
+    - [[0, 'Not at all'], [4, 'Modified training ± modified competition'], [7, 'Full training ± competition, below previous level'], [10, 'Competing at the same or higher level']]
+    - - group: 'A · No pain while doing sport — how long can you train?'
+        options: [[0, 'A · nil'], [7, 'A · 1–5 min'], [14, 'A · 6–10 min'], [21, 'A · 11–15 min'], [30, 'A · more than 15 min']]
+      - group: 'B · Some pain but you can complete training — how long?'
+        options: [[0, 'B · nil'], [4, 'B · 1–5 min'], [10, 'B · 6–10 min'], [14, 'B · 11–15 min'], [20, 'B · more than 15 min']]
+      - group: 'C · Pain stops you completing training — how long?'
+        options: [[0, 'C · nil'], [2, 'C · 1–5 min'], [5, 'C · 6–10 min'], [7, 'C · 11–15 min'], [10, 'C · more than 15 min']]
+    aggregate: sum
+    decimals: 0
+    value_label: VISA-P (0–100)
+    bands: []
   sources:
   - *id006
+  - text: Visentini PJ et al. The VISA score — an index of severity of symptoms in patients with jumper's knee (patellar tendinosis). J Sci Med Sport 1998;1:22-8
+    url: https://doi.org/10.1016/s1440-2440(98)80005-4
   review_status: approved
 - id: oxford-knee-score
   type: info
@@ -1214,7 +1253,27 @@
     items: 12
     min: 0
     max: 4
-    item_label: Item
+    order: desc
+    note: 'Item topics are summarised; ask each question in the official wording (licensed by Oxford University Innovation). Each answer: 4 = best … 0 = worst.'
+    item_labels:
+    - Usual knee pain (past 4 weeks)
+    - Trouble washing and drying yourself
+    - Trouble getting in / out of a car or public transport
+    - How long you can walk before knee pain becomes severe
+    - Pain standing up from a chair after a meal
+    - Limping when walking
+    - Kneeling down and getting up again
+    - Knee pain disturbing sleep at night
+    - Knee pain interfering with usual work / housework
+    - Knee feeling it may suddenly give way
+    - Doing household shopping on your own
+    - Walking down one flight of stairs
+    option_labels:
+      4: 4 · none / no trouble / no time limit
+      3: 3 · mild / a little
+      2: 2 · moderate
+      1: 1 · severe / extreme difficulty
+      0: 0 · unbearable / impossible / all the time
     aggregate: sum
     decimals: 0
     value_label: Oxford Knee Score (0–48)
@@ -1241,7 +1300,24 @@
     min: 0
     max: 100
     step: 10
-    item_label: Item
+    order: desc
+    note: 'Item topics are summarised; use the official form for exact wording. Every item is scored so that 100 = most ready (e.g. not nervous at all, not likely to re-injure).'
+    item_labels:
+    - Confident you can perform at your previous level of sport
+    - Likelihood of re-injuring the knee by playing (unlikely = 100)
+    - Nervous about playing your sport (not nervous = 100)
+    - Confident the knee will not give way during sport
+    - Confident you could play without concern for the knee
+    - Frustrated at having to consider the knee in sport (not = 100)
+    - Fearful of re-injuring the knee by playing (not = 100)
+    - Confident the knee will hold up under pressure
+    - Afraid of accidentally injuring the knee in sport (not = 100)
+    - Thoughts of repeat surgery / rehab stopping you playing (not = 100)
+    - Confident in your ability to perform well at your sport
+    - Relaxed about playing your sport
+    option_labels:
+      100: 100 · best (most ready)
+      0: 0 · worst
     aggregate: mean
     decimals: 0
     value_label: ACL-RSI (0–100)
@@ -1270,7 +1346,24 @@
     items: 11
     min: 1
     max: 4
-    item_label: Item
+    note: Item topics are summarised; use the official form for exact wording.
+    item_labels:
+    - Afraid of injuring myself if I exercise
+    - Pain would increase if I tried to overcome it
+    - My body is telling me something is dangerously wrong
+    - People do not take my condition seriously enough
+    - The injury has put my body at risk for life
+    - Pain always means I have injured my body
+    - Afraid of injuring myself accidentally
+    - Avoiding unnecessary movement is the safest way to stop pain worsening
+    - I would not hurt this much unless something dangerous was going on
+    - Pain tells me when to stop exercising so I do not get injured
+    - I cannot do what others do because I get injured too easily
+    option_labels:
+      1: 1 · strongly disagree
+      2: 2 · disagree
+      3: 3 · agree
+      4: 4 · strongly agree
     aggregate: sum
     decimals: 0
     value_label: TSK-11 (11–44)
